@@ -6,15 +6,15 @@ describe("Array Extension", () => {
     expect(arrayExtension.lastElement(["Apple", "Banana", "Orange"])).toBe("Orange");
   });
 
+  it("Should remove many elements from the array", () => {
+    expect(arrayExtension.removeMany(["Apple", "Banana", "Banana"], "Banana")).toEqual(["Apple"]);
+  });
+
   it("Should remove an element from the array", () => {
     expect(arrayExtension.removeOne(["Apple", "Banana", "Orange"], "Banana")).toEqual([
       "Apple",
       "Orange",
     ]);
-  });
-
-  it("Should remove many elements from the array", () => {
-    expect(arrayExtension.removeMany(["Apple", "Banana", "Banana"], "Banana")).toEqual(["Apple"]);
   });
 
   it("Should sort an array of numbers in ascending order", () => {

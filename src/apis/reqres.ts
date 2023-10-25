@@ -1,7 +1,7 @@
 import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import axios from "axios";
+import { localStorageExtension } from "extensions/local-storage";
 import { loadingStore } from "store/loading.store";
-import { localStorageTool } from "tools/local-storage";
 
 export const reqresAPI: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_REQRES_API_URL,
@@ -11,7 +11,7 @@ reqresAPI.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
     loadingStore.wait();
 
-    config.headers.Authorization = `Bearer ${localStorageTool.getAccessToken()}`;
+    config.headers.Authorization = `Bearer ${localStorageExtension.getAccessToken()}`;
 
     return config;
   },
