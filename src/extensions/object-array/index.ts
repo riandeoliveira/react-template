@@ -1,7 +1,6 @@
-export class ObjectArrayExtension {
-  /**
-   * Sort an array of objects in ascending order or alphabetical order.
-   */
+import type { IObjectArrayExtension } from "./types";
+
+export class ObjectArrayExtension implements IObjectArrayExtension {
   public sort<T>(array: T[], property: keyof T): T[] {
     const sortedArray: T[] = array.sort((a, b) => {
       const firstValue: T[keyof T] = a[property];

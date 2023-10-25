@@ -1,4 +1,6 @@
-export class BaseLocalStorageTool implements Storage {
+import type { IBaseLocalStorageExtension } from "./types";
+
+export class BaseLocalStorageExtension implements IBaseLocalStorageExtension {
   public length: number;
 
   public constructor() {
@@ -42,4 +44,4 @@ export class BaseLocalStorageTool implements Storage {
   }
 }
 
-export const baseLocalStorageTool = new BaseLocalStorageTool();
+export const baseLocalStorageExtension = new BaseLocalStorageExtension();

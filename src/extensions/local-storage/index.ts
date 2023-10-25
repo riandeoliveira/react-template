@@ -1,7 +1,7 @@
 import type { LocalStorageKeys } from "types/local-storage";
-import { BaseLocalStorageTool } from "./base";
+import { BaseLocalStorageExtension } from "../../extensions/local-storage/base";
 
-export class LocalStorageTool extends BaseLocalStorageTool {
+export class LocalStorageExtension extends BaseLocalStorageExtension {
   public getAccessToken(): string {
     const token: string | null = this.getItem<LocalStorageKeys, string>("access_token");
 
@@ -17,4 +17,4 @@ export class LocalStorageTool extends BaseLocalStorageTool {
   }
 }
 
-export const localStorageTool = new LocalStorageTool();
+export const localStorageExtension = new LocalStorageExtension();
