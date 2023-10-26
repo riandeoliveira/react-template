@@ -8,8 +8,8 @@
   "main": "src/main.tsx",
   "scripts": {
     "build": "tsc && vite build",
-    "coverage": "vitest run --coverage",
-    "dev": "vite",
+    "coverage": "vitest run --coverage && start coverage/index.html",
+    "dev": "vite --open",
     "eslint": "eslint --fix src/**/*.{js,jsx,ts,tsx} vite.config.ts",
     "lint": "npm run eslint & npm run prettier & npm run stylelint",
     "prebuild": "npm run lint",
