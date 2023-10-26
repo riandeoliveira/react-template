@@ -4,13 +4,9 @@ import { userStore } from "features/user/store";
 import type { User } from "../../types";
 import type { GetAllUsersRequest } from "./types";
 
-// TODO: Adicionar descrições para todas as classes de extensão!
-
 export class GetAllUsersService {
   public async handle(): Promise<User[]> {
-    // TODO: Descobrir como otimizar a chamada do queryParamExtension, pois ela irá acontecer em todos lugares que façam uma requisição GET com parâmetros na URL!
-
-    const params: URLSearchParams = queryParamExtension.toQuery({
+    const params: string = queryParamExtension.toQuery({
       page: userStore.page,
       per_page: userStore.perPage,
     });
