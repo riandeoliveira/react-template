@@ -9,6 +9,12 @@
     "plugin:react-hooks/recommended",
     "plugin:react/recommended"
   ],
+  "ignorePatterns": [
+    "build",
+    "coverage",
+    "dist",
+    "node_modules"
+  ],
   "noInlineConfig": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
