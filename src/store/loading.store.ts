@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-class LoadingStore {
+export class LoadingStore {
   public isLoading: boolean;
 
   public constructor() {
