@@ -33,4 +33,8 @@ describe("String Extension", () => {
   it("Should truncate a string if it exceeds the specified maximum length", () => {
     expect(stringExtension.truncate("This is my text!", 7)).toBe("This is ...");
   });
+
+  it("Should not truncate a string if its length is less than the specified maximum length", () => {
+    expect(stringExtension.truncate("This is my text!", 20)).toBe("This is my text!");
+  });
 });

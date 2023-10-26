@@ -16,13 +16,7 @@ export class BaseLocalStorageExtension implements IBaseLocalStorageExtension {
   public getItem<K extends string, T>(key: K): T | null {
     const storageItem: string | null = localStorage.getItem(key);
 
-    try {
-      if (storageItem) return JSON.parse(storageItem);
-    } catch (error: unknown) {
-      console.error(error);
-
-      return null;
-    }
+    if (storageItem) return JSON.parse(storageItem);
 
     return null;
   }

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { objectArrayExtension } from ".";
 
 describe("Object Array Extension", () => {
@@ -32,5 +32,15 @@ describe("Object Array Extension", () => {
     ];
 
     expect(objectArrayExtension.sort(people, "name")).toEqual(sortedPeople);
+  });
+
+  it("Should not sort if the property is not a string or a number", () => {
+    const people = [
+      { name: "Fry", single: false },
+      { name: "Bender", single: true },
+      { name: "Leela", single: false },
+    ];
+
+    expect(objectArrayExtension.sort(people, "single")).toBe(people);
   });
 });
