@@ -12,6 +12,7 @@
     "dev": "vite --open",
     "eslint": "eslint --fix src/**/*.{js,jsx,ts,tsx} vite.config.ts",
     "lint": "npm run eslint & npm run prettier & npm run stylelint",
+    "prepare": "husky install",
     "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx} vite.config.ts",
     "start": "vite preview --open",
     "stylelint": "stylelint --fix src/**/*.scss",
@@ -41,6 +42,8 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.2.0",
+    "@commitlint/config-conventional": "^18.1.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/uuid": "^9.0.2",
@@ -51,6 +54,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "postcss-scss": "^4.0.7",
     "prettier": "^3.0.0",
