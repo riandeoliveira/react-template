@@ -1,8 +1,8 @@
 import { queryParamExtension } from "extensions/query-param";
-import type { GetAllUsersRequest } from "./types";
+import type { GetAllUsersDTO } from "./types";
 
 export class GetAllUsersParams {
-  private params: GetAllUsersRequest.Params;
+  private params: GetAllUsersDTO.Params;
 
   public constructor() {
     this.params = {
@@ -15,7 +15,7 @@ export class GetAllUsersParams {
     return queryParamExtension.toQuery(this.params);
   }
 
-  public setParams(params: GetAllUsersRequest.Params): void {
+  public setParams(params: GetAllUsersDTO.Params): void {
     this.params = params;
   }
 }

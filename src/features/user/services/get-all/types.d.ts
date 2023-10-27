@@ -1,7 +1,7 @@
 import type { AxiosResponse } from "axios";
 import type { User } from "features/user/types";
 
-export namespace GetAllUsersRequest {
+export namespace GetAllUsersDTO {
   export interface Params {
     page?: string;
     per_page?: string;

@@ -1,7 +1,7 @@
 import type { AxiosResponse } from "axios";
 import type { User } from "features/user/types";
 
-export namespace GetOneUserRequest {
+export namespace GetOneUserDTO {
   export interface Result {
     data: User;
   }

@@ -1,11 +1,11 @@
 import { reqresAPI } from "apis/reqres";
 import type { User } from "../../types";
-import type { GetOneUserRequest } from "./types";
+import type { GetOneUserDTO } from "./types";
 
 export class GetOneUserService {
   public async handle(id: number): Promise<User> {
     try {
-      const response: GetOneUserRequest.Response = await reqresAPI.get(`/users/${id}`);
+      const response: GetOneUserDTO.Response = await reqresAPI.get(`/users/${id}`);
 
       return response.data.data;
     } catch (error: unknown) {
