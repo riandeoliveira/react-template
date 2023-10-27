@@ -9,11 +9,13 @@ const rl = readline.createInterface({
 
 rl.question("Your componente name: ", (componentName) => {
   const componentsDir = path.join("src", "components");
+
   if (!fs.existsSync(componentsDir)) {
     fs.mkdirSync(componentsDir, { recursive: true });
   }
 
   const componentDir = path.join(componentsDir, componentName);
+
   fs.mkdirSync(componentDir, { recursive: true });
 
   const indexContent = `import { observer } from "mobx-react-lite";
@@ -39,5 +41,6 @@ export const ${componentName} = observer((): ReactElement => {
   fs.writeFileSync(path.join(componentDir, "styles.module.scss"), stylesContent);
 
   console.log(`React component '${componentName}' created in '${componentDir}'.`);
+
   rl.close();
 });
