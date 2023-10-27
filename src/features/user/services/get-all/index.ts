@@ -1,17 +1,12 @@
 import { reqresAPI } from "apis/reqres";
-import { queryParamExtension } from "extensions/query-param";
-import { userStore } from "features/user/store";
 import type { User } from "../../types";
+import { getAllUsersParams } from "./params";
 import type { GetAllUsersRequest } from "./types";
 
 export class GetAllUsersService {
   public async handle(): Promise<User[]> {
-    const params: string = queryParamExtension.toQuery({
-      page: userStore.page,
-      per_page: userStore.perPage,
-    });
-
     try {
+      const params: string = getAllUsersParams.getParams();
       const response: GetAllUsersRequest.Response = await reqresAPI.get(`/users?${params}`);
 
       return response.data.data;
