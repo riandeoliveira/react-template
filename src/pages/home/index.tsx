@@ -1,8 +1,10 @@
 import { consoleExtension } from "extensions/console";
+import { handleCreateUser } from "features/user/create/handler";
 import { createUserStore } from "features/user/create/store";
+import { handleGetAllUsers } from "features/user/get-all/handler";
 import { getAllUsersStore } from "features/user/get-all/store";
+import { handleGetOneUser } from "features/user/get-one/handler";
 import { getOneUserStore } from "features/user/get-one/store";
-import { handleCreateUser, handleGetAllUsers, handleGetOneUser } from "features/user/handlers";
 import { userStore } from "features/user/store";
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
