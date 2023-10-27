@@ -1,5 +1,5 @@
 import { consoleExtension } from "extensions/console";
-import { handleGetAllUsers, handleGetOneUser } from "features/user/handlers";
+import { handleCreateUser, handleGetAllUsers, handleGetOneUser } from "features/user/handlers";
 import { getAllUsersParams } from "features/user/services/get-all/params";
 import { userStore } from "features/user/store";
 import { observer } from "mobx-react-lite";
@@ -12,6 +12,8 @@ export const Home = observer((): ReactElement => {
 
   useEffect(() => {
     getAllUsersParams.setParams({ per_page: "5" });
+    userStore.setName("John Doe");
+    userStore.setJob("Web Developer");
   }, []);
 
   return (
@@ -39,6 +41,18 @@ export const Home = observer((): ReactElement => {
         onClick={(): Promise<void> => handleGetOneUser(5)}
       >
         GET ONE USER
+      </button>
+      <button
+        type="button"
+        style={{
+          backgroundColor: "#dbdbdb",
+          padding: "12px",
+          borderRadius: "12px",
+          cursor: "pointer",
+        }}
+        onClick={handleCreateUser}
+      >
+        CREATE USER
       </button>
     </div>
   );

@@ -10,7 +10,7 @@ export class GetAllUsersService {
       const response: GetAllUsersRequest.Response = await reqresAPI.get(`/users?${params}`);
 
       return response.data.data;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(error);
 
       return [];

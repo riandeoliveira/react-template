@@ -8,7 +8,7 @@ export class GetOneUserService {
       const response: GetOneUserRequest.Response = await reqresAPI.get(`/users/${id}`);
 
       return response.data.data;
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(error);
 
       return {} as User;
