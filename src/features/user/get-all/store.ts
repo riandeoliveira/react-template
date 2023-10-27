@@ -1,7 +1,8 @@
 import { queryParamExtension } from "extensions/query-param";
+import { makeAutoObservable } from "mobx";
 import type { GetAllUsersDTO } from "./types";
 
-export class GetAllUsersParams {
+export class GetAllUsersStore {
   private params: GetAllUsersDTO.Params;
 
   public constructor() {
@@ -9,6 +10,8 @@ export class GetAllUsersParams {
       page: "",
       per_page: "",
     };
+
+    makeAutoObservable(this);
   }
 
   public getParams(): string {
@@ -20,4 +23,4 @@ export class GetAllUsersParams {
   }
 }
 
-export const getAllUsersParams = new GetAllUsersParams();
+export const getAllUsersStore = new GetAllUsersStore();

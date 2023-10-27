@@ -1,35 +1,21 @@
 import { makeAutoObservable } from "mobx";
-import type { User } from "./types";
+import type { UserDTO } from "./types";
 
 export class UserStore {
-  public current: User;
-  public job: string;
-  public list: User[];
-  public name: string;
+  public current: UserDTO.User;
+  public list: UserDTO.User[];
 
   public constructor() {
-    this.current = {} as User;
-    this.job = "";
+    this.current = {
+      avatar: "",
+      email: "",
+      first_name: "",
+      id: 0,
+      last_name: "",
+    };
     this.list = [];
-    this.name = "";
 
     makeAutoObservable(this);
-  }
-
-  public setCurrent(current: User): void {
-    this.current = current;
-  }
-
-  public setJob(job: string): void {
-    this.job = job;
-  }
-
-  public setList(list: User[]): void {
-    this.list = list;
-  }
-
-  public setName(name: string): void {
-    this.name = name;
   }
 }
 

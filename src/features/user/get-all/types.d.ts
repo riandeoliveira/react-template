@@ -2,12 +2,12 @@ import type { AxiosResponse } from "axios";
 import type { User } from "features/user/types";
 
 export namespace GetAllUsersDTO {
-  export interface Params {
+  interface Params {
     page?: string;
     per_page?: string;
   }
 
-  export interface Result {
+  interface Result {
     data: User[];
     page: number;
     per_page: number;
@@ -15,5 +15,5 @@ export namespace GetAllUsersDTO {
     total: number;
   }
 
-  export interface Response extends AxiosResponse<Result> {}
+  interface Response extends AxiosResponse<Result> {}
 }
