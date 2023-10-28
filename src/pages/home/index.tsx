@@ -1,5 +1,6 @@
 import { Header } from "components/Header";
 import { consoleExtension } from "extensions/console";
+import { UserCard } from "features/user/components/UserCard";
 import { handleCreateUser } from "features/user/create/handler";
 import { createUserStore } from "features/user/create/store";
 import { handleGetAllUsers } from "features/user/get-all/handler";
@@ -79,6 +80,12 @@ export const Home = observer((): ReactElement => {
           UPDATE USER
         </button>
       </div>
+      <UserCard
+        avatar="https://reqres.in/img/faces/1-image.jpg"
+        email="george.bluth@reqres.in"
+        first_name="George"
+        last_name="Bluth"
+      />
     </>
   );
 });
