@@ -21,11 +21,13 @@
     "test": "vitest --run"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.14.15",
     "axios": "^1.5.1",
     "formik": "^2.4.5",
+    "framer-motion": "^10.16.4",
     "lodash": "^4.17.21",
     "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.5",

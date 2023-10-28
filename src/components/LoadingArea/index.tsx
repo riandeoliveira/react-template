@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress } from "@chakra-ui/react";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 import { loadingStore } from "store/loading.store";
@@ -11,7 +11,7 @@ export const LoadingArea = observer((): ReactElement => {
     <>
       {isLoading ? (
         <div className={styles.container}>
-          <CircularProgress />
+          <CircularProgress isIndeterminate color="#61dbfb" />
         </div>
       ) : (
         <></>
