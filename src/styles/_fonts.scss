@@ -1,30 +1,4 @@
-@font-face {
-  font-family: OptimisticDisplay;
-  font-weight: 500;
-  src: url("fonts/optimistic-display-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: OptimisticDisplay;
-  font-weight: 700;
-  src: url("fonts/optimistic-display-bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: OptimisticText;
-  font-weight: 500;
-  src: url("fonts/optimistic-text-normal.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: OptimisticText;
-  font-weight: 700;
-  src: url("fonts/optimistic-text-bold.woff2") format("woff2");
-}
-
+$primary-font: "Roboto";
 $default-font: sans-serif;
-$primary-font: "OptimisticText";
-$secondary-font: "Roboto";
-$title-font: "OptimisticDisplay";
 
-$main-fonts: $primary-font, $secondary-font, $default-font;
+$main-fonts: $primary-font, $default-font;
