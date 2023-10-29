@@ -1,5 +1,5 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { Button, Heading, Select, Skeleton, Text } from "@chakra-ui/react";
+import { Button, Center, Heading, Select, Skeleton, Text } from "@chakra-ui/react";
 import { Header } from "components/Header";
 import { UserCard } from "features/user/components/UserCard";
 import { handleGetAllUsers } from "features/user/get-all/handler";
@@ -50,27 +50,31 @@ export const Listing = observer((): ReactElement => {
               </div>
             </div>
           </div>
-          <div className={styles.list}>
-            {loadingStore.isLoading ? (
-              <>
-                {_.times(10, () => (
-                  <Skeleton borderRadius="md" h={385} />
-                ))}
-              </>
-            ) : (
-              <>
-                {userStore.list.map(({ avatar, email, first_name, last_name, id }) => (
-                  <UserCard
-                    avatar={avatar}
-                    email={email}
-                    first_name={first_name}
-                    last_name={last_name}
-                    key={id}
-                  />
-                ))}
-              </>
-            )}
-          </div>
+          {userStore.list.length === 0 && !loadingStore.isLoading ? (
+            <Center>Nenhum usuário encontrado.</Center>
+          ) : (
+            <div className={styles.list}>
+              {loadingStore.isLoading ? (
+                <>
+                  {_.times(10, (value) => (
+                    <Skeleton borderRadius="md" h={385} key={value} />
+                  ))}
+                </>
+              ) : (
+                <>
+                  {userStore.list.map(({ avatar, email, first_name, last_name, id }) => (
+                    <UserCard
+                      avatar={avatar}
+                      email={email}
+                      first_name={first_name}
+                      last_name={last_name}
+                      key={id}
+                    />
+                  ))}
+                </>
+              )}
+            </div>
+          )}
         </section>
       </main>
     </>
