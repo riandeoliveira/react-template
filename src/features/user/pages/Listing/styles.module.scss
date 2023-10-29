@@ -1,0 +1,42 @@
+@use "../../../../styles" as *;
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+  padding: 0 16px;
+}
+
+.section {
+  width: 1200px;
+}
+
+.heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+
+  @include media-query($laptop-s) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include media-query($tablet-m) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media-query($tablet-s) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-query($mobile-l) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
