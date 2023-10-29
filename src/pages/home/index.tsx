@@ -80,12 +80,6 @@ export const Home = observer((): ReactElement => {
           UPDATE USER
         </button>
       </div>
-      <UserCard
-        avatar="https://reqres.in/img/faces/1-image.jpg"
-        email="george.bluth@reqres.in"
-        first_name="George"
-        last_name="Bluth"
-      />
     </>
   );
 });
