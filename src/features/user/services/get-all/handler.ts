@@ -1,7 +1,7 @@
 import { mainProvider } from "providers";
-import { userStore } from "../store";
-import type { UserDTO } from "../types";
-import { getAllUsersService } from "./service";
+import { userStore } from "../../store";
+import type { UserDTO } from "../../types";
+import { getAllUsersService } from ".";
 
 export const handleGetAllUsers = async (): Promise<void> => {
   const users: UserDTO.User[] | null = await getAllUsersService.handle();

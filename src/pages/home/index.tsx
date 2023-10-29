@@ -1,13 +1,13 @@
 import { Header } from "components/Header";
 import { consoleExtension } from "extensions/console";
-import { handleCreateUser } from "features/user/create/handler";
-import { createUserStore } from "features/user/create/store";
-import { handleGetAllUsers } from "features/user/get-all/handler";
-import { getAllUsersStore } from "features/user/get-all/store";
-import { handleGetOneUser } from "features/user/get-one/handler";
-import { getOneUserStore } from "features/user/get-one/store";
+import { handleCreateUser } from "features/user/services/create/handler";
+import { createUserStore } from "features/user/services/create/store";
+import { handleGetAllUsers } from "features/user/services/get-all/handler";
+import { getAllUsersStore } from "features/user/services/get-all/store";
+import { handleGetOneUser } from "features/user/services/get-one/handler";
+import { getOneUserStore } from "features/user/services/get-one/store";
+import { handleUpdateUser } from "features/user/services/update/handler";
 import { userStore } from "features/user/store";
-import { handleUpdateUser } from "features/user/update/handler";
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
 

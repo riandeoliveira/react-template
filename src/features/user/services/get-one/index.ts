@@ -1,5 +1,5 @@
 import { reqresAPI } from "apis/reqres";
-import type { UserDTO } from "../types";
+import type { UserDTO } from "../../types";
 import { getOneUserStore } from "./store";
 import type { GetOneUserDTO } from "./types";
 

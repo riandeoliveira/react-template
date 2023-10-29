@@ -1,5 +1,5 @@
 import { mainProvider } from "providers";
-import { createUserService } from "./service";
+import { createUserService } from ".";
 
 export const handleCreateUser = async (): Promise<void> => {
   const created: boolean = await createUserService.handle();

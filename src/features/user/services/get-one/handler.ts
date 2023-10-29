@@ -1,6 +1,6 @@
-import { userStore } from "../store";
-import type { UserDTO } from "../types";
-import { getOneUserService } from "./service";
+import { userStore } from "../../store";
+import type { UserDTO } from "../../types";
+import { getOneUserService } from ".";
 
 export const handleGetOneUser = async (): Promise<void> => {
   const user: UserDTO.User = await getOneUserService.handle();
