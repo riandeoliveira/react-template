@@ -12,8 +12,6 @@ import styles from "./styles.module.scss";
 export const Listing = observer((): ReactElement => {
   useEffect(() => {
     handleGetAllUsers();
-
-    loadingStore.isLoading = true;
   }, []);
 
   return (
