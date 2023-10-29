@@ -4,6 +4,7 @@ import type { UserDTO } from "./types";
 export class UserStore {
   public current: UserDTO.User;
   public list: UserDTO.User[];
+  public selected: UserDTO.User;
 
   public constructor() {
     this.current = {
@@ -14,6 +15,13 @@ export class UserStore {
       last_name: "",
     };
     this.list = [];
+    this.selected = {
+      avatar: "",
+      email: "",
+      first_name: "",
+      id: 0,
+      last_name: "",
+    };
 
     makeAutoObservable(this);
   }
@@ -24,6 +32,10 @@ export class UserStore {
 
   public setList(list: UserDTO.User[]): void {
     this.list = list;
+  }
+
+  public setSelected(selected: UserDTO.User): void {
+    this.selected = selected;
   }
 }
 

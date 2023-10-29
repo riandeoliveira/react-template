@@ -1,6 +1,7 @@
 import { AddIcon } from "@chakra-ui/icons";
 import { Button, Center, Heading, Select, Skeleton, Text } from "@chakra-ui/react";
 import { Header } from "components/Header";
+import { DeleteUserModal } from "features/user/components/DeleteUserModal";
 import { UserCard } from "features/user/components/UserCard";
 import { handleGetAllUsers } from "features/user/get-all/handler";
 import { getAllUsersStore } from "features/user/get-all/store";
@@ -67,8 +68,9 @@ export const Listing = observer((): ReactElement => {
                       avatar={avatar}
                       email={email}
                       first_name={first_name}
-                      last_name={last_name}
                       key={id}
+                      last_name={last_name}
+                      id={id}
                     />
                   ))}
                 </>
@@ -77,6 +79,7 @@ export const Listing = observer((): ReactElement => {
           )}
         </section>
       </main>
+      <DeleteUserModal />
     </>
   );
 });
