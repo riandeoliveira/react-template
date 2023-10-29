@@ -8,7 +8,7 @@ export class GetAllUsersStore {
   public constructor() {
     this.params = {
       page: "",
-      per_page: "",
+      per_page: "10",
     };
 
     makeAutoObservable(this);
