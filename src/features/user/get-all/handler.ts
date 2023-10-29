@@ -5,5 +5,5 @@ import { getAllUsersService } from "./service";
 export const handleGetAllUsers = async (): Promise<void> => {
   const users: UserDTO.User[] = await getAllUsersService.handle();
 
-  userStore.list = users;
+  userStore.setList(users);
 };

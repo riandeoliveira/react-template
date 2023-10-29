@@ -16,6 +16,18 @@ export class UpdateUserStore {
 
     makeAutoObservable(this);
   }
+
+  public setForm(form: UpdateUserDTO.Form): void {
+    this.form = form;
+  }
+
+  public setFormField(field: keyof UpdateUserDTO.Form): void {
+    this.form[field] = field;
+  }
+
+  public setParams(params: UpdateUserDTO.Params): void {
+    this.params = params;
+  }
 }
 
 export const updateUserStore = new UpdateUserStore();

@@ -11,6 +11,10 @@ export class GetOneUserStore {
 
     makeAutoObservable(this);
   }
+
+  public setParams(params: GetOneUserDTO.Params): void {
+    this.params = params;
+  }
 }
 
 export const getOneUserStore = new GetOneUserStore();

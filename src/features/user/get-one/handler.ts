@@ -5,5 +5,5 @@ import { getOneUserService } from "./service";
 export const handleGetOneUser = async (): Promise<void> => {
   const user: UserDTO.User = await getOneUserService.handle();
 
-  userStore.current = user;
+  userStore.setCurrent(user);
 };

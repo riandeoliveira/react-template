@@ -1,6 +1,5 @@
 import { Header } from "components/Header";
 import { consoleExtension } from "extensions/console";
-import { UserCard } from "features/user/components/UserCard";
 import { handleCreateUser } from "features/user/create/handler";
 import { createUserStore } from "features/user/create/store";
 import { handleGetAllUsers } from "features/user/get-all/handler";
@@ -19,12 +18,12 @@ export const Home = observer((): ReactElement => {
 
   useEffect(() => {
     getAllUsersStore.setParams({ per_page: "5" });
-    getOneUserStore.params.id = 5;
+    getOneUserStore.setParams({ id: 5 });
 
-    createUserStore.form = {
+    createUserStore.setForm({
       job: "Web Developer",
       name: "John Doe",
-    };
+    });
   }, []);
 
   return (

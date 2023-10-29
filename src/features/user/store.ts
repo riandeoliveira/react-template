@@ -17,6 +17,14 @@ export class UserStore {
 
     makeAutoObservable(this);
   }
+
+  public setCurrent(current: UserDTO.User): void {
+    this.current = current;
+  }
+
+  public setList(list: UserDTO.User[]): void {
+    this.list = list;
+  }
 }
 
 export const userStore = new UserStore();
