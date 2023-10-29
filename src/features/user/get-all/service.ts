@@ -4,7 +4,7 @@ import { getAllUsersStore } from "./store";
 import type { GetAllUsersDTO } from "./types";
 
 export class GetAllUsersService {
-  public async handle(): Promise<UserDTO.User[]> {
+  public async handle(): Promise<UserDTO.User[] | null> {
     try {
       const params: string = getAllUsersStore.getParams();
       const response: GetAllUsersDTO.Response = await reqresAPI.get(`/users?${params}`);
@@ -13,7 +13,7 @@ export class GetAllUsersService {
     } catch (error: unknown) {
       console.error(error);
 
-      return [];
+      return null;
     }
   }
 }

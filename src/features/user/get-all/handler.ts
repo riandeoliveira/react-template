@@ -1,9 +1,16 @@
+import { mainProvider } from "providers";
 import { userStore } from "../store";
 import type { UserDTO } from "../types";
 import { getAllUsersService } from "./service";
 
 export const handleGetAllUsers = async (): Promise<void> => {
-  const users: UserDTO.User[] = await getAllUsersService.handle();
+  const users: UserDTO.User[] | null = await getAllUsersService.handle();
 
-  userStore.setList(users);
+  if (users) userStore.setList(users);
+  else {
+    mainProvider.toast({
+      title: "Não foi possível buscar a listagem de usuários.",
+      status: "error",
+    });
+  }
 };
