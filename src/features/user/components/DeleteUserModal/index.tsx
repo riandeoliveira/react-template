@@ -9,20 +9,29 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
+import { handleDeleteUser } from "features/user/services/delete/handler";
+import { deleteUserStore } from "features/user/services/delete/store";
 import { userStore } from "features/user/store";
 import { observer } from "mobx-react-lite";
-import type { ReactElement } from "react";
+import { type ReactElement } from "react";
 import { modalStore } from "store/modal.store";
 
 export const DeleteUserModal = observer((): ReactElement => {
-  const { first_name, last_name } = userStore.selected;
+  const { isOpen } = modalStore.deleteUser;
+  const { id, first_name, last_name } = userStore.selected;
 
   const handleCloseModal = (): void => {
     modalStore.close("deleteUser");
   };
 
+  const handleConfirm = async (): Promise<void> => {
+    deleteUserStore.setParams({ id });
+
+    await handleDeleteUser();
+  };
+
   return (
-    <Modal isCentered isOpen={modalStore.deleteUser.isOpen} onClose={handleCloseModal}>
+    <Modal isCentered isOpen={isOpen} onClose={handleCloseModal}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Excluir Usuário</ModalHeader>
@@ -41,7 +50,9 @@ export const DeleteUserModal = observer((): ReactElement => {
           <Button variant="solid" colorScheme="blue" mr={3} onClick={handleCloseModal}>
             Cancelar
           </Button>
-          <Button colorScheme="red">Confirmar</Button>
+          <Button colorScheme="red" onClick={handleConfirm}>
+            Confirmar
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

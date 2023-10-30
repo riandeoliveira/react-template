@@ -9,5 +9,10 @@ export const handleCreateUser = async (): Promise<void> => {
       title: "Usuário criado com sucesso.",
       status: "success",
     });
+  } else {
+    mainProvider.toast({
+      title: "Não foi possível criar um novo usuário.",
+      status: "error",
+    });
   }
 };

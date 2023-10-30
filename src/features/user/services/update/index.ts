@@ -2,12 +2,17 @@ import { reqresAPI } from "apis/reqres";
 import { updateUserStore } from "./store";
 
 export class UpdateUserService {
-  public async handle(): Promise<void> {
+  public async handle(): Promise<boolean> {
     try {
-      const id: number = updateUserStore.params.id;
+      const { id } = updateUserStore.params;
+
       await reqresAPI.put(`/users/${id}`, updateUserStore.form);
+
+      return true;
     } catch (error: unknown) {
       console.error(error);
+
+      return false;
     }
   }
 }

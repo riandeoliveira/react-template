@@ -1,9 +1,16 @@
+import { mainProvider } from "providers";
+import { getOneUserService } from ".";
 import { userStore } from "../../store";
 import type { UserDTO } from "../../types";
-import { getOneUserService } from ".";
 
 export const handleGetOneUser = async (): Promise<void> => {
-  const user: UserDTO.User = await getOneUserService.handle();
+  const user: UserDTO.User | null = await getOneUserService.handle();
 
-  userStore.setCurrent(user);
+  if (user) userStore.setCurrent(user);
+  else {
+    mainProvider.toast({
+      title: "Não foi possível buscar este usuário.",
+      status: "error",
+    });
+  }
 };
