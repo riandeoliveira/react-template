@@ -16,10 +16,6 @@ export class CreateUserStore {
   public setForm(form: CreateUserDTO.Form): void {
     this.form = form;
   }
-
-  public setFormField(field: keyof CreateUserDTO.Form): void {
-    this.form[field] = field;
-  }
 }
 
 export const createUserStore = new CreateUserStore();

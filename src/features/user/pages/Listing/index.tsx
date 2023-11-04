@@ -1,5 +1,5 @@
 import { AddIcon } from "@chakra-ui/icons";
-import { Button, Center, Heading, Select, Skeleton, Text } from "@chakra-ui/react";
+import { Button, Center, Heading, Link, Select, Skeleton, Text } from "@chakra-ui/react";
 import { Header } from "components/Header";
 import { DeleteUserModal } from "features/user/components/DeleteUserModal";
 import { UserCard } from "features/user/components/UserCard";
@@ -7,11 +7,11 @@ import { handleGetAllUsers } from "features/user/services/get-all/handler";
 import { getAllUsersStore } from "features/user/services/get-all/store";
 import { userStore } from "features/user/store";
 import _ from "lodash";
-import { observer } from "mobx-react-lite";
 import type { ChangeEvent } from "react";
 import { useEffect, type ReactElement } from "react";
 import { loadingStore } from "store/loading.store";
 import styles from "./styles.module.scss";
+import { observer } from "mobx-react-lite";
 
 export const Listing = observer((): ReactElement => {
   useEffect(() => {
@@ -34,9 +34,11 @@ export const Listing = observer((): ReactElement => {
               <Heading as="h2" size="lg">
                 Usuários
               </Heading>
-              <Button rightIcon={<AddIcon />} colorScheme="green">
-                Novo Usuário
-              </Button>
+              <Link href="/user/create">
+                <Button rightIcon={<AddIcon />} colorScheme="green">
+                  Novo Usuário
+                </Button>
+              </Link>
             </div>
             <div className={styles.options}>
               <div className={styles.options_container}>

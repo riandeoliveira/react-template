@@ -20,6 +20,8 @@ import styles from "./styles.module.scss";
 interface UserCardProps extends UserDTO.User {}
 
 export const UserCard = observer((props: UserCardProps): ReactElement => {
+  const { avatar, first_name, last_name, email } = props;
+
   const handleOpenModal = (): void => {
     userStore.setSelected(props);
     modalStore.open("deleteUser");
@@ -29,18 +31,18 @@ export const UserCard = observer((props: UserCardProps): ReactElement => {
     <Card className={styles.card}>
       <CardBody>
         <Image
-          src={props.avatar}
-          alt={`An image of the user ${props.first_name} ${props.last_name}`}
+          src={avatar}
+          alt={`An image of the user ${first_name} ${last_name}`}
           borderRadius="lg"
           className={styles.avatar}
         />
         <Stack mt="6" spacing="3">
           <Heading size="md">
-            {props.first_name}
+            {first_name}
             &nbsp;
-            {props.last_name}
+            {last_name}
           </Heading>
-          <Text>{props.email}</Text>
+          <Text>{email}</Text>
         </Stack>
       </CardBody>
       <Divider />
