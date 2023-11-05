@@ -15,5 +15,7 @@ export const handleGetOneUser = async (params: GetOneUserDTO.Params): Promise<vo
       title: "Não foi possível buscar este usuário.",
       status: "error",
     });
+
+    mainProvider.navigate("/user/listing");
   }
 };

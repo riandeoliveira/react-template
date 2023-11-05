@@ -3,7 +3,7 @@ import type { UserDTO } from "../../types";
 import type { GetOneUserDTO } from "./types";
 
 export class GetOneUserService {
-  public async handle(id: number): Promise<UserDTO.User | null> {
+  public async handle(id: string): Promise<UserDTO.User | null> {
     try {
       const response: GetOneUserDTO.Response = await reqresAPI.get(`/users/${id}`);
 

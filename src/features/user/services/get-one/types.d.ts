@@ -3,7 +3,7 @@ import type { User } from "features/user/types";
 
 export namespace GetOneUserDTO {
   interface Params {
-    id: number;
+    id: string;
   }
 
   interface Result {

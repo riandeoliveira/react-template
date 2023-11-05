@@ -1,7 +1,7 @@
 import { reqresAPI } from "apis/reqres";
 
 export class DeleteUserService {
-  public async handle(id: number): Promise<boolean> {
+  public async handle(id: string): Promise<boolean> {
     try {
       await reqresAPI.delete(`/users/${id}`);
 

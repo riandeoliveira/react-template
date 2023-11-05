@@ -5,6 +5,6 @@ export namespace UpdateUserDTO {
   }
 
   interface Params {
-    id: number;
+    id: string;
   }
 }

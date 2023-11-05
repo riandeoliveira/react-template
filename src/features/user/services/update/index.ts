@@ -2,7 +2,7 @@ import { reqresAPI } from "apis/reqres";
 import type { UpdateUserDTO } from "./types";
 
 export class UpdateUserService {
-  public async handle(id: number, data: UpdateUserDTO.Form): Promise<boolean> {
+  public async handle(id: string, data: UpdateUserDTO.Form): Promise<boolean> {
     try {
       await reqresAPI.put(`/users/${id}`, data);
 

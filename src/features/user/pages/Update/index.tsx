@@ -9,11 +9,14 @@ import { userStore } from "features/user/store";
 import { useFormik } from "formik";
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 export const Update = observer((): ReactElement => {
+  const params = useParams<{ id: string }>();
+
   useEffect(() => {
-    handleGetOneUser({ id: 1 });
+    handleGetOneUser({ id: params.id ?? "" });
   }, []);
 
   const formik = useFormik({
@@ -23,7 +26,7 @@ export const Update = observer((): ReactElement => {
     },
     validationSchema: updateUserSchema,
     onSubmit: async (values): Promise<void> => {
-      await handleUpdateUser({ id: 1 }, values);
+      await handleUpdateUser({ id: params.id ?? "" }, values);
     },
   });
 

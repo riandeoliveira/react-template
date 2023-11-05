@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     element: <AppRoute page={User.Listing} />,
   },
   {
-    path: "/user/update",
+    path: "/user/update/:id",
     element: <AppRoute page={User.Update} />,
   },
 ]);
