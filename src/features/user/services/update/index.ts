@@ -1,12 +1,10 @@
 import { reqresAPI } from "apis/reqres";
-import { updateUserStore } from "./store";
+import type { UpdateUserDTO } from "./types";
 
 export class UpdateUserService {
-  public async handle(): Promise<boolean> {
+  public async handle(id: number, data: UpdateUserDTO.Form): Promise<boolean> {
     try {
-      const { id } = updateUserStore.params;
-
-      await reqresAPI.put(`/users/${id}`, updateUserStore.form);
+      await reqresAPI.put(`/users/${id}`, data);
 
       return true;
     } catch (error: unknown) {

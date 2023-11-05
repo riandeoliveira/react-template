@@ -10,7 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { handleDeleteUser } from "features/user/services/delete/handler";
-import { deleteUserStore } from "features/user/services/delete/store";
 import { userStore } from "features/user/store";
 import { observer } from "mobx-react-lite";
 import { type ReactElement } from "react";
@@ -25,9 +24,7 @@ export const DeleteUserModal = observer((): ReactElement => {
   };
 
   const handleConfirm = async (): Promise<void> => {
-    deleteUserStore.setParams({ id });
-
-    await handleDeleteUser();
+    await handleDeleteUser({ id });
   };
 
   return (

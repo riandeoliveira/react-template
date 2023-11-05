@@ -2,18 +2,29 @@ import { Button, Heading, Link } from "@chakra-ui/react";
 import { Form } from "components/Form";
 import { Header } from "components/Header";
 import { LoadingArea } from "components/LoadingArea";
-import { handleCreateUser } from "features/user/services/create/handler";
-import { createUserSchema } from "features/user/services/create/schema";
+import { handleGetOneUser } from "features/user/services/get-one/handler";
+import { handleUpdateUser } from "features/user/services/update/handler";
+import { updateUserSchema } from "features/user/services/update/schema";
+import { userStore } from "features/user/store";
 import { useFormik } from "formik";
 import { observer } from "mobx-react-lite";
-import { type ReactElement } from "react";
+import { useEffect, type ReactElement } from "react";
 import styles from "./styles.module.scss";
 
-export const Create = observer((): ReactElement => {
+export const Update = observer((): ReactElement => {
+  useEffect(() => {
+    handleGetOneUser({ id: 1 });
+  }, []);
+
   const formik = useFormik({
-    initialValues: { job: "", name: "" },
-    validationSchema: createUserSchema,
-    onSubmit: handleCreateUser,
+    initialValues: {
+      job: userStore.current.first_name,
+      name: userStore.current.last_name,
+    },
+    validationSchema: updateUserSchema,
+    onSubmit: async (values): Promise<void> => {
+      await handleUpdateUser({ id: 1 }, values);
+    },
   });
 
   return (
@@ -22,7 +33,7 @@ export const Create = observer((): ReactElement => {
       <main className={styles.main}>
         <section className={styles.section}>
           <Heading as="h2" size="lg">
-            Criação de Usuário
+            Edição de Usuário
           </Heading>
           <form className={styles.form} onSubmit={formik.handleSubmit}>
             <div className={styles.fields}>
@@ -38,7 +49,7 @@ export const Create = observer((): ReactElement => {
                 <Button className={styles.back_button}>Voltar</Button>
               </Link>
               <Button type="submit" colorScheme="green">
-                Cadastrar
+                Atualizar
               </Button>
             </div>
           </form>

@@ -1,11 +1,14 @@
 import { mainProvider } from "providers";
 import { modalStore } from "store/modal.store";
 import { deleteUserService } from ".";
+import type { DeleteUserDTO } from "./types";
 
-export const handleDeleteUser = async (): Promise<void> => {
+export const handleDeleteUser = async (params: DeleteUserDTO.Params): Promise<void> => {
   modalStore.close("deleteUser");
 
-  const deleted: boolean = await deleteUserService.handle();
+  const { id } = params;
+
+  const deleted: boolean = await deleteUserService.handle(id);
 
   if (deleted) {
     mainProvider.toast({

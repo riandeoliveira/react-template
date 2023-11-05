@@ -1,12 +1,10 @@
 import { reqresAPI } from "apis/reqres";
 import type { UserDTO } from "features/user/types";
-import { getAllUsersStore } from "./store";
 import type { GetAllUsersDTO } from "./types";
 
 export class GetAllUsersService {
-  public async handle(): Promise<UserDTO.User[] | null> {
+  public async handle(params: string): Promise<UserDTO.User[] | null> {
     try {
-      const params: string = getAllUsersStore.getParams();
       const response: GetAllUsersDTO.Response = await reqresAPI.get(`/users?${params}`);
 
       return response.data.data;

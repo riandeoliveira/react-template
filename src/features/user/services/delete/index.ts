@@ -1,11 +1,8 @@
 import { reqresAPI } from "apis/reqres";
-import { deleteUserStore } from "./store";
 
 export class DeleteUserService {
-  public async handle(): Promise<boolean> {
+  public async handle(id: number): Promise<boolean> {
     try {
-      const { id } = deleteUserStore.params;
-
       await reqresAPI.delete(`/users/${id}`);
 
       return true;

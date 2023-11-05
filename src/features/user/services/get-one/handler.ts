@@ -2,9 +2,12 @@ import { mainProvider } from "providers";
 import { getOneUserService } from ".";
 import { userStore } from "../../store";
 import type { UserDTO } from "../../types";
+import type { GetOneUserDTO } from "./types";
 
-export const handleGetOneUser = async (): Promise<void> => {
-  const user: UserDTO.User | null = await getOneUserService.handle();
+export const handleGetOneUser = async (params: GetOneUserDTO.Params): Promise<void> => {
+  const { id } = params;
+
+  const user: UserDTO.User | null = await getOneUserService.handle(id);
 
   if (user) userStore.setCurrent(user);
   else {

@@ -13,6 +13,7 @@ import {
 import { userStore } from "features/user/store";
 import type { UserDTO } from "features/user/types";
 import { observer } from "mobx-react-lite";
+import { mainProvider } from "providers";
 import type { ReactElement } from "react";
 import { modalStore } from "store/modal.store";
 import styles from "./styles.module.scss";
@@ -20,11 +21,15 @@ import styles from "./styles.module.scss";
 interface UserCardProps extends UserDTO.User {}
 
 export const UserCard = observer((props: UserCardProps): ReactElement => {
-  const { avatar, first_name, last_name, email } = props;
+  const { avatar, first_name, last_name, email, id } = props;
 
   const handleOpenModal = (): void => {
     userStore.setSelected(props);
     modalStore.open("deleteUser");
+  };
+
+  const handleNavigate = (): void => {
+    mainProvider.navigate(`/user/update/${id}`);
   };
 
   return (
@@ -48,7 +53,12 @@ export const UserCard = observer((props: UserCardProps): ReactElement => {
       <Divider />
       <CardFooter>
         <div className={styles.card_footer}>
-          <IconButton aria-label="Edit user" icon={<EditIcon />} colorScheme="blue" />
+          <IconButton
+            aria-label="Edit user"
+            icon={<EditIcon />}
+            colorScheme="blue"
+            onClick={handleNavigate}
+          />
           <IconButton
             aria-label="Delete user"
             icon={<DeleteIcon />}

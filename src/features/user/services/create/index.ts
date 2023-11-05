@@ -1,10 +1,10 @@
 import { reqresAPI } from "apis/reqres";
-import { createUserStore } from "./store";
+import type { CreateUserDTO } from "./types";
 
 export class CreateUserService {
-  public async handle(): Promise<boolean> {
+  public async handle(data: CreateUserDTO.Form): Promise<boolean> {
     try {
-      await reqresAPI.post("/users", createUserStore.form);
+      await reqresAPI.post("/users", data);
 
       return true;
     } catch (error: unknown) {
