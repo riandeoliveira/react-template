@@ -1,12 +1,10 @@
 import fs from "fs";
 
-const buildDirectory = "build";
-const distDirectory = "dist";
-
-if (fs.existsSync(buildDirectory)) {
-  fs.rmdirSync(buildDirectory, { recursive: true });
+function removeDirectoryIfExists(directory) {
+  if (fs.existsSync(directory)) {
+    fs.rmSync(directory, { recursive: true });
+  }
 }
 
-if (fs.existsSync(distDirectory)) {
-  fs.rmdirSync(distDirectory, { recursive: true });
-}
+removeDirectoryIfExists("build");
+removeDirectoryIfExists("dist");
