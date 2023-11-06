@@ -1,3 +1,4 @@
+import { userStore } from "features/user/store";
 import _ from "lodash";
 import { mainProvider } from "providers";
 import { updateUserService } from ".";
@@ -17,6 +18,10 @@ export const handleUpdateUser = async (
       title: "Usuário atualizado com sucesso.",
       status: "success",
     });
+
+    userStore.clearCurrent();
+
+    mainProvider.navigate("/user/listing");
   } else {
     mainProvider.toast({
       title: "Não foi possível atualizar este usuário.",

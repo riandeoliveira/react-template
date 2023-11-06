@@ -26,6 +26,16 @@ export class UserStore {
     makeAutoObservable(this);
   }
 
+  public clearCurrent(): void {
+    this.current = {
+      avatar: "",
+      email: "",
+      first_name: "",
+      id: 0,
+      last_name: "",
+    };
+  }
+
   public setCurrent(current: UserDTO.User): void {
     this.current = current;
   }

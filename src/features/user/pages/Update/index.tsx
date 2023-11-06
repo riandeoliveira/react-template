@@ -13,22 +13,23 @@ import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 
 export const Update = observer((): ReactElement => {
-  const params = useParams<{ id: string }>();
-
-  useEffect(() => {
-    handleGetOneUser({ id: params.id ?? "" });
-  }, []);
+  const { id } = useParams();
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       job: userStore.current.first_name,
       name: userStore.current.last_name,
     },
     validationSchema: updateUserSchema,
     onSubmit: async (values): Promise<void> => {
-      await handleUpdateUser({ id: params.id ?? "" }, values);
+      await handleUpdateUser({ id: id ?? "" }, values);
     },
   });
+
+  useEffect(() => {
+    handleGetOneUser({ id: id ?? "" });
+  }, []);
 
   return (
     <>
