@@ -1,8 +1,12 @@
 import { User } from "features/user/pages";
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import { AppRoute } from "./AppRoute";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/user/listing" />,
+  },
   {
     path: "/user/create",
     element: <AppRoute page={User.Create} />,
