@@ -8,8 +8,7 @@
   "main": "src/main.tsx",
   "scripts": {
     "add:component": "node scripts/add-component.mjs",
-    "build": "npm run clear:build && npm run lint && npm run test && tsc && vite build",
-    "clear:build": "node scripts/clear-build.mjs",
+    "build": "npm run lint && npm run test && tsc && vite build",
     "coverage": "vitest run --coverage && start coverage/index.html",
     "dev": "vite --open",
     "eslint": "eslint --fix src/**/*.{js,jsx,ts,tsx} vite.config.ts",
