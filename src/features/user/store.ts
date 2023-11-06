@@ -11,7 +11,7 @@ export class UserStore {
       avatar: "",
       email: "",
       first_name: "",
-      id: 0,
+      id: "0",
       last_name: "",
     };
     this.list = [];
@@ -19,7 +19,7 @@ export class UserStore {
       avatar: "",
       email: "",
       first_name: "",
-      id: 0,
+      id: "0",
       last_name: "",
     };
 
@@ -31,7 +31,7 @@ export class UserStore {
       avatar: "",
       email: "",
       first_name: "",
-      id: 0,
+      id: "0",
       last_name: "",
     };
   }
