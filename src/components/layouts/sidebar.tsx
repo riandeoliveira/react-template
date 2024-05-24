@@ -6,26 +6,24 @@ import { sidebarStore } from "@/stores/sidebar-store";
 import { IconButton, ListItemIcon, ListItemText, MenuItem } from "@mui/material";
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
-import { useState, type ReactElement } from "react";
-import { Link } from "react-router-dom";
+import { type ReactElement } from "react";
 import { Divider } from "../abstractions/divider";
 import { Paper } from "../abstractions/paper";
 import { Image } from "../atoms/image";
 import { SignOutDialog } from "../dialogs/sign-out-dialog";
 import { ThemeToggleMenu } from "../menus/theme-toggle-menu";
+import { SidebarLink } from "../sidebar-link";
 
 export const Sidebar = observer((): ReactElement => {
-  const [isSidebarMoving, setIsSidebarMoving] = useState<boolean>(false);
-
-  const isSidebarStatic: boolean = sidebarStore.isExpanded === !isSidebarMoving;
+  const isSidebarStatic: boolean = sidebarStore.isExpanded === !sidebarStore.isMoving;
 
   const handleSidebarExpandion = (): void => {
-    setIsSidebarMoving(true);
+    sidebarStore.setIsMoving(true);
 
     setTimeout(() => {
-      setIsSidebarMoving(false);
+      sidebarStore.setIsMoving(false);
 
-      sidebarStore.toggle();
+      sidebarStore.toggleExpansion();
     }, 500);
   };
 
@@ -55,23 +53,19 @@ export const Sidebar = observer((): ReactElement => {
           </a>
           <Divider className="my-12" />
           <nav className="w-full pt-4">
-            <ul>
-              <Link to="/inicio">
-                <MenuItem>
-                  <ListItemIcon>
-                    <Icon.Home />
-                  </ListItemIcon>
-                  <ListItemText>
-                    <motion.span
-                      initial={{ opacity: isSidebarStatic ? 0 : 1 }}
-                      animate={{ opacity: isSidebarStatic ? 1 : 0 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      Início
-                    </motion.span>
-                  </ListItemText>
-                </MenuItem>
-              </Link>
+            <ul className="flex flex-col gap-2">
+              <SidebarLink to="/inicio" icon={Icon.Home}>
+                Início
+              </SidebarLink>
+              <SidebarLink to="/usuarios" icon={Icon.Group}>
+                Usuários
+              </SidebarLink>
+              <SidebarLink to="/notificacoes" icon={Icon.Notifications}>
+                Notificações
+              </SidebarLink>
+              <SidebarLink to="/configuracoes" icon={Icon.Settings}>
+                Configurações
+              </SidebarLink>
               <MenuItem onClick={handleDialogOpen} className="!text-error">
                 <ListItemIcon>
                   <Icon.Logout className="text-error" />
