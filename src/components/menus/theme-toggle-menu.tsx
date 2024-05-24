@@ -1,6 +1,4 @@
 import { Icon } from "@/assets/icons";
-import { cn } from "@/lib/utils";
-import { sidebarStore } from "@/stores/sidebar-store";
 import { themeStore } from "@/stores/theme-store";
 import { IconButton, ListItemIcon, ListItemText, Menu, MenuItem } from "@mui/material";
 import { observer } from "mobx-react-lite";

@@ -7,9 +7,9 @@ class SidebarStore {
     makeAutoObservable(this);
   }
 
-  public toggle = (): void => {
+  public toggle(): void {
     this.isExpanded = !this.isExpanded;
-  };
+  }
 }
 
 export const sidebarStore = new SidebarStore();
