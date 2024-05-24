@@ -11,8 +11,6 @@
     @apply scroll-smooth;
   }
 
-  body {}
-
   h1 {
     @apply text-3xl font-bold;
   }
@@ -34,6 +32,6 @@
   }
 
   p, span {
-    @apply text-sm font-normal;
+    @apply text-base font-normal;
   }
 }

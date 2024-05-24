@@ -3,17 +3,21 @@ import { images } from "@/assets/images";
 import { cn } from "@/lib/utils";
 import { dialogStore } from "@/stores/dialog-store";
 import { sidebarStore } from "@/stores/sidebar-store";
-import { Divider, IconButton, ListItemIcon, ListItemText, MenuItem, Paper } from "@mui/material";
+import { IconButton, ListItemIcon, ListItemText, MenuItem } from "@mui/material";
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import { useState, type ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { Divider } from "../abstractions/divider";
+import { Paper } from "../abstractions/paper";
 import { Image } from "../atoms/image";
 import { SignOutDialog } from "../dialogs/sign-out-dialog";
 import { ThemeToggleMenu } from "../menus/theme-toggle-menu";
 
 export const Sidebar = observer((): ReactElement => {
   const [isSidebarMoving, setIsSidebarMoving] = useState<boolean>(false);
+
+  const isSidebarStatic: boolean = sidebarStore.isExpanded === !isSidebarMoving;
 
   const handleSidebarExpandion = (): void => {
     setIsSidebarMoving(true);
@@ -30,10 +34,9 @@ export const Sidebar = observer((): ReactElement => {
   return (
     <>
       <Paper
-        elevation={6}
         className={cn(
-          "fixed bg-zinc-50 dark:bg-zinc-900 min-h-screen flex flex-col justify-between !transition-all !duration-500",
-          sidebarStore.isExpanded === !isSidebarMoving ? "w-64" : "w-14",
+          "fixed min-h-screen flex flex-col justify-between !transition-all !duration-500",
+          isSidebarStatic ? "w-64" : "w-14",
         )}
       >
         <div className="flex flex-col w-full items-center">
@@ -50,18 +53,18 @@ export const Sidebar = observer((): ReactElement => {
               className="w-32 h-32 animate-spin duration-5000"
             />
           </a>
-          <Divider className="w-full my-12 dark:bg-zinc-500" />
+          <Divider className="my-12" />
           <nav className="w-full pt-4">
             <ul>
               <Link to="/inicio">
-                <MenuItem className="dark:text-zinc-50">
+                <MenuItem>
                   <ListItemIcon>
-                    <Icon.Home className="dark:text-zinc-50" />
+                    <Icon.Home />
                   </ListItemIcon>
                   <ListItemText>
                     <motion.span
-                      initial={{ opacity: sidebarStore.isExpanded === !isSidebarMoving ? 0 : 1 }}
-                      animate={{ opacity: sidebarStore.isExpanded === !isSidebarMoving ? 1 : 0 }}
+                      initial={{ opacity: isSidebarStatic ? 0 : 1 }}
+                      animate={{ opacity: isSidebarStatic ? 1 : 0 }}
                       transition={{ duration: 0.5 }}
                     >
                       Início
@@ -75,8 +78,8 @@ export const Sidebar = observer((): ReactElement => {
                 </ListItemIcon>
                 <ListItemText>
                   <motion.span
-                    initial={{ opacity: sidebarStore.isExpanded === !isSidebarMoving ? 0 : 1 }}
-                    animate={{ opacity: sidebarStore.isExpanded === !isSidebarMoving ? 1 : 0 }}
+                    initial={{ opacity: isSidebarStatic ? 0 : 1 }}
+                    animate={{ opacity: isSidebarStatic ? 1 : 0 }}
                     transition={{ duration: 0.5 }}
                   >
                     Sair
@@ -87,16 +90,21 @@ export const Sidebar = observer((): ReactElement => {
           </nav>
         </div>
         <div>
-          <Divider className="w-full dark:bg-zinc-500" />
+          <Divider />
           <div
             className={cn(
               "flex justify-between py-4 items-center",
-              sidebarStore.isExpanded === !isSidebarMoving ? "px-4" : "flex-col",
+              isSidebarStatic ? "px-4" : "flex-col",
             )}
           >
             <ThemeToggleMenu />
-            <IconButton onClick={handleSidebarExpandion} className="dark:!text-zinc-50">
-              <Icon.KeyboardDoubleArrowRight />
+            <IconButton onClick={handleSidebarExpandion}>
+              <motion.span
+                animate={{ rotate: isSidebarStatic ? 180 : 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <Icon.KeyboardDoubleArrowRight />
+              </motion.span>
             </IconButton>
           </div>
         </div>

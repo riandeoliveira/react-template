@@ -20,7 +20,7 @@ export const ThemeToggleMenu = observer((): ReactElement => {
 
   return (
     <>
-      <IconButton onClick={handleButtonClick} className="dark:text-zinc-50">
+      <IconButton onClick={handleButtonClick}>
         {!themeStore.getStoredTheme() ? (
           <Icon.Monitor />
         ) : themeStore.theme === "dark" ? (
@@ -41,7 +41,6 @@ export const ThemeToggleMenu = observer((): ReactElement => {
           vertical: "bottom",
           horizontal: "right",
         }}
-        slotProps={{ paper: { className: "dark:bg-zinc-900" } }}
       >
         <MenuItem
           onClick={() => {
@@ -49,9 +48,8 @@ export const ThemeToggleMenu = observer((): ReactElement => {
 
             handleMenuClose();
           }}
-          className="dark:text-zinc-50"
         >
-          <ListItemIcon className="dark:text-zinc-50">
+          <ListItemIcon>
             <Icon.LightMode />
           </ListItemIcon>
           <ListItemText>Claro</ListItemText>
@@ -62,9 +60,8 @@ export const ThemeToggleMenu = observer((): ReactElement => {
 
             handleMenuClose();
           }}
-          className="dark:text-zinc-50"
         >
-          <ListItemIcon className="dark:text-zinc-50">
+          <ListItemIcon>
             <Icon.DarkMode />
           </ListItemIcon>
           <ListItemText>Escuro</ListItemText>
@@ -75,9 +72,8 @@ export const ThemeToggleMenu = observer((): ReactElement => {
 
             handleMenuClose();
           }}
-          className="dark:text-zinc-50"
         >
-          <ListItemIcon className="dark:text-zinc-50">
+          <ListItemIcon>
             <Icon.Monitor />
           </ListItemIcon>
           <ListItemText>Sistema</ListItemText>
