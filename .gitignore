@@ -3,7 +3,6 @@
 .env
 .env.* !.env.example
 .fleet
-.husky
 .idea
 .nitro
 .output
@@ -22,15 +21,16 @@
 bin
 build
 coverage
+cypress/screenshots
 dist
 dist-ssr
 lerna-debug.log*
 logs
 node_modules
+NOTES.md
 npm-debug.log*
 obj
 out
 pnpm-debug.log*
-TODO.md
 yarn-debug.log*
 yarn-error.log*

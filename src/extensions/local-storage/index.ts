@@ -1,19 +1,30 @@
-import type { LocalStorageKeys } from "types/local-storage";
-import { BaseLocalStorageExtension } from "../../extensions/local-storage/base";
+import type { ILocalStorageExtension, LocalStorageKeys } from "./types";
 
-export class LocalStorageExtension extends BaseLocalStorageExtension {
-  public getAccessToken(): string {
-    const token: string | null = this.getItem<LocalStorageKeys, string>("access_token");
+export class LocalStorageExtension implements ILocalStorageExtension {
+  private readonly storage: Storage = window.localStorage;
 
-    if (token && typeof token === "string") {
-      return token;
+  public clear = (): void => {
+    this.storage.clear();
+  };
+
+  public getItem<T>(key: LocalStorageKeys): T | null {
+    const item: string | null = this.storage.getItem(key);
+
+    try {
+      if (item) return JSON.parse(item);
+
+      return null;
+    } catch {
+      return null;
     }
-
-    return "";
   }
 
-  public setAccessToken(accessToken: string): void {
-    this.setItem<LocalStorageKeys, string>("access_token", accessToken);
+  public removeItem(key: LocalStorageKeys): void {
+    this.storage.removeItem(key);
+  }
+
+  public setItem<T>(key: LocalStorageKeys, value: T): void {
+    this.storage.setItem(key, JSON.stringify(value));
   }
 }
 

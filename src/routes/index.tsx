@@ -1,27 +1,20 @@
-import { SignUp } from "features/auth/pages/SignUp";
-import { User } from "features/user/pages";
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import { AppRoute } from "./AppRoute";
+import { SidebarPage } from "@/pages/examples/sidebar-page";
+import { TypographyPage } from "@/pages/examples/typography-page";
+import { HomePage } from "@/pages/home-page";
+import { createBrowserRouter } from "react-router-dom";
+import { Route } from "./Route";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navigate to="/user/listing" />,
+    element: <Route page={HomePage} />,
   },
   {
-    path: "/signup",
-    element: <AppRoute page={SignUp} />,
+    path: "/examples/sidebar",
+    element: <Route page={SidebarPage} />,
   },
   {
-    path: "/user/create",
-    element: <AppRoute page={User.Create} />,
-  },
-  {
-    path: "/user/listing",
-    element: <AppRoute page={User.Listing} />,
-  },
-  {
-    path: "/user/update/:id",
-    element: <AppRoute page={User.Update} />,
+    path: "/examples/typography",
+    element: <Route page={TypographyPage} />,
   },
 ]);
