@@ -35,3 +35,7 @@
     @apply text-base font-normal;
   }
 }
+
+.dark input[type="password"]::-ms-reveal {
+  filter: invert(100%);
+}

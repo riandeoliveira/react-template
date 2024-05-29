@@ -11,4 +11,4 @@ yup.addMethod(yup.string, "validEmail", function (message: string) {
   return this.matches(REGEX.VALID_EMAIL, message);
 });
 
-export { yup };
+export const yupExtension = yup;
