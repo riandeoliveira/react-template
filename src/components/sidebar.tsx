@@ -1,5 +1,6 @@
 import { Icon } from "@/assets/icons";
 import { images } from "@/assets/images";
+import { SignOutDialog } from "@/components/sign-out-dialog";
 import { cn } from "@/lib/utils";
 import { dialogStore } from "@/stores/dialog-store";
 import { sidebarStore } from "@/stores/sidebar-store";
@@ -7,12 +8,11 @@ import { IconButton, ListItemIcon, ListItemText, MenuItem } from "@mui/material"
 import { motion } from "framer-motion";
 import { observer } from "mobx-react-lite";
 import { type ReactElement } from "react";
-import { Divider } from "../abstractions/divider";
-import { Paper } from "../abstractions/paper";
-import { Image } from "../atoms/image";
-import { SignOutDialog } from "../dialogs/sign-out-dialog";
-import { ThemeToggleMenu } from "../menus/theme-toggle-menu";
-import { SidebarLink } from "../sidebar-link";
+import { Divider } from "./divider";
+import { Image } from "./image";
+import { Paper } from "./paper";
+import { SidebarLink } from "./sidebar-link";
+import { ThemeToggleMenu } from "./theme-toggle-menu";
 
 export const Sidebar = observer((): ReactElement => {
   const isSidebarStatic: boolean = sidebarStore.isExpanded === !sidebarStore.isMoving;

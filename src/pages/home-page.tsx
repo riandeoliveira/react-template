@@ -1,4 +1,4 @@
-import { Image } from "@/components/atoms/image";
+import { Image } from "@/components/image";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import { type ReactElement } from "react";
 

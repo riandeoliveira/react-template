@@ -1,4 +1,4 @@
-import { Sidebar } from "@/components/layouts/sidebar";
+import { Sidebar } from "@/components/sidebar";
 import { observer } from "mobx-react-lite";
 import { type ReactElement } from "react";
 

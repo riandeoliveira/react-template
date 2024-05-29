@@ -1,9 +1,9 @@
 import { Icon } from "@/assets/icons";
+import { Dialog } from "@/components/dialog";
 import { dialogStore } from "@/stores/dialog-store";
 import { Button, DialogActions, DialogContent, IconButton } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
-import { Dialog } from "../abstractions/dialog";
 
 export const SignOutDialog = observer((): ReactElement => {
   const handleDialogClose = (): void => dialogStore.close("signOut");
