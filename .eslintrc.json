@@ -1,13 +1,8 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:react/recommended"
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
   ],
   "ignorePatterns": [
     "build",
@@ -17,16 +12,6 @@
     "scripts"
   ],
   "noInlineConfig": true,
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "react-hooks",
-    "react"
-  ],
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/explicit-function-return-type": "warn",
@@ -79,17 +64,11 @@
       }
     ],
     "react/hook-use-state": "error",
-    "react/react-in-jsx-scope": "off",
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-closing-tag-location": "error",
     "semi": [
       "error",
       "always"
     ]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
   }
 }

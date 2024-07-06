@@ -1,31 +1,11 @@
 {
+  // Color Highlight
   //
-  // Languages
+  "color-highlight.matchWords": true,
   //
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // Code Spell Checker
+  //
+  "cSpell.language": "en,pt",
   //
   // Diff Editor
   //
@@ -34,25 +14,15 @@
   // Editor
   //
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
-  "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "JetBrains Mono, Consolas",
   "editor.formatOnSave": true,
-  "editor.guides.bracketPairs": "active",
-  "editor.insertSpaces": true,
-  "editor.minimap.size": "fit",
   "editor.quickSuggestions": {
     "comments": true,
     "other": true,
     "strings": true
   },
-  "editor.renderWhitespace": "all",
-  "editor.smoothScrolling": true,
-  "editor.suggestSelection": "first",
-  "editor.tabSize": 2,
-  "editor.wordWrap": "on",
   //
   // ESLint
   //
@@ -63,16 +33,62 @@
     "typescriptreact"
   ],
   //
-  // Explorer
-  //
-  "explorer.compactFolders": false,
-  //
   // Files
   //
+  "files.autoGuessEncoding": true,
   "files.autoSave": "afterDelay",
+  "files.exclude": {
+    "**/.git": false
+  },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": false,
+  //
+  // Git
+  //
+  "git.allowNoVerifyCommit": false,
+  "git.confirmEmptyCommits": false,
+  "git.enableSmartCommit": true,
+  "git.showPushSuccessNotification": true,
+  "git.supportCancellation": true,
+  //
+  // JavaScript
+  //
+  "javascript.suggest.completeFunctionCalls": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  //
+  // Languages
+  //
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "mrmlnc.vscode-postcss-sorting"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
   //
   // PostCSS
   //
@@ -80,24 +96,55 @@
     "properties-order": "alphabetical"
   },
   //
-  // Stylelint
+  // Terminal
   //
-  "stylelint.validate": [
-    "css",
-    "postcss",
-    "sass",
-    "scss"
+  "terminal.integrated.copyOnSelection": true,
+  //
+  // TODO Highlight
+  //
+  "todohighlight.keywords": [
+    {
+      "backgroundColor": "#FF6D00",
+      "borderRadius": "4px",
+      "color": "#fff",
+      "text": "BUG:",
+    },
+    {
+      "backgroundColor": "#00C853",
+      "borderRadius": "4px",
+      "color": "#fff",
+      "text": "FEAT:",
+    },
+    {
+      "borderRadius": "4px",
+      "text": "FIXME:",
+    },
+    {
+      "backgroundColor": "#D50000",
+      "borderRadius": "4px",
+      "color": "#fff",
+      "text": "HOTFIX:",
+    },
+    {
+      "backgroundColor": "#2962FF",
+      "borderRadius": "4px",
+      "color": "#fff",
+      "text": "NOTE:",
+    },
+    {
+      "backgroundColor": "#00BFA5",
+      "borderRadius": "4px",
+      "color": "#fff",
+      "text": "REFACT:",
+    },
+    {
+      "borderRadius": "4px",
+      "text": "TODO:",
+    },
   ],
   //
   // TypeScript
   //
   "typescript.suggest.completeFunctionCalls": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  //
-  // Workbench
-  //
-  "workbench.list.smoothScrolling": true,
-  "workbench.reduceMotion": "off",
 }

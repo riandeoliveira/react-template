@@ -9,15 +9,15 @@
   <h1>🚀 My Project 🚀</h1>
 </div>
 
-## 📚 About
+## 📚 Sobre
 
 Lorem Ipsum...
 
-## 💻 How to access
+## 💻 Como acessar
 
-The application is available online and can be accessed [here](https://www.example.com/).
+A aplicação está disponível online e pode ser acessada [aqui](https://www.example.com/).
 
-## 🛠️ Stack
+## 🛠️ Tecnologias
 
 <br />
 
@@ -39,5 +39,5 @@ The application is available online and can be accessed [here](https://www.examp
 <br />
 
 <p align="center">
-  ✨ Made with 💙 by <a href="https://github.com/johndoe"><strong>John Doe</strong></a> ✨
+  ✨ Feito com 💙 por <a href="https://github.com/johndoe"><strong>John Doe</strong></a> ✨
 </p>
