@@ -1,7 +1,7 @@
 "use client";
 
-import { handleSignInUser } from "@/apis/nest-api/users/handlers";
-import { signInUserSchema } from "@/apis/nest-api/users/schema";
+import { handleSignUpUser } from "@/apis/nest-api/users/handlers";
+import { signUpUserSchema } from "@/apis/nest-api/users/schema";
 import { Button } from "@/components/atoms/button";
 import { Form } from "@/components/atoms/form";
 import { Input } from "@/components/atoms/input";
@@ -11,20 +11,20 @@ import { useFormik } from "formik";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 
-const SignInPage = observer((): ReactElement => {
+const SignUpPage = observer((): ReactElement => {
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    validationSchema: signInUserSchema,
-    onSubmit: handleSignInUser,
+    validationSchema: signUpUserSchema,
+    onSubmit: handleSignUpUser,
   });
 
   return (
     <div className="h-screen flex items-center justify-center">
       <Paper className="p-8 !rounded-xl m-4 w-96">
-        <h1 className="text-center mb-6 text-3xl font-bold">Entre na sua Conta</h1>
+        <h1 className="text-center mb-6 text-3xl font-bold">Crie sua Conta</h1>
         <Form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <Input
             type="email"
@@ -44,7 +44,7 @@ const SignInPage = observer((): ReactElement => {
             Entrar
           </Button>
           <span className="text-center">
-            Não tem uma conta? <Link href="/sign-up">Cadastre-se</Link>
+            Já tem uma conta? <Link href="/sign-in">Entre</Link>
           </span>
         </Form>
       </Paper>
@@ -52,4 +52,4 @@ const SignInPage = observer((): ReactElement => {
   );
 });
 
-export default SignInPage;
+export default SignUpPage;

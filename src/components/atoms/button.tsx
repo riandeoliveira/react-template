@@ -7,7 +7,7 @@ type ButtonProps = MuiButtonProps;
 
 export const Button = ({ children, className, ...props }: ButtonProps): ReactElement => {
   return (
-    <MuiButton variant="contained" className={cn("", className)} {...props}>
+    <MuiButton variant="contained" className={cn("normal-case", className)} {...props}>
       {children}
     </MuiButton>
   );

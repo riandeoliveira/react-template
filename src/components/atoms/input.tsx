@@ -5,19 +5,24 @@ import type { FormikProps } from "formik";
 import type { ReactElement } from "react";
 
 export type InputProps = TextFieldProps & {
-  instance?: FormikProps<any>;
+  formInstance?: FormikProps<any>;
 };
 
-export const Input = ({ className, name = "", instance, ...props }: InputProps): ReactElement => {
-  const isInputTouched = instance?.touched[name];
-  const inputErrors = instance?.errors[name];
+export const Input = ({
+  className,
+  name = "",
+  formInstance,
+  ...props
+}: InputProps): ReactElement => {
+  const isInputTouched = formInstance?.touched[name];
+  const inputErrors = formInstance?.errors[name];
 
   return (
     <TextField
       type="text"
       name={name}
-      value={instance?.values[name]}
-      onChange={instance?.handleChange}
+      value={formInstance?.values[name] ?? undefined}
+      onChange={formInstance?.handleChange}
       error={isInputTouched && !!inputErrors}
       helperText={(isInputTouched && inputErrors)?.toString()}
       FormHelperTextProps={{ className: "!ml-0" }}
