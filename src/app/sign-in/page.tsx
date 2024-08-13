@@ -6,7 +6,7 @@ import { Button } from "@/components/atoms/button";
 import { Form } from "@/components/atoms/form";
 import { Input } from "@/components/atoms/input";
 import { Link } from "@/components/atoms/link";
-import { Paper } from "@/components/atoms/paper";
+import { Container } from "@/components/container";
 import { useFormik } from "formik";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
@@ -23,7 +23,7 @@ const SignInPage = observer((): ReactElement => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <Paper className="p-8 !rounded-xl m-4 w-96">
+      <Container className="p-8 !rounded-xl m-4 w-96">
         <h1 className="text-center mb-6 text-3xl font-bold">Entre na sua Conta</h1>
         <Form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <Input
@@ -47,7 +47,7 @@ const SignInPage = observer((): ReactElement => {
             Não tem uma conta? <Link href="/sign-up">Cadastre-se</Link>
           </span>
         </Form>
-      </Paper>
+      </Container>
     </div>
   );
 });

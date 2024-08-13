@@ -1,1 +1,1 @@
-export * as Icon from "@mui/icons-material";
+export * as Icon from "lucide-react";

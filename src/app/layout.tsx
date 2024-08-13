@@ -1,9 +1,8 @@
 // TODO: update metadata
 
 import { LoadingArea } from "@/components/common/loading-area";
+import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
-import { theme } from "@/styles/theme";
-import { ThemeProvider } from "@mui/material";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -32,7 +31,7 @@ const RootLayout = ({ children }: RootLayoutProps): ReactElement => {
     <html lang="pt-BR">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider attribute="class">
             {children}
             <ToastContainer />
             <LoadingArea />

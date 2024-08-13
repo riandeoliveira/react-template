@@ -2,11 +2,13 @@
 
 import { handleSignUpUser } from "@/apis/nest-api/users/handlers";
 import { signUpUserSchema } from "@/apis/nest-api/users/schema";
-import { Button } from "@/components/atoms/button";
 import { Form } from "@/components/atoms/form";
-import { Input } from "@/components/atoms/input";
 import { Link } from "@/components/atoms/link";
-import { Paper } from "@/components/atoms/paper";
+import { Container } from "@/components/container";
+import { ThemeSelect } from "@/components/theme-select";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
 import { useFormik } from "formik";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
@@ -23,23 +25,11 @@ const SignUpPage = observer((): ReactElement => {
 
   return (
     <div className="h-screen flex items-center justify-center">
-      <Paper className="p-8 !rounded-xl m-4 w-96">
+      <Container className="p-8 !rounded-xl m-4 w-96">
         <h1 className="text-center mb-6 text-3xl font-bold">Crie sua Conta</h1>
         <Form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
-          <Input
-            type="email"
-            name="email"
-            label="E-mail"
-            placeholder="Digite seu e-mail"
-            formInstance={formik}
-          />
-          <Input
-            type="password"
-            name="password"
-            label="Senha"
-            placeholder="Digite sua senha"
-            formInstance={formik}
-          />
+          <Input type="email" name="email" placeholder="Digite seu e-mail" />
+          <Input type="password" name="password" placeholder="Digite sua senha" />
           <Button type="submit" className="!mt-4">
             Entrar
           </Button>
@@ -47,7 +37,8 @@ const SignUpPage = observer((): ReactElement => {
             Já tem uma conta? <Link href="/sign-in">Entre</Link>
           </span>
         </Form>
-      </Paper>
+      </Container>
+      <ThemeSelect />
     </div>
   );
 });

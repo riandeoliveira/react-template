@@ -1,11 +1,14 @@
-import type { ReactElement } from "react";
+import type { AnchorHTMLAttributes, ReactElement } from "react";
 
 import { cn } from "@/utilities/cn";
-import type { LinkProps as MuiLinkProps } from "@mui/material";
-import { Link as MuiLink } from "@mui/material";
+import NextLink, { type LinkProps as NextLinkProps } from "next/link";
 
-type LinkProps = MuiLinkProps;
+type LinkProps = NextLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const Link = ({ className, ...props }: LinkProps): ReactElement => {
-  return <MuiLink className={cn("!no-underline hover:!underline", className)} {...props} />;
+export const Link = ({ children, className, ...props }: LinkProps): ReactElement => {
+  return (
+    <NextLink className={cn("text-blue-500 hover:underline", className)} {...props}>
+      {children}
+    </NextLink>
+  );
 };
