@@ -1,4 +1,5 @@
 import { loadingStore } from "@/stores/loading-store";
+import { toastStore } from "@/stores/toast-store";
 import { toast } from "react-toastify";
 import { nestApi } from "..";
 import type { SignInUserRequest, SignUpUserRequest } from "./requests";
@@ -20,7 +21,7 @@ export const handleSignUpUser = async (request: SignUpUserRequest): Promise<void
 
   loadingStore.stop();
 
-  if (error) toast.error(error.title);
+  if (error) toastStore.error("SIGN_UP_USER_ERROR", error.title);
 };
 
 export const handleVerifyUser = async () => {

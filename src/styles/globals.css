@@ -28,6 +28,10 @@
     --ring: hsl(240, 10%, 3.9%);
     --secondary-foreground: hsl(240, 5.9%, 10%);
     --secondary: hsl(240, 4.8%, 95.9%);
+    --success-foreground: hsl(0, 0%, 98%);
+    --success: hsl(142, 71%, 45%);
+    --warning-foreground: hsl(0, 0%, 98%);
+    --warning: hsl(45, 93%, 47%);
 
     --radius: 0.5rem;
   }
@@ -57,6 +61,10 @@
     --ring: hsl(240, 4.9%, 83.9%);
     --secondary-foreground: hsl(0, 0%, 98%);
     --secondary: hsl(240, 3.7%, 15.9%);
+    --success-foreground: hsl(0, 0%, 98%);
+    --success: hsl(142, 72%, 29%);
+    --warning-foreground: hsl(0, 0%, 98%);
+    --warning: hsl(41, 96%, 40%);
   }
 }
 

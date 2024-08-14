@@ -7,4 +7,8 @@ export enum ResponseMessages {
   PASSWORD_IS_STRONG = "A 'senha' deve ter pelo menos: uma letra minúscula, uma letra maiúscula, um número e um símbolo.",
 
   REQUIRED_FIELD = "Campo obrigatório.",
+
+  SIGN_UP_USER_ERROR = "Erro ao se cadastrar.",
 }
+
+export type ResponseMessagesKey = keyof typeof ResponseMessages;

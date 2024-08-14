@@ -9,10 +9,9 @@ import { Link } from "@/components/link";
 import { ThemeSelect } from "@/components/theme-select";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
-import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 
-const SignUpPage = observer((): ReactElement => {
+const SignUpPage = (): ReactElement => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -50,6 +49,6 @@ const SignUpPage = observer((): ReactElement => {
       <ThemeSelect />
     </div>
   );
-});
+};
 
 export default SignUpPage;

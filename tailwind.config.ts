@@ -67,6 +67,14 @@ const config = {
           DEFAULT: "var(--secondary)",
           foreground: "var(--secondary-foreground)",
         },
+        success: {
+          DEFAULT: "var(--success)",
+          foreground: "var(--success-foreground)",
+        },
+        warning: {
+          DEFAULT: "var(--warning)",
+          foreground: "var(--warning-foreground)",
+        },
       },
       keyframes: {
         "accordion-down": {
