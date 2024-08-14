@@ -51,7 +51,7 @@ export const UserNav = (): ReactElement => {
         <DropdownMenu.Separator />
         <DropdownMenu.Item className="hover:cursor-pointer" onClick={() => {}}>
           <Icon.LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          Sign out
+          Sair
         </DropdownMenu.Item>
       </DropdownMenu.Content>
     </DropdownMenu.Root>
