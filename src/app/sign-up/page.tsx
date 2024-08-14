@@ -42,7 +42,10 @@ const SignUpPage = (): ReactElement => {
             Cadastrar-se
           </Button>
           <span className="text-center">
-            Já tem uma conta? <Link href="/sign-in">Entre</Link>
+            Já tem uma conta?{" "}
+            <Link href="/sign-in" className="text-blue-500 hover:underline">
+              Entre
+            </Link>
           </span>
         </Form>
       </Container>

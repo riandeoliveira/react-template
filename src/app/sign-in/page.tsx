@@ -42,7 +42,10 @@ const SignInPage = observer((): ReactElement => {
             Entrar
           </Button>
           <span className="text-center">
-            Não tem uma conta? <Link href="/sign-up">Cadastre-se</Link>
+            Não tem uma conta?{" "}
+            <Link href="/sign-up" className="text-blue-500 hover:underline">
+              Cadastre-se
+            </Link>
           </span>
         </Form>
       </Container>

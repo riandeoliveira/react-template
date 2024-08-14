@@ -6,7 +6,7 @@ type LinkProps = NextLinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const Link = ({ children, className, ...props }: LinkProps): ReactElement => {
   return (
-    <NextLink className={cn("text-blue-500 hover:underline", className)} {...props}>
+    <NextLink className={cn("", className)} {...props}>
       {children}
     </NextLink>
   );

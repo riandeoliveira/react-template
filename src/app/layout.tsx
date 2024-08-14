@@ -1,8 +1,6 @@
 // TODO: update metadata
 
-import { LoadingArea } from "@/components/loading-area";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/toaster";
+import { AppProviders } from "@/components/providers/app-providers";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,24 +14,20 @@ type RootLayoutProps = {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  title: "NextJS Template",
+  description: "Lorem Ipsum...",
+  keywords: ["javascript", "markdown", "nextjs", "nodejs", "react", "tailwindcss", "typescript"],
   authors: {
     name: "John Doe",
     url: "https://www.example.com/",
   },
-  description: "Lorem Ipsum...",
-  keywords: ["javascript", "markdown", "nextjs", "nodejs", "react", "tailwindcss", "typescript"],
-  title: "My Project",
 };
 
 const RootLayout = ({ children }: RootLayoutProps): ReactElement => {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class">
-          {children}
-          <Toaster />
-          <LoadingArea />
-        </ThemeProvider>
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   );

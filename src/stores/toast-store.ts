@@ -24,7 +24,7 @@ const TOAST_REMOVE_DELAY = 1000000;
 
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
 
-export class ToastStore {
+class ToastStore {
   public toasts: ToasterToast[] = [];
 
   public constructor() {

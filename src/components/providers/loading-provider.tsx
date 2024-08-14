@@ -5,7 +5,7 @@ import { loadingStore } from "@/stores/loading-store";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 
-export const LoadingArea = observer((): ReactElement => {
+export const LoadingProvider = observer((): ReactElement => {
   return (
     <>
       {loadingStore.isLoading && (

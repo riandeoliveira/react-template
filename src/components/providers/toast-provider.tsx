@@ -3,9 +3,9 @@
 import { toastStore } from "@/stores/toast-store";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
-import { Toast } from "./toast";
+import { Toast } from "../ui/toast";
 
-export const Toaster = observer((): ReactElement => {
+export const ToastProvider = observer((): ReactElement => {
   return (
     <Toast.Provider>
       {toastStore.toasts.map(({ id, title, description, action, ...props }) => {
