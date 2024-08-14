@@ -1,13 +1,11 @@
 // TODO: update metadata
 
-import { LoadingArea } from "@/components/common/loading-area";
+import { LoadingArea } from "@/components/loading-area";
 import { ThemeProvider } from "@/components/theme-provider";
 import "@/styles/globals.css";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import type { ReactElement, ReactNode } from "react";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 type RootLayoutProps = {
@@ -28,15 +26,12 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: RootLayoutProps): ReactElement => {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className}>
-        <AppRouterCacheProvider>
-          <ThemeProvider attribute="class">
-            {children}
-            <ToastContainer />
-            <LoadingArea />
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <ThemeProvider attribute="class">
+          {children}
+          <LoadingArea />
+        </ThemeProvider>
       </body>
     </html>
   );

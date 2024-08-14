@@ -1,37 +1,40 @@
 "use client";
 
 import { Icon } from "@/assets/icons";
-import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { useTheme } from "next-themes";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
+import { Select } from "./ui/select";
 
 type Theme = "dark" | "light" | "system";
 
 export const ThemeSelect = (): ReactElement => {
-  const { setTheme, theme } = useTheme();
-  const [clientTheme, setClientTheme] = useState<Theme>("system");
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (theme) setClientTheme(theme as Theme);
-  }, [theme]);
+  const { setTheme, theme } = useTheme();
 
   const handleThemeChange = (theme: Theme): void => {
     setTheme(theme);
   };
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return <></>;
+
   return (
-    <Select defaultValue={clientTheme} onValueChange={handleThemeChange}>
-      <SelectTrigger className="w-fit">
-        {clientTheme === "dark" && <Icon.MoonStar />}
-        {clientTheme === "light" && <Icon.SunDim />}
-        {clientTheme === "system" && <Icon.LaptopMinimal />}
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value="light">Claro</SelectItem>
-        <SelectItem value="dark">Escuro</SelectItem>
-        <SelectItem value="system">Sistema</SelectItem>
-      </SelectContent>
-    </Select>
+    <Select.Root defaultValue={theme} onValueChange={handleThemeChange}>
+      <Select.Trigger disableDropdownIcon className="w-fit h-fit p-1">
+        {theme === "dark" && <Icon.MoonStar />}
+        {theme === "light" && <Icon.SunDim />}
+        {theme === "system" && <Icon.LaptopMinimal />}
+      </Select.Trigger>
+      <Select.Content>
+        <Select.Item value="light">Claro</Select.Item>
+        <Select.Item value="dark">Escuro</Select.Item>
+        <Select.Item value="system">Sistema</Select.Item>
+      </Select.Content>
+    </Select.Root>
   );
 };

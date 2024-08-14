@@ -33,10 +33,6 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      boxShadow: {
-        container:
-          "0px 3px 5px -1px var(--shadow),0px 6px 10px 0px var(--shadow),0px 1px 18px 0px var(--shadow)",
-      },
       colors: {
         accent: {
           DEFAULT: "var(--accent)",
