@@ -42,9 +42,9 @@ const SignInPage = (): ReactElement => {
           </Button>
           <span className="text-center">
             Não tem uma conta?{" "}
-            <Link href="/sign-up" className="text-blue-500 hover:underline">
+            <Link.Internal href="/sign-up" className="text-blue-500 hover:underline">
               Cadastre-se
-            </Link>
+            </Link.Internal>
           </span>
         </Form>
       </Container>

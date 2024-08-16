@@ -1,15 +1,16 @@
 import { Icon } from "@/assets/icons";
+import type { Path } from "@/router";
 import type { LucideIcon } from "lucide-react";
 
 type Submenu = {
-  href: string;
+  href: Path;
   label: string;
   active: boolean;
   icon: LucideIcon;
 };
 
 type Menu = {
-  href: string;
+  href: Path;
   label: string;
   active: boolean;
   icon: LucideIcon;
@@ -39,7 +40,7 @@ export const getMenuList = (pathname: string): Group[] => {
       groupLabel: "Administrador",
       menus: [
         {
-          href: "",
+          href: "/",
           label: "Usuários",
           active: false,
           icon: Icon.Users,
@@ -64,7 +65,7 @@ export const getMenuList = (pathname: string): Group[] => {
       groupLabel: "Configurações",
       menus: [
         {
-          href: "/account",
+          href: "/",
           label: "Conta",
           active: pathname.includes("/account"),
           icon: Icon.Settings,

@@ -1,7 +1,7 @@
-import { SheetMenu } from "@/components/admin-panel/sheet-menu";
-import { UserNav } from "@/components/admin-panel/user-nav";
+import { ThemeSelect } from "@/components/theme-select";
+import { SheetMenu } from "@/layouts/navigation-panel/sheet-menu";
+import { UserNav } from "@/layouts/navigation-panel/user-nav";
 import type { ReactElement } from "react";
-import { ThemeSelect } from "../theme-select";
 
 interface NavbarProps {
   title: string;

@@ -1,17 +1,15 @@
-"use client";
-
-import { Footer } from "@/components/admin-panel/footer";
-import { Sidebar } from "@/components/admin-panel/sidebar";
+import { Footer } from "@/layouts/navigation-panel/footer";
+import { Sidebar } from "@/layouts/navigation-panel/sidebar";
 import { sidebarStore } from "@/stores/sidebar-store";
+import type { ParentComponentProps } from "@/types/components";
 import { cn } from "@/utilities/cn";
 import { observer } from "mobx-react-lite";
-import type { ReactElement, ReactNode } from "react";
+import type { ReactElement } from "react";
+import { Navbar } from "./navbar";
 
-type AdminPanelLayoutProps = {
-  children: ReactNode;
-};
+type NavigationPanelProps = ParentComponentProps;
 
-export const AdminPanelLayout = observer(({ children }: AdminPanelLayoutProps): ReactElement => {
+export const NavigationPanel = observer(({ children }: NavigationPanelProps): ReactElement => {
   return (
     <>
       <Sidebar />
@@ -21,7 +19,10 @@ export const AdminPanelLayout = observer(({ children }: AdminPanelLayoutProps): 
           !sidebarStore.isOpen ? "lg:ml-[90px]" : "lg:ml-72",
         )}
       >
-        {children}
+        <div>
+          <Navbar title="Título X" />
+          <main className="container pt-8 pb-8 px-4 sm:px-8">{children}</main>
+        </div>
       </main>
       <footer
         className={cn(

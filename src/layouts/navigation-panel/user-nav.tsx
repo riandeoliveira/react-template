@@ -1,12 +1,10 @@
-"use client";
-
 import { Icon } from "@/assets/icons";
+import { Link } from "@/components/link";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import { Tooltip } from "@/components/ui/tooltip";
 import type { ReactElement } from "react";
-import { Link } from "../link";
-import { DropdownMenu } from "../ui/dropdown-menu";
-import { Tooltip } from "../ui/tooltip";
 
 export const UserNav = (): ReactElement => {
   return (
@@ -36,16 +34,16 @@ export const UserNav = (): ReactElement => {
         <DropdownMenu.Separator />
         <DropdownMenu.Group>
           <DropdownMenu.Item className="hover:cursor-pointer" asChild>
-            <Link href="/dashboard" className="flex items-center">
+            <Link.External href="/dashboard" className="flex items-center">
               <Icon.LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" />
               Dashboard
-            </Link>
+            </Link.External>
           </DropdownMenu.Item>
           <DropdownMenu.Item className="hover:cursor-pointer" asChild>
-            <Link href="/account" className="flex items-center">
+            <Link.External href="/account" className="flex items-center">
               <Icon.User className="w-4 h-4 mr-3 text-muted-foreground" />
               Account
-            </Link>
+            </Link.External>
           </DropdownMenu.Item>
         </DropdownMenu.Group>
         <DropdownMenu.Separator />

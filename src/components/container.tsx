@@ -1,8 +1,7 @@
 import { cn } from "@/utilities/cn";
-import type { PaperProps } from "@mui/material";
-import type { ReactElement } from "react";
+import type { HTMLAttributes, ReactElement } from "react";
 
-type ContainerProps = PaperProps;
+type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
 export const Container = ({ children, className, ...props }: ContainerProps): ReactElement => {
   return (

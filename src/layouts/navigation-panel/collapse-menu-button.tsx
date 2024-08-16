@@ -1,19 +1,18 @@
-"use client";
-
 import { Icon } from "@/assets/icons";
+import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
+import { Collapsible } from "@/components/ui/collapsible";
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
+import { Tooltip } from "@/components/ui/tooltip";
+import type { Path } from "@/router";
 import { cn } from "@/utilities/cn";
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";
 import type { LucideIcon } from "lucide-react";
 import type { ReactElement } from "react";
 import { useState } from "react";
-import { Link } from "../link";
-import { Collapsible } from "../ui/collapsible";
-import { DropdownMenu } from "../ui/dropdown-menu";
-import { Tooltip } from "../ui/tooltip";
 
 type Submenu = {
-  href: string;
+  href: Path;
   label: string;
   active: boolean;
   icon: LucideIcon;
@@ -74,7 +73,7 @@ export const CollapseMenuButton = ({
             className="w-full justify-start h-10 mb-1"
             asChild
           >
-            <Link href={href}>
+            <Link.Internal href={href}>
               <span className="mr-4 ml-2">
                 <SubMenuIcon size={18} />
               </span>
@@ -86,7 +85,7 @@ export const CollapseMenuButton = ({
               >
                 {label}
               </p>
-            </Link>
+            </Link.Internal>
           </Button>
         ))}
       </Collapsible.Content>
@@ -129,9 +128,9 @@ export const CollapseMenuButton = ({
         <DropdownMenu.Separator />
         {submenus.map(({ href, label }, index) => (
           <DropdownMenu.Item key={index} asChild>
-            <Link className="cursor-pointer" href={href}>
+            <Link.Internal className="cursor-pointer" href={href}>
               <p className="max-w-[180px] truncate">{label}</p>
-            </Link>
+            </Link.Internal>
           </DropdownMenu.Item>
         ))}
         <DropdownMenuArrow className="fill-border" />

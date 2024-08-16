@@ -1,14 +1,35 @@
+import type { Path } from "@/router";
+import { Link as RouterLink } from "@/router";
+import type { ParentComponentProps } from "@/types/components";
 import { cn } from "@/utilities/cn";
 import type { AnchorHTMLAttributes, ReactElement } from "react";
 
-type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+type InternalProps = ParentComponentProps & {
+  href: Path;
+  className?: string;
+};
 
-export const Link = ({ children, className, ...props }: LinkProps): ReactElement => {
+const Internal = ({ href, className, children }: InternalProps): ReactElement => {
   return (
     <>
-      <a href="#" className={cn("", className)} {...props}>
+      <RouterLink to={href} className={cn(className)}>
         {children}
-      </a>
+      </RouterLink>
     </>
   );
+};
+
+type ExternalProps = AnchorHTMLAttributes<HTMLAnchorElement>;
+
+const External = ({ className, children, ...props }: ExternalProps): ReactElement => {
+  return (
+    <a className={cn(className)} {...props}>
+      {children}
+    </a>
+  );
+};
+
+export const Link = {
+  Internal,
+  External,
 };

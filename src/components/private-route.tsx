@@ -1,9 +1,8 @@
-import { redirect } from "next/navigation";
-import { type ReactElement, type ReactNode } from "react";
+import { redirect } from "@/router";
+import type { ParentComponentProps } from "@/types/components";
+import { type ReactElement } from "react";
 
-type PrivateRouteProps = {
-  children: ReactNode;
-};
+type PrivateRouteProps = ParentComponentProps;
 
 export const PrivateRoute = ({ children }: PrivateRouteProps): ReactElement => {
   // NOTE: Se não estiver autenticado deve redirecionar para sign-in

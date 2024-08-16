@@ -1,22 +1,20 @@
-"use client";
-
 import { Icon } from "@/assets/icons";
-import { CollapseMenuButton } from "@/components/admin-panel/collapse-menu-button";
+import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tooltip } from "@/components/ui/tooltip";
+import { CollapseMenuButton } from "@/layouts/navigation-panel/collapse-menu-button";
 import { cn } from "@/utilities/cn";
 import { getMenuList } from "@/utilities/menu-list";
-import { usePathname } from "next/navigation";
 import type { ReactElement } from "react";
-import { Link } from "../link";
-import { Tooltip } from "../ui/tooltip";
+import { useLocation } from "react-router-dom";
 
 interface MenuProps {
   isOpen: boolean | undefined;
 }
 
 export const Menu = ({ isOpen }: MenuProps): ReactElement => {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
   const menuList = getMenuList(pathname);
 
   return (
@@ -56,7 +54,7 @@ export const Menu = ({ isOpen }: MenuProps): ReactElement => {
                             className="w-full justify-start h-10 mb-1"
                             asChild
                           >
-                            <Link href={href}>
+                            <Link.Internal href={href}>
                               <span className={cn(isOpen === false ? "" : "mr-4")}>
                                 <Icon size={18} />
                               </span>
@@ -70,7 +68,7 @@ export const Menu = ({ isOpen }: MenuProps): ReactElement => {
                               >
                                 {label}
                               </p>
-                            </Link>
+                            </Link.Internal>
                           </Button>
                         </Tooltip.Trigger>
                         {isOpen === false && (

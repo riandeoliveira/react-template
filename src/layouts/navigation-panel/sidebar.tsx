@@ -1,12 +1,12 @@
-import { Menu } from "@/components/admin-panel/menu";
-import { SidebarToggle } from "@/components/admin-panel/sidebar-toggle";
+import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
+import { Menu } from "@/layouts/navigation-panel/menu";
+import { SidebarToggle } from "@/layouts/navigation-panel/sidebar-toggle";
 import { sidebarStore } from "@/stores/sidebar-store";
 import { cn } from "@/utilities/cn";
 import { PanelsTopLeft } from "lucide-react";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
-import { Link } from "../link";
 
 export const Sidebar = observer((): ReactElement => {
   return (
@@ -17,7 +17,7 @@ export const Sidebar = observer((): ReactElement => {
       )}
     >
       <SidebarToggle />
-      <div className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800">
+      <div className="relative h-full flex flex-col px-3 py-4 overflow-y-auto shadow-md dark:shadow-zinc-800 overflow-x-hidden">
         <Button
           className={cn(
             "transition-transform ease-in-out duration-300 mb-1",
@@ -26,7 +26,7 @@ export const Sidebar = observer((): ReactElement => {
           variant="link"
           asChild
         >
-          <Link href="/" className="flex items-center gap-2">
+          <Link.Internal href="/" className="flex items-center gap-2">
             <PanelsTopLeft className="w-6 h-6 mr-1" />
             <h1
               className={cn(
@@ -36,9 +36,9 @@ export const Sidebar = observer((): ReactElement => {
                   : "translate-x-0 opacity-100",
               )}
             >
-              NextJS Template
+              React Template
             </h1>
-          </Link>
+          </Link.Internal>
         </Button>
         <Menu isOpen={sidebarStore.isOpen} />
       </div>

@@ -13,7 +13,7 @@
     "node_modules",
     "scripts"
   ],
-  "noInlineConfig": true,
+  "noInlineConfig": false,
   "rules": {
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/explicit-function-return-type": "warn",
