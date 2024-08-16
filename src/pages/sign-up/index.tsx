@@ -1,12 +1,9 @@
-"use client";
-
 import { handleSignUpUser } from "@/apis/nest-api/users/handlers";
 import { signUpUserSchema } from "@/apis/nest-api/users/schema";
 import { Container } from "@/components/container";
 import { Form } from "@/components/form";
 import { FormInput } from "@/components/form-input";
 import { Link } from "@/components/link";
-import { ThemeSelect } from "@/components/theme-select";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
 import type { ReactElement } from "react";
@@ -49,7 +46,6 @@ const SignUpPage = (): ReactElement => {
           </span>
         </Form>
       </Container>
-      <ThemeSelect />
     </div>
   );
 };

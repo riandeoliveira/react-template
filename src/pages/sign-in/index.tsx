@@ -1,5 +1,3 @@
-"use client";
-
 import { handleSignInUser } from "@/apis/nest-api/users/handlers";
 import { signInUserSchema } from "@/apis/nest-api/users/schema";
 import { Container } from "@/components/container";
@@ -8,10 +6,9 @@ import { FormInput } from "@/components/form-input";
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { useFormik } from "formik";
-import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 
-const SignInPage = observer((): ReactElement => {
+const SignInPage = (): ReactElement => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -51,6 +48,6 @@ const SignInPage = observer((): ReactElement => {
       </Container>
     </div>
   );
-});
+};
 
 export default SignInPage;

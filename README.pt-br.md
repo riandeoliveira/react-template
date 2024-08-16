@@ -6,12 +6,12 @@
 [![pt](https://img.shields.io/badge/lang-pt_br-blue.svg)](https://github.com/johndoe/my-project/blob/main/README.pt-br.md)
 
 <div align="center">
-  <h1>🚀 My Project 🚀</h1>
+  <h1>🚀 React Template 🚀</h1>
 </div>
 
 ## 📚 Sobre
 
-Lorem Ipsum...
+My React Template.
 
 ## 💻 Como acessar
 
@@ -23,17 +23,16 @@ A aplicação está disponível online e pode ser acessada [aqui](https://www.ex
 
 <div align="center">
   <img src="https://skillicons.dev/icons?i=css" width="48" title="CSS" /> &nbsp;&nbsp;
+  <img src="https://skillicons.dev/icons?i=cypress" width="48" title="Cypress" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=git" width="48" title="Git" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=github" width="48" title="GitHub" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=githubactions" width="48" title="GitHub Actions" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=html" width="48" title="HTML" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=javascript" width="48" title="JavaScript" /> &nbsp;&nbsp;
-  <img src="https://skillicons.dev/icons?i=jest" width="48" title="Jest" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=markdown" width="48" title="Markdown" /> &nbsp;&nbsp;
-  <br />
-  <br />
-  <img src="https://skillicons.dev/icons?i=nextjs" width="48" title="Next.js" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=nodejs" width="48" title="Node.js" /> &nbsp;&nbsp;
+  <br />
+  <br />
   <img src="https://skillicons.dev/icons?i=pnpm" width="48" title="PNPM" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=react" width="48" title="React" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=regex" width="48" title="Regex" /> &nbsp;&nbsp;
@@ -41,6 +40,8 @@ A aplicação está disponível online e pode ser acessada [aqui](https://www.ex
   <img src="https://skillicons.dev/icons?i=tailwind" width="48" title="Tailwind CSS" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=typescript" width="48" title="TypeScript" /> &nbsp;&nbsp;
   <img src="https://skillicons.dev/icons?i=vercel" width="48" title="Vercel" /> &nbsp;&nbsp;
+  <img src="https://skillicons.dev/icons?i=vite" width="48" title="Vite" /> &nbsp;&nbsp;
+  <img src="https://skillicons.dev/icons?i=vitest" width="48" title="Vitest" /> &nbsp;&nbsp;
 </div>
 
 <br />

@@ -1,8 +1,10 @@
 {
   "extends": [
     "eslint:recommended",
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:cypress/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
   ],
   "ignorePatterns": [
     "build",
@@ -66,6 +68,7 @@
     "react/hook-use-state": "error",
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-closing-tag-location": "error",
+    "react/react-in-jsx-scope": "off",
     "semi": [
       "error",
       "always"

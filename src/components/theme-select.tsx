@@ -1,28 +1,16 @@
-"use client";
-
 import { Icon } from "@/assets/icons";
-import { useTheme } from "next-themes";
+import type { Theme } from "@/hooks/use-theme";
+import { useTheme } from "@/hooks/use-theme";
 import type { ReactElement } from "react";
-import { useEffect, useState } from "react";
 import { Select } from "./ui/select";
 import { Tooltip } from "./ui/tooltip";
 
-type Theme = "dark" | "light" | "system";
-
 export const ThemeSelect = (): ReactElement => {
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-
   const { setTheme, theme } = useTheme();
 
   const handleThemeChange = (theme: Theme): void => {
     setTheme(theme);
   };
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return <></>;
 
   return (
     <Select.Root defaultValue={theme} onValueChange={handleThemeChange}>

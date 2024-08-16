@@ -1,5 +1,3 @@
-namespace NodeJS {
-  interface ProcessEnv {
-    NEXT_PUBLIC_API_URL: string;
-  }
+interface ImportMetaEnv {
+  readonly VITE_NEST_API_URL: string;
 }

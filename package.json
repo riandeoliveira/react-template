@@ -1,27 +1,26 @@
 {
-  "name": "my-project",
-  "description": "Lorem Ipsum...",
+  "name": "react-template",
+  "description": "My React Template.",
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
+  "main": "./src/main.tsx",
   "author": {
     "name": "John Doe",
     "email": "johndoe2000@mail.com"
   },
   "scripts": {
-    "build": "next build",
-    "dev": "next dev --turbo",
-    "format": "prettier --write ./src/**/*.{ts,tsx}",
-    "lint": "next lint",
-    "start": "next start"
+    "build": "tsc && vite build",
+    "coverage": "vitest run --coverage",
+    "dev": "vite --open",
+    "format": "prettier --write ./src/**/*.{ts,tsx} vite.config.ts",
+    "lint": "eslint --fix ./src/**/*.{ts,tsx} vite.config.ts",
+    "start": "vite preview --open",
+    "test:e2e": "cypress open",
+    "test:unit": "vitest --run"
   },
   "dependencies": {
-    "@emotion/cache": "^11.13.1",
-    "@emotion/react": "^11.13.0",
-    "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.16.7",
-    "@mui/material-nextjs": "^5.16.6",
+    "@generouted/react-router": "^1.19.6",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-collapsible": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -39,14 +38,13 @@
     "lucide-react": "^0.427.0",
     "mobx": "^6.13.1",
     "mobx-react-lite": "^4.0.7",
-    "next": "14.2.4",
-    "next-themes": "^0.3.0",
     "react": "^18.3.1",
-    "react-cookie": "^7.2.0",
     "react-dom": "^18.3.1",
-    "react-toastify": "^10.0.5",
+    "react-router-dom": "^6.26.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "use-local-storage": "^3.0.0",
+    "vite-plugin-svgr": "^4.2.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -55,15 +53,33 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@vitest/coverage-v8": "^2.0.5",
+    "autoprefixer": "^10.4.20",
+    "cypress": "^13.13.3",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.4",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
     "postcss": "^8.4.41",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.9",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vite": "^5.4.1",
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.0.5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/johndoe/my-project.git"
-  }
+  },
+  "keywords": [
+    "javascript",
+    "markdown",
+    "mobx",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "vite"
+  ]
 }
