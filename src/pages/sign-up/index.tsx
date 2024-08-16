@@ -1,14 +1,16 @@
-import { handleSignUpUser } from "@/apis/nest-api/users/handlers";
-import { signUpUserSchema } from "@/apis/nest-api/users/schema";
+import { signUpUserSchema } from "@/apis/nest-api/users/schemas";
 import { Container } from "@/components/container";
 import { Form } from "@/components/form";
 import { FormInput } from "@/components/form-input";
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
+import { useUsersService } from "@/hooks/use-users-service";
 import { useFormik } from "formik";
 import type { ReactElement } from "react";
 
 const SignUpPage = (): ReactElement => {
+  const { handleSignUpUser } = useUsersService();
+
   const formik = useFormik({
     initialValues: {
       email: "",

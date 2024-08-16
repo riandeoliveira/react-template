@@ -4,7 +4,7 @@ import useLocalStorage from "use-local-storage";
 
 export type Theme = "dark" | "light" | "system";
 
-type UseThemeProps = {
+type UseTheme = {
   theme: Theme;
   setTheme: Dispatch<SetStateAction<Theme | undefined>>;
 };
@@ -14,7 +14,7 @@ const matchMedia: MediaQueryList = window.matchMedia("(prefers-color-scheme: dar
 const switchToDarkMode = (): void => document.body.classList.add("dark");
 const switchToLightMode = (): void => document.body.classList.remove("dark");
 
-export const useTheme = (): UseThemeProps => {
+export const useTheme = (): UseTheme => {
   const [theme, setTheme] = useLocalStorage<Theme>("theme", "light");
 
   useEffect(() => {

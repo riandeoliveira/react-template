@@ -1,5 +1,3 @@
-"use client";
-
 import { Icon } from "@/assets/icons";
 import { loadingStore } from "@/stores/loading-store";
 import { observer } from "mobx-react-lite";

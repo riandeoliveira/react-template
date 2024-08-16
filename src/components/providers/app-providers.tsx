@@ -1,6 +1,6 @@
 import { ToastProvider } from "@radix-ui/react-toast";
 import type { ReactElement, ReactNode } from "react";
-import { LoadingProvider } from "./loading-provider";
+import { LoadingProvider } from "../../providers/loading-provider";
 import { ThemeProvider } from "./theme-provider";
 
 type AppProvidersProps = {

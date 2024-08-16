@@ -1,14 +1,13 @@
-"use client";
-
-import { toastStore } from "@/stores/toast-store";
-import { observer } from "mobx-react-lite";
+import { useToast } from "@/hooks/use-toast";
 import type { ReactElement } from "react";
-import { Toast } from "../ui/toast";
+import { Toast } from "../components/ui/toast";
 
-export const ToastProvider = observer((): ReactElement => {
+export const ToastProvider = (): ReactElement => {
+  const { toasts } = useToast();
+
   return (
     <Toast.Provider>
-      {toastStore.toasts.map(({ id, title, description, action, ...props }) => {
+      {toasts.map(({ id, title, description, action, ...props }) => {
         return (
           <Toast.Root key={id} {...props}>
             <div className="grid gap-1">
@@ -23,4 +22,4 @@ export const ToastProvider = observer((): ReactElement => {
       <Toast.Viewport />
     </Toast.Provider>
   );
-});
+};
