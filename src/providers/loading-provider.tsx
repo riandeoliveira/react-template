@@ -1,9 +1,10 @@
 import { Icon } from "@/assets/icons";
-import { loadingStore } from "@/stores/loading-store";
-import { observer } from "mobx-react-lite";
+import { useLoadingStore } from "@/stores/use-loading-store";
 import type { ReactElement } from "react";
 
-export const LoadingProvider = observer((): ReactElement => {
+export const LoadingProvider = (): ReactElement => {
+  const loadingStore = useLoadingStore();
+
   return (
     <>
       {loadingStore.isLoading && (
@@ -13,4 +14,4 @@ export const LoadingProvider = observer((): ReactElement => {
       )}
     </>
   );
-});
+};

@@ -1,7 +1,7 @@
 import { nestApi } from "@/apis/nest-api";
 import type { SignInUserRequest, SignUpUserRequest } from "@/apis/nest-api/users/requests";
 import { ResponseMessages } from "@/enums/response-messages";
-import { loadingStore } from "@/stores/loading-store";
+import { useLoadingStore } from "@/stores/use-loading-store";
 import { useToast } from "./use-toast";
 
 type UseUsersService = {
@@ -11,6 +11,7 @@ type UseUsersService = {
 
 export const useUsersService = (): UseUsersService => {
   const { toast } = useToast();
+  const loadingStore = useLoadingStore();
 
   const handleSignInUser = async (request: SignInUserRequest): Promise<void> => {
     loadingStore.wait();

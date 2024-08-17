@@ -1,19 +1,20 @@
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
+import { useSidebar } from "@/hooks/use-sidebar";
 import { Menu } from "@/layouts/navigation-panel-layout/menu";
 import { SidebarToggle } from "@/layouts/navigation-panel-layout/sidebar-toggle";
-import { sidebarStore } from "@/stores/sidebar-store";
 import { cn } from "@/utilities/cn";
 import { PanelsTopLeft } from "lucide-react";
-import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 
-export const Sidebar = observer((): ReactElement => {
+export const Sidebar = (): ReactElement => {
+  const { isSidebarOpen } = useSidebar();
+
   return (
     <aside
       className={cn(
         "fixed top-0 left-0 z-20 h-screen -translate-x-full lg:translate-x-0 transition-[width] ease-in-out duration-300",
-        !sidebarStore.isOpen ? "w-[90px]" : "w-72",
+        !isSidebarOpen ? "w-[90px]" : "w-72",
       )}
     >
       <SidebarToggle />
@@ -21,7 +22,7 @@ export const Sidebar = observer((): ReactElement => {
         <Button
           className={cn(
             "transition-transform ease-in-out duration-300 mb-1",
-            !sidebarStore.isOpen ? "translate-x-1" : "translate-x-0",
+            !isSidebarOpen ? "translate-x-1" : "translate-x-0",
           )}
           variant="link"
           asChild
@@ -31,17 +32,15 @@ export const Sidebar = observer((): ReactElement => {
             <h1
               className={cn(
                 "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
-                !sidebarStore.isOpen
-                  ? "-translate-x-96 opacity-0 hidden"
-                  : "translate-x-0 opacity-100",
+                !isSidebarOpen ? "-translate-x-96 opacity-0 hidden" : "translate-x-0 opacity-100",
               )}
             >
               React Template
             </h1>
           </Link.Internal>
         </Button>
-        <Menu isOpen={sidebarStore.isOpen} />
+        <Menu isOpen={isSidebarOpen} />
       </div>
     </aside>
   );
-});
+};
