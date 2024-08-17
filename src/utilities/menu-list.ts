@@ -65,7 +65,7 @@ export const getMenuList = (pathname: string): Group[] => {
       groupLabel: "Configurações",
       menus: [
         {
-          href: "/",
+          href: "/account",
           label: "Conta",
           active: pathname.includes("/account"),
           icon: Icon.Settings,

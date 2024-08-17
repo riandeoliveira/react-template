@@ -2,7 +2,7 @@ import { Icon } from "@/assets/icons";
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { Sheet } from "@/components/ui/sheet";
-import { Menu } from "@/layouts/navigation-panel/menu";
+import { Menu } from "@/layouts/navigation-panel-layout/menu";
 import type { ReactElement } from "react";
 
 export const SheetMenu = (): ReactElement => {

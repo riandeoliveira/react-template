@@ -1,13 +1,13 @@
-import { NavigationPanel } from "@/layouts/navigation-panel";
+import { NavigationPanelLayout } from "@/layouts/navigation-panel-layout";
 import type { ReactElement } from "react";
 
 const UsersCreatePage = (): ReactElement => {
   return (
-    <NavigationPanel>
+    <NavigationPanelLayout title="Criação de Usuário">
       <div>
-        <p>Esta é a página de listagem de usuário.</p>
+        <p>Esta é a página de criação de usuário.</p>
       </div>
-    </NavigationPanel>
+    </NavigationPanelLayout>
   );
 };
 

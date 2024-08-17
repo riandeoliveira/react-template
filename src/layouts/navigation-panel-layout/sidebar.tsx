@@ -1,7 +1,7 @@
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
-import { Menu } from "@/layouts/navigation-panel/menu";
-import { SidebarToggle } from "@/layouts/navigation-panel/sidebar-toggle";
+import { Menu } from "@/layouts/navigation-panel-layout/menu";
+import { SidebarToggle } from "@/layouts/navigation-panel-layout/sidebar-toggle";
 import { sidebarStore } from "@/stores/sidebar-store";
 import { cn } from "@/utilities/cn";
 import { PanelsTopLeft } from "lucide-react";

@@ -8,7 +8,7 @@ export const Footer = (): ReactElement => {
         <p className="text-xs md:text-sm leading-loose text-muted-foreground">
           React Template by{" "}
           <Link.External
-            href="https://ui.shadcn.com"
+            href="https://portfolio-kappa-seven-14.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium underline underline-offset-4"

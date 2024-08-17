@@ -3,7 +3,7 @@ import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tooltip } from "@/components/ui/tooltip";
-import { CollapseMenuButton } from "@/layouts/navigation-panel/collapse-menu-button";
+import { CollapseMenuButton } from "@/layouts/navigation-panel-layout/collapse-menu-button";
 import { cn } from "@/utilities/cn";
 import { getMenuList } from "@/utilities/menu-list";
 import type { ReactElement } from "react";

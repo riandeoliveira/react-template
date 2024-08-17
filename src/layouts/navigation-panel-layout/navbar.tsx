@@ -1,6 +1,6 @@
 import { ThemeSelect } from "@/components/theme-select";
-import { SheetMenu } from "@/layouts/navigation-panel/sheet-menu";
-import { UserNav } from "@/layouts/navigation-panel/user-nav";
+import { SheetMenu } from "@/layouts/navigation-panel-layout/sheet-menu";
+import { UserNav } from "@/layouts/navigation-panel-layout/user-nav";
 import type { ReactElement } from "react";
 
 interface NavbarProps {
