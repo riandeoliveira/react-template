@@ -4,27 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Collapsible } from "@/components/ui/collapsible";
 import { DropdownMenu } from "@/components/ui/dropdown-menu";
 import { Tooltip } from "@/components/ui/tooltip";
-import type { Path } from "@/router";
+import type { Submenu } from "@/data/menu-list";
 import { cn } from "@/utilities/cn";
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";
 import type { LucideIcon } from "lucide-react";
 import type { ReactElement } from "react";
 import { useState } from "react";
 
-type Submenu = {
-  href: Path;
-  label: string;
-  active: boolean;
-  icon: LucideIcon;
-};
-
-interface CollapseMenuButtonProps {
+type CollapseMenuButtonProps = {
   icon: LucideIcon;
   label: string;
   active: boolean;
   submenus: Submenu[];
   isOpen: boolean | undefined;
-}
+};
 
 export const CollapseMenuButton = ({
   icon: TriggerIcon,

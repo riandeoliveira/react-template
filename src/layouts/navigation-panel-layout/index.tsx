@@ -11,8 +11,8 @@ type NavigationPanelLayoutProps = ParentComponentProps & {
 };
 
 export const NavigationPanelLayout = ({
-  children,
   title,
+  children,
 }: NavigationPanelLayoutProps): ReactElement => {
   const { isSidebarOpen } = useSidebar();
 

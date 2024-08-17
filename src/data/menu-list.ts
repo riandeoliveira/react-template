@@ -2,7 +2,7 @@ import { Icon } from "@/assets/icons";
 import type { Path } from "@/router";
 import type { LucideIcon } from "lucide-react";
 
-type Submenu = {
+export type Submenu = {
   href: Path;
   label: string;
   active: boolean;

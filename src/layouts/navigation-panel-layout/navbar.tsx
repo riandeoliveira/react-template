@@ -3,9 +3,9 @@ import { SheetMenu } from "@/layouts/navigation-panel-layout/sheet-menu";
 import { UserNav } from "@/layouts/navigation-panel-layout/user-nav";
 import type { ReactElement } from "react";
 
-interface NavbarProps {
+type NavbarProps = {
   title: string;
-}
+};
 
 export const Navbar = ({ title }: NavbarProps): ReactElement => {
   return (
