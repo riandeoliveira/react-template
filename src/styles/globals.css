@@ -65,6 +65,10 @@
     --success: hsl(142, 72%, 29%);
     --warning-foreground: hsl(0, 0%, 98%);
     --warning: hsl(41, 96%, 40%);
+
+    input[type="password"]::-ms-reveal {
+      filter: invert(100%);
+    }
   }
 }
 
