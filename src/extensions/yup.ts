@@ -8,7 +8,8 @@ declare module "yup" {
 }
 
 yup.addMethod(yup.string, "strongPassword", function (message: string) {
-  const strongPasswordRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W_]).+$/;
+  const strongPasswordRegex: RegExp =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[-#!$@£%^&*()_+|~=`{}[\]:";'<>?,./\\ ]).+$/;
 
   return this.matches(strongPasswordRegex, message);
 });

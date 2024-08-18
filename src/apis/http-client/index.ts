@@ -9,7 +9,9 @@ export class HttpClient extends BaseHttpClient implements IHttpClient {
 
   public async get<TResponse>(url: string): Promise<ApiResponse<TResponse>> {
     try {
-      const { data, status } = await axios.get<TResponse>(url, { baseURL: this.apiUrl });
+      const { data, status } = await axios.get<TResponse>(url, {
+        baseURL: this.apiUrl,
+      });
 
       return { data, status };
     } catch (error: unknown) {
@@ -24,6 +26,7 @@ export class HttpClient extends BaseHttpClient implements IHttpClient {
     try {
       const { data, status } = await axios.post(url, request, {
         baseURL: this.apiUrl,
+        withCredentials: true,
       });
 
       return { data, status };
@@ -37,7 +40,9 @@ export class HttpClient extends BaseHttpClient implements IHttpClient {
     request: TRequest,
   ): Promise<ApiResponse<TResponse>> {
     try {
-      const { data, status } = await axios.put(url, request, { baseURL: this.apiUrl });
+      const { data, status } = await axios.put(url, request, {
+        baseURL: this.apiUrl,
+      });
 
       return {
         data,
@@ -50,7 +55,9 @@ export class HttpClient extends BaseHttpClient implements IHttpClient {
 
   public async delete<TResponse>(url: string): Promise<ApiResponse<TResponse>> {
     try {
-      const { data, status } = await axios.delete(url, { baseURL: this.apiUrl });
+      const { data, status } = await axios.delete(url, {
+        baseURL: this.apiUrl,
+      });
 
       return {
         data,
