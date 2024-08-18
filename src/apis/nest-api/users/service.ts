@@ -1,4 +1,5 @@
-import type { ApiResponse, HttpClient } from "@/apis/http-client";
+import type { HttpClient } from "@/apis/http-client";
+import type { ApiResponse } from "@/apis/http-client/types";
 import type { SignInUserRequest, SignUpUserRequest } from "./requests";
 import type { SignInUserResponse, SignUpUserResponse } from "./responses";
 
@@ -9,11 +10,17 @@ export class UsersService {
   ) {}
 
   public async signIn(request: SignInUserRequest): Promise<ApiResponse<SignInUserResponse>> {
-    return await this.httpClient.post(`${this.url}/sign-in`, request);
+    return await this.httpClient.post<SignInUserRequest, SignInUserResponse>(
+      `${this.url}/sign-in`,
+      request,
+    );
   }
 
   public async signUp(request: SignUpUserRequest): Promise<ApiResponse<SignUpUserResponse>> {
-    return await this.httpClient.post(`${this.url}/sign-up`, request);
+    return await this.httpClient.post<SignUpUserRequest, SignUpUserResponse>(
+      `${this.url}/sign-up`,
+      request,
+    );
   }
 
   public async verify(): Promise<ApiResponse<void>> {

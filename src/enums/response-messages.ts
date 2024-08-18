@@ -9,6 +9,8 @@ export enum ResponseMessages {
   REQUIRED_FIELD = "Campo obrigatório.",
 
   SIGN_UP_USER_ERROR = "Erro ao se cadastrar.",
+
+  UNKNOWN_ERROR = "Ocorreu um erro desconhecido. Por favor, tente novamente mais tarde.",
 }
 
 export type ResponseMessagesKey = keyof typeof ResponseMessages;
