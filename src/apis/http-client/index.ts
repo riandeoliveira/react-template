@@ -11,6 +11,7 @@ export class HttpClient extends BaseHttpClient implements IHttpClient {
     try {
       const { data, status } = await axios.get<TResponse>(url, {
         baseURL: this.apiUrl,
+        withCredentials: true,
       });
 
       return { data, status };

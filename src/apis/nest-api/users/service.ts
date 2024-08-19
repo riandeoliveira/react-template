@@ -24,6 +24,6 @@ export class UsersService {
   }
 
   public async verify(): Promise<ApiResponse<void>> {
-    return await this.httpClient.get(`${this.url}/verify`);
+    return await this.httpClient.get<void>(`${this.url}/verify`);
   }
 }
