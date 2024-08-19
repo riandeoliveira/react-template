@@ -1,29 +1,33 @@
 import type { HttpClient } from "@/apis/http-client";
 import type { ApiResponse } from "@/apis/http-client/types";
+import type { IUserService } from "./interfaces";
 import type { SignInUserRequest, SignUpUserRequest } from "./requests";
 import type { SignInUserResponse, SignUpUserResponse } from "./responses";
 
-export class UsersService {
-  public constructor(
-    private readonly httpClient: HttpClient,
-    private readonly url: string,
-  ) {}
+export class UserService implements IUserService {
+  private readonly url: string = "/user";
+
+  public constructor(private readonly httpClient: HttpClient) {}
 
   public async signIn(request: SignInUserRequest): Promise<ApiResponse<SignInUserResponse>> {
     return await this.httpClient.post<SignInUserRequest, SignInUserResponse>(
-      `${this.url}/sign-in`,
+      this.url.concat("/sign-in"),
       request,
     );
   }
 
+  public async signOut(): Promise<ApiResponse<void>> {
+    return await this.httpClient.post<object, void>(this.url.concat("/sign-out"), {});
+  }
+
   public async signUp(request: SignUpUserRequest): Promise<ApiResponse<SignUpUserResponse>> {
     return await this.httpClient.post<SignUpUserRequest, SignUpUserResponse>(
-      `${this.url}/sign-up`,
+      this.url.concat("/sign-up"),
       request,
     );
   }
 
   public async verify(): Promise<ApiResponse<void>> {
-    return await this.httpClient.get<void>(`${this.url}/verify`);
+    return await this.httpClient.get<void>(this.url.concat("/verify"));
   }
 }

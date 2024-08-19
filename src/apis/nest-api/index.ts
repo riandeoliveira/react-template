@@ -1,10 +1,8 @@
-import { HttpClient } from "@/apis/http-client";
-import { UsersService } from "./users/service";
+import { BaseApi } from "./base";
+import { UserService } from "./user/service";
 
-class NestApi {
-  private readonly httpClient = new HttpClient(import.meta.env.VITE_NEST_API_URL);
-
-  public readonly users = new UsersService(this.httpClient, "/user");
+class NestApi extends BaseApi {
+  public readonly users = new UserService(this.httpClient);
 }
 
-export const nestApi = new NestApi();
+export const nestApi = new NestApi(import.meta.env.VITE_NEST_API_URL);

@@ -1,4 +1,4 @@
-import { signUpUserSchema } from "@/apis/nest-api/users/schemas";
+import { signUpUserSchema } from "@/apis/nest-api/user/schemas";
 import { Container } from "@/components/container";
 import { Form } from "@/components/form";
 import { FormInput } from "@/components/form-input";

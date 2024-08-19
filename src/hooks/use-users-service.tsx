@@ -1,5 +1,5 @@
 import { nestApi } from "@/apis/nest-api";
-import type { SignInUserRequest, SignUpUserRequest } from "@/apis/nest-api/users/requests";
+import type { SignInUserRequest, SignUpUserRequest } from "@/apis/nest-api/user/requests";
 import { HttpResponses } from "@/constants/http-responses";
 import { ResponseMessages } from "@/enums/response-messages";
 import { useNavigate } from "@/router";
