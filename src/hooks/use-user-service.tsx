@@ -7,13 +7,13 @@ import { useLoadingStore } from "@/stores/use-loading-store";
 import { useUserStore } from "@/stores/use-user-store";
 import { useToast } from "./use-toast";
 
-type UseUsersService = {
+type UseUserService = {
   handleSignInUser: (request: SignInUserRequest) => Promise<void>;
   handleSignUpUser: (request: SignUpUserRequest) => Promise<void>;
   handleVerifyUser: () => Promise<void>;
 };
 
-export const useUsersService = (): UseUsersService => {
+export const useUserService = (): UseUserService => {
   const { toast } = useToast();
   const loadingStore = useLoadingStore();
   const navigate = useNavigate();
