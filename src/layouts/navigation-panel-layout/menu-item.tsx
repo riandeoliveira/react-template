@@ -25,7 +25,7 @@ export const MenuItem = ({
     <div className="w-full">
       <Tooltip.Provider disableHoverableContent>
         <Tooltip.Root delayDuration={100}>
-          <Tooltip.Trigger asChild>
+          <Tooltip.Trigger className="w-full">
             <Button
               variant={active ? "secondary" : "ghost"}
               className="w-full justify-start h-10 mb-1"
