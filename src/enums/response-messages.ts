@@ -8,6 +8,8 @@ export enum ResponseMessages {
 
   REQUIRED_FIELD = "Campo obrigatório.",
 
+  SIGN_IN_USER_ERROR = "Erro ao entrar.",
+  SIGN_OUT_USER_ERROR = "Erro ao sair.",
   SIGN_UP_USER_ERROR = "Erro ao se cadastrar.",
 
   UNKNOWN_ERROR = "Ocorreu um erro desconhecido. Por favor, tente novamente mais tarde.",

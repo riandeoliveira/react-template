@@ -1,6 +1,7 @@
 import { Icon } from "@/assets/icons";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "@/components/ui/tooltip";
+import { useDialogStore } from "@/stores/use-dialog-store";
 import { cn } from "@/utilities/cn";
 import type { ReactElement } from "react";
 
@@ -9,11 +10,17 @@ type SignOutButtonProps = {
 };
 
 export const SignOutButton = ({ isOpen }: SignOutButtonProps): ReactElement => {
+  const dialogStore = useDialogStore();
+
   return (
     <Tooltip.Provider disableHoverableContent>
       <Tooltip.Root delayDuration={100}>
         <Tooltip.Trigger asChild>
-          <Button onClick={() => {}} variant="outline" className="w-full justify-center h-10 mt-5">
+          <Button
+            variant="outline"
+            onClick={() => dialogStore.open("signOut")}
+            className="w-full justify-center h-10 mt-5"
+          >
             <span className={cn(isOpen === false ? "" : "mr-4")}>
               <Icon.LogOut size={18} />
             </span>

@@ -9,7 +9,11 @@ import { useToast } from "./use-toast";
 
 type UseUserService = {
   handleSignInUser: (request: SignInUserRequest) => Promise<void>;
+
+  handleSignOutUser: () => Promise<void>;
+
   handleSignUpUser: (request: SignUpUserRequest) => Promise<void>;
+
   handleVerifyUser: () => Promise<void>;
 };
 
@@ -22,9 +26,43 @@ export const useUserService = (): UseUserService => {
   const handleSignInUser = async (request: SignInUserRequest): Promise<void> => {
     loadingStore.wait();
 
-    const { error } = await nestApi.users.signIn(request);
+    const { status, error } = await nestApi.users.signIn(request);
 
     loadingStore.stop();
+
+    if (status === HttpResponses.OK.status) {
+      navigate("/");
+    }
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: ResponseMessages.SIGN_IN_USER_ERROR,
+        description: error.title,
+      });
+    }
+  };
+
+  const handleSignOutUser = async (): Promise<void> => {
+    loadingStore.wait();
+
+    const { status, error } = await nestApi.users.signOut();
+
+    loadingStore.stop();
+
+    if (status === HttpResponses.NO_CONTENT.status) {
+      userStore.setIsAuthenticated(false);
+
+      navigate("/sign-in");
+    }
+
+    if (error) {
+      toast({
+        variant: "destructive",
+        title: ResponseMessages.SIGN_OUT_USER_ERROR,
+        description: error.title,
+      });
+    }
   };
 
   const handleSignUpUser = async (request: SignUpUserRequest): Promise<void> => {
@@ -34,7 +72,9 @@ export const useUserService = (): UseUserService => {
 
     loadingStore.stop();
 
-    if (status === HttpResponses.CREATED.status) navigate("/");
+    if (status === HttpResponses.CREATED.status) {
+      navigate("/");
+    }
 
     if (error) {
       toast({
@@ -63,6 +103,7 @@ export const useUserService = (): UseUserService => {
 
   return {
     handleSignInUser,
+    handleSignOutUser,
     handleSignUpUser,
     handleVerifyUser,
   };

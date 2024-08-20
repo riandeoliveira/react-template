@@ -1,3 +1,4 @@
+import { FakeData } from "@/abstractions/fake-data";
 import { signUpUserSchema } from "@/apis/nest-api/user/schemas";
 import { Container } from "@/components/container";
 import { Form } from "@/components/form";
@@ -6,15 +7,15 @@ import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { useUserService } from "@/hooks/use-user-service";
 import { useFormik } from "formik";
-import type { ReactElement } from "react";
+import { type ReactElement } from "react";
 
 const SignUpPage = (): ReactElement => {
   const { handleSignUpUser } = useUserService();
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: FakeData.email(),
+      password: FakeData.strongPassword(),
     },
     validationSchema: signUpUserSchema,
     onSubmit: handleSignUpUser,

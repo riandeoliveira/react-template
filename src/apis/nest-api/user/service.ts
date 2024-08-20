@@ -17,7 +17,7 @@ export class UserService implements IUserService {
   }
 
   public async signOut(): Promise<ApiResponse<void>> {
-    return await this.httpClient.post<object, void>(this.url.concat("/sign-out"), {});
+    return await this.httpClient.post<undefined, void>(this.url.concat("/sign-out"), undefined);
   }
 
   public async signUp(request: SignUpUserRequest): Promise<ApiResponse<SignUpUserResponse>> {

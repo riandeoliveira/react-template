@@ -26,6 +26,7 @@ export const FormInput = ({
     <div className="flex flex-col gap-2">
       <Input
         name={name}
+        value={formInstance.values[name]}
         onChange={formInstance.handleChange}
         className={cn(hasErrors ? "border-red-500" : "border-input", className)}
         {...props}
