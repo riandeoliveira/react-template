@@ -6,7 +6,6 @@ type DialogStore = {
 
   open(dialogType: DialogTypeValue): void;
   close(dialogType: DialogTypeValue): void;
-  toggle(dialogType: DialogTypeValue): void;
 };
 
 export const useDialogStore = create<DialogStore>((set) => ({
@@ -22,11 +21,5 @@ export const useDialogStore = create<DialogStore>((set) => ({
     set({
       [dialogType]: { isOpen: false },
     });
-  },
-
-  toggle(dialogType: DialogTypeValue): void {
-    set((state) => ({
-      [dialogType]: { isOpen: !state[dialogType].isOpen },
-    }));
   },
 }));
