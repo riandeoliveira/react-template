@@ -1,5 +1,5 @@
 import type { HttpClient } from "@/apis/http-client";
-import type { ApiResponse } from "@/apis/http-client/types";
+import type { ApiResponse } from "@/apis/http-client/interfaces";
 import type { IUserService } from "./interfaces";
 import type { SignInUserRequest, SignUpUserRequest } from "./requests";
 import type { SignInUserResponse, SignUpUserResponse } from "./responses";
@@ -8,6 +8,13 @@ export class UserService implements IUserService {
   private readonly url: string = "/user";
 
   public constructor(private readonly httpClient: HttpClient) {}
+
+  public async renewRefreshToken(): Promise<ApiResponse<void>> {
+    return await this.httpClient.post<undefined, void>(
+      this.url.concat("/refresh-token/renew"),
+      undefined,
+    );
+  }
 
   public async signIn(request: SignInUserRequest): Promise<ApiResponse<SignInUserResponse>> {
     return await this.httpClient.post<SignInUserRequest, SignInUserResponse>(

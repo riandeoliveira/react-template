@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BaseHttpClient } from "./base";
-import type { ApiResponse, IHttpClient } from "./types";
+import type { ApiResponse, IHttpClient } from "./interfaces";
 
 export class HttpClient extends BaseHttpClient implements IHttpClient {
   public constructor(private readonly apiUrl: string) {

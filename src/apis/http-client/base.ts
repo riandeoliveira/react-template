@@ -2,7 +2,7 @@ import { HttpResponses } from "@/constants/http-responses";
 import { PROBLEM_DETAILS_URI } from "@/constants/problem-details";
 import { ResponseMessages } from "@/enums/response-messages";
 import type { AxiosError } from "axios";
-import type { ApiResponse, ProblemDetails } from "./types";
+import type { ApiResponse, ProblemDetails } from "./interfaces";
 
 export abstract class BaseHttpClient {
   protected toProblemDetails<TResponse>(error: unknown): ApiResponse<Required<TResponse>> {

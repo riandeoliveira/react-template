@@ -5,6 +5,7 @@ import { ResponseMessages } from "@/enums/response-messages";
 import { useNavigate } from "@/router";
 import { useLoadingStore } from "@/stores/use-loading-store";
 import { useUserStore } from "@/stores/use-user-store";
+import { authorize } from "@/utilities/authorize";
 import { useToast } from "./use-toast";
 
 type UseUserService = {
@@ -88,11 +89,11 @@ export const useUserService = (): UseUserService => {
   const handleVerifyUser = async (): Promise<void> => {
     loadingStore.wait();
 
-    const { status } = await nestApi.users.verify();
+    const { isAuthorized, status } = await authorize<void>(() => nestApi.users.verify());
 
     loadingStore.stop();
 
-    if (status === HttpResponses.NO_CONTENT.status) {
+    if (isAuthorized ?? status === HttpResponses.NO_CONTENT.status) {
       userStore.setIsAuthenticated(true);
 
       return;
