@@ -7,12 +7,14 @@ import { Input } from "./ui/input";
 
 type FormInputProps = InputProps & {
   formInstance: FormikProps<any>;
+  label?: string;
   name: string;
 };
 
 export const FormInput = ({
   className,
   formInstance,
+  label,
   name,
   ...props
 }: FormInputProps): ReactElement => {
@@ -24,6 +26,11 @@ export const FormInput = ({
 
   return (
     <div className="flex flex-col gap-2">
+      {label && (
+        <label htmlFor={name} className="text-sm">
+          {label}
+        </label>
+      )}
       <Input
         name={name}
         value={formInstance.values[name]}

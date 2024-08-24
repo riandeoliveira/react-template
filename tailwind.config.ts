@@ -7,22 +7,6 @@ const config = {
   plugins: [animations],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "s-1440px": { max: "1440px" },
-        "s-1320px": { max: "1320px" },
-        "s-1200px": { max: "1200px" },
-        "s-1080px": { max: "1080px" },
-        "s-960px": { max: "960px" },
-        "s-840px": { max: "840px" },
-        "s-720px": { max: "720px" },
-        "s-600px": { max: "600px" },
-        "s-480px": { max: "480px" },
-        "s-360px": { max: "360px" },
-      },
-    },
     extend: {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -85,6 +69,18 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+      },
+      screens: {
+        "s-1440px": { max: "1440px" },
+        "s-1320px": { max: "1320px" },
+        "s-1200px": { max: "1200px" },
+        "s-1080px": { max: "1080px" },
+        "s-960px": { max: "960px" },
+        "s-840px": { max: "840px" },
+        "s-720px": { max: "720px" },
+        "s-600px": { max: "600px" },
+        "s-480px": { max: "480px" },
+        "s-360px": { max: "360px" },
       },
     },
   },

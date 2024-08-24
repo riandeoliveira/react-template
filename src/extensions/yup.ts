@@ -2,10 +2,19 @@ import * as yup from "yup";
 
 declare module "yup" {
   interface StringSchema {
+    equivalent(field: string, message: string): StringSchema;
     strongPassword(message: string): StringSchema;
     validEmail(message: string): StringSchema;
   }
 }
+
+yup.addMethod(yup.string, "equivalent", function (field: string, message: string) {
+  return this.test(
+    `equivalent-${field}`,
+    message,
+    (value, context) => context.parent[field] === value,
+  );
+});
 
 yup.addMethod(yup.string, "strongPassword", function (message: string) {
   const strongPasswordRegex: RegExp =

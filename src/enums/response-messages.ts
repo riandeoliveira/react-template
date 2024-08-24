@@ -5,6 +5,7 @@ export enum ResponseMessages {
   HAS_MINIMUM_8_LENGTH = "Mínimo de 8 caracteres.",
 
   PASSWORD_IS_STRONG = "A 'senha' deve ter pelo menos: uma letra minúscula, uma letra maiúscula, um número e um símbolo.",
+  PASSWORDS_ARE_EQUIVALENT = "As 'senhas' devem ser equivalentes.",
 
   REQUIRED_FIELD = "Campo obrigatório.",
 

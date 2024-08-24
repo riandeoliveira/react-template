@@ -31,7 +31,7 @@ export const useUserService = (): UseUserService => {
 
     loadingStore.stop();
 
-    if (status === HttpResponses.OK.status) {
+    if (status === HttpResponses.NO_CONTENT.status) {
       navigate("/");
     }
 
