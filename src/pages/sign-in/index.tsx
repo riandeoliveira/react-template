@@ -1,7 +1,6 @@
 import { signInUserSchema } from "@/apis/nest-api/user/schemas";
+import { Form } from "@/components/atoms/form";
 import { Container } from "@/components/container";
-import { Form } from "@/components/form";
-import { FormInput } from "@/components/form-input";
 import { Link } from "@/components/link";
 import { Button } from "@/components/ui/button";
 import { useUserService } from "@/hooks/use-user-service";
@@ -24,20 +23,30 @@ const SignInPage = (): ReactElement => {
     <div className="h-screen flex items-center justify-center">
       <Container className="p-8 rounded-xl m-4 w-96">
         <h1 className="text-center mb-6 text-3xl font-bold">Entre na sua Conta</h1>
-        <Form onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
-          <FormInput
-            type="email"
-            name="email"
-            placeholder="Digite seu e-mail"
-            formInstance={formik}
-          />
-          <FormInput
-            type="password"
-            name="password"
-            placeholder="Digite sua senha"
-            formInstance={formik}
-          />
-          <Button type="submit" className="mt-4">
+        <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
+          <Form.Area hasErrors={!!formik.touched.email && !!formik.errors.email}>
+            <Form.Label htmlFor="email">E-mail</Form.Label>
+            <Form.TextInput
+              type="email"
+              name="email"
+              placeholder="Digite seu e-mail"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+            />
+            <Form.ErrorMessage>{formik.errors.email}</Form.ErrorMessage>
+          </Form.Area>
+          <Form.Area hasErrors={!!formik.touched.password && !!formik.errors.password}>
+            <Form.Label htmlFor="password">Senha</Form.Label>
+            <Form.TextInput
+              type="password"
+              name="password"
+              placeholder="Digite sua senha"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+            />
+            <Form.ErrorMessage>{formik.errors.password}</Form.ErrorMessage>
+          </Form.Area>
+          <Button type="submit" className="my-4">
             Entrar
           </Button>
           <span className="text-center">
@@ -46,7 +55,7 @@ const SignInPage = (): ReactElement => {
               Cadastre-se
             </Link.Internal>
           </span>
-        </Form>
+        </Form.Root>
       </Container>
     </div>
   );

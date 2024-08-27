@@ -2,11 +2,22 @@ import * as yup from "yup";
 
 declare module "yup" {
   interface StringSchema {
+    cep(message: string): StringSchema;
+    cpf(message: string): StringSchema;
     equivalent(field: string, message: string): StringSchema;
+    phone(message: string): StringSchema;
     strongPassword(message: string): StringSchema;
     validEmail(message: string): StringSchema;
   }
 }
+
+yup.addMethod(yup.string, "cep", function (message: string) {
+  return this.test("cep", message, (value) => !value?.includes("_"));
+});
+
+yup.addMethod(yup.string, "cpf", function (message: string) {
+  return this.test("cpf", message, (value) => !value?.includes("_"));
+});
 
 yup.addMethod(yup.string, "equivalent", function (field: string, message: string) {
   return this.test(
@@ -14,6 +25,10 @@ yup.addMethod(yup.string, "equivalent", function (field: string, message: string
     message,
     (value, context) => context.parent[field] === value,
   );
+});
+
+yup.addMethod(yup.string, "phone", function (message: string) {
+  return this.test("phone", message, (value) => !value?.includes("_"));
 });
 
 yup.addMethod(yup.string, "strongPassword", function (message: string) {
