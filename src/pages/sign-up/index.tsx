@@ -26,7 +26,7 @@ const SignUpPage = (): ReactElement => {
         <h1 className="text-center mb-6 text-3xl font-bold">Crie sua Conta</h1>
         <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <Form.Area hasErrors={!!formik.touched.email && !!formik.errors.email}>
-            <Form.Label htmlFor="email">E-mail</Form.Label>
+            <Form.Label>E-mail</Form.Label>
             <Form.TextInput
               type="email"
               name="email"
@@ -37,7 +37,7 @@ const SignUpPage = (): ReactElement => {
             <Form.ErrorMessage>{formik.errors.email}</Form.ErrorMessage>
           </Form.Area>
           <Form.Area hasErrors={!!formik.touched.password && !!formik.errors.password}>
-            <Form.Label htmlFor="password">Senha</Form.Label>
+            <Form.Label>Senha</Form.Label>
             <Form.TextInput
               type="password"
               name="password"

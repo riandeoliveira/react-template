@@ -14,7 +14,9 @@ import {
 } from "react";
 import type { PatternFormatProps } from "react-number-format";
 import { PatternFormat } from "react-number-format";
+import { Button } from "../ui/button";
 import { Calendar } from "../ui/calendar";
+import { Command } from "../ui/command";
 import { Input, type InputProps } from "../ui/input";
 import { Popover } from "../ui/popover";
 
@@ -202,6 +204,80 @@ const PhoneInput = ({ className, ...props }: PhoneProps): ReactElement => {
   );
 };
 
+type AutocompleteItem = {
+  value: string;
+  label: string;
+};
+
+type AutocompleteProps = {
+  disabled?: boolean;
+  items: AutocompleteItem[];
+  notFoundMessage?: string;
+  searchMessage?: string;
+  selectMessage?: string;
+  value: string;
+
+  onSelect: (value: string) => void;
+};
+
+const Autocomplete = ({
+  disabled,
+  items,
+  notFoundMessage = "No items found.",
+  onSelect,
+  searchMessage = "Search item...",
+  selectMessage = "Select item...",
+  value,
+}: AutocompleteProps): ReactElement => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleSelectItem = (currentItem: string): void => {
+    const selectedItem = items.find((item) => item.label === currentItem)?.value;
+
+    onSelect(selectedItem ? selectedItem : "");
+
+    setIsOpen(false);
+  };
+
+  return (
+    <Popover.Root open={isOpen} onOpenChange={setIsOpen}>
+      <Popover.Trigger asChild>
+        <Button
+          variant="outline"
+          role="combobox"
+          aria-expanded={isOpen}
+          disabled={disabled}
+          className="justify-between"
+        >
+          {value !== "" ? items.find((item) => item.value === value)?.label : selectMessage}
+          <Icon.ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+        </Button>
+      </Popover.Trigger>
+      <Popover.Content className="p-0">
+        <Command.Root>
+          <Command.Input placeholder={searchMessage} className="h-9" />
+          <Command.List>
+            <Command.Empty>{notFoundMessage}</Command.Empty>
+            <Command.Group>
+              {items.map((item) => (
+                <Command.Item key={item.value} value={item.label} onSelect={handleSelectItem}>
+                  {item.label}
+                  <Icon.Check
+                    className={cn(
+                      "ml-auto h-4 w-4",
+                      value === item.label ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+                </Command.Item>
+              ))}
+            </Command.Group>
+          </Command.List>
+        </Command.Root>
+      </Popover.Content>
+    </Popover.Root>
+  );
+};
+
 type ErrorMessageProps = HTMLAttributes<HTMLSpanElement>;
 
 const ErrorMessage = ({ children, className, ...props }: ErrorMessageProps): ReactElement => {
@@ -220,6 +296,7 @@ const ErrorMessage = ({ children, className, ...props }: ErrorMessageProps): Rea
 
 export const Form = {
   Area,
+  Autocomplete,
   CepInput,
   CpfInput,
   DateInput,

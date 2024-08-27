@@ -47,6 +47,8 @@ export const updateUserSchema = yupExtension.object({
 
   cep: yupExtension.string().trim().cep(ResponseMessages.INVALID_CEP),
 
+  city: yupExtension.string().trim(),
+
   cpf: yupExtension.string().trim().cpf(ResponseMessages.INVALID_CPF),
 
   email: yupExtension
@@ -74,6 +76,8 @@ export const updateUserSchema = yupExtension.object({
     .equivalent("password", ResponseMessages.PASSWORDS_ARE_EQUIVALENT),
 
   phone: yupExtension.string().trim().phone(ResponseMessages.INVALID_PHONE),
+
+  state: yupExtension.string().trim(),
 
   username: yupExtension
     .string()

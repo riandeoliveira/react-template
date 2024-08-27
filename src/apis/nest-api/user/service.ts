@@ -13,6 +13,7 @@ export class UserService implements IUserService {
     return await this.httpClient.post<undefined, void>(
       this.url.concat("/refresh-token/renew"),
       undefined,
+      { withCredentials: true },
     );
   }
 
@@ -20,21 +21,27 @@ export class UserService implements IUserService {
     return await this.httpClient.post<SignInUserRequest, SignInUserResponse>(
       this.url.concat("/sign-in"),
       request,
+      { withCredentials: true },
     );
   }
 
   public async signOut(): Promise<ApiResponse<void>> {
-    return await this.httpClient.post<undefined, void>(this.url.concat("/sign-out"), undefined);
+    return await this.httpClient.post<undefined, void>(this.url.concat("/sign-out"), undefined, {
+      withCredentials: true,
+    });
   }
 
   public async signUp(request: SignUpUserRequest): Promise<ApiResponse<SignUpUserResponse>> {
     return await this.httpClient.post<SignUpUserRequest, SignUpUserResponse>(
       this.url.concat("/sign-up"),
       request,
+      { withCredentials: true },
     );
   }
 
   public async verify(): Promise<ApiResponse<void>> {
-    return await this.httpClient.get<void>(this.url.concat("/verify"));
+    return await this.httpClient.get<void>(this.url.concat("/verify"), {
+      withCredentials: true,
+    });
   }
 }

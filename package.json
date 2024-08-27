@@ -13,8 +13,8 @@
     "build": "tsc && vite build",
     "coverage": "vitest run --coverage",
     "dev": "vite --open",
-    "format": "prettier --write ./src/**/*.{ts,tsx} vite.config.ts",
-    "lint": "eslint --fix ./src/**/*.{ts,tsx} vite.config.ts",
+    "format": "prettier --write ./src/**/*.{ts,tsx} vite.config.mjs",
+    "lint": "eslint --fix ./src/**/*.{ts,tsx} vite.config.mjs",
     "start": "vite preview --open",
     "test:e2e": "cypress open",
     "test:unit": "vitest --run"
@@ -35,6 +35,7 @@
     "axios": "^1.7.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "cmdk": "1.0.0",
     "date-fns": "^3.6.0",
     "formik": "^2.4.6",
     "lodash": "^4.17.21",

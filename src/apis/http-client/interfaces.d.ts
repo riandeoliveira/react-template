@@ -11,6 +11,10 @@ export interface ApiResponse<TResponse> {
   status: number;
 }
 
+export interface RequestOptions {
+  withCredentials?: boolean
+}
+
 export interface IHttpClient {
   get<TResponse>(url: string): Promise<ApiResponse<TResponse>>;
 

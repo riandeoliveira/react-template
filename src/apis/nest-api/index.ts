@@ -1,4 +1,4 @@
-import { BaseApi } from "./base";
+import { BaseApi } from "../http-client/api";
 import { UserService } from "./user/service";
 
 class NestApi extends BaseApi {

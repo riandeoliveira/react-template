@@ -1,4 +1,4 @@
-import { HttpClient } from "../http-client";
+import { HttpClient } from ".";
 
 export abstract class BaseApi {
   protected readonly httpClient: HttpClient;
