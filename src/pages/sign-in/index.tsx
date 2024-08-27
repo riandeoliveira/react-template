@@ -23,7 +23,7 @@ const SignInPage = (): ReactElement => {
     <div className="h-screen flex items-center justify-center">
       <Container className="p-8 rounded-xl m-4 w-96">
         <h1 className="text-center mb-6 text-3xl font-bold">Entre na sua Conta</h1>
-        <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
+        <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <Form.Area hasErrors={!!formik.touched.email && !!formik.errors.email}>
             <Form.Label htmlFor="email">E-mail</Form.Label>
             <Form.TextInput
@@ -46,7 +46,7 @@ const SignInPage = (): ReactElement => {
             />
             <Form.ErrorMessage>{formik.errors.password}</Form.ErrorMessage>
           </Form.Area>
-          <Button type="submit" className="my-4">
+          <Button type="submit" className="mt-4">
             Entrar
           </Button>
           <span className="text-center">

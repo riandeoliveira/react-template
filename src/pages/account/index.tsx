@@ -35,7 +35,7 @@ const AccountPage = (): ReactElement => {
       <NavigationPanelLayout title="Conta">
         <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-4">
           <h2 className="text-2xl font-semibold">Dados pessoais</h2>
-          <div className="grid grid-cols-2 gap-y-2 gap-x-4 s-720px:grid-cols-1 border border-input rounded-lg p-4">
+          <div className="grid grid-cols-2 gap-4 s-720px:grid-cols-1 border border-input rounded-lg p-4">
             <Form.Area hasErrors={!!formik.touched.fullName && !!formik.errors.fullName}>
               <Form.Label htmlFor="fullName">Nome completo</Form.Label>
               <Form.TextInput
@@ -76,7 +76,7 @@ const AccountPage = (): ReactElement => {
             </Form.Area>
           </div>
           <h2 className="text-2xl font-semibold">Dados de acesso</h2>
-          <div className="grid grid-cols-2 gap-y-2 gap-x-4 s-720px:grid-cols-1 border border-input rounded-lg p-4">
+          <div className="grid grid-cols-2 gap-4 s-720px:grid-cols-1 border border-input rounded-lg p-4">
             <Form.Area hasErrors={!!formik.touched.username && !!formik.errors.username}>
               <Form.Label htmlFor="username">Nome de usuário</Form.Label>
               <Form.TextInput

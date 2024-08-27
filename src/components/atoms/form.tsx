@@ -96,6 +96,7 @@ const DateInput = ({
   ...props
 }: DateInputProps): ReactElement => {
   const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
+  const { hasErrors } = useField();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChangeCalendar = (): void => {
@@ -120,7 +121,7 @@ const DateInput = ({
           mask={Array(8).fill("_")}
           customInput={Input}
           getInputRef={inputRef}
-          className={cn("pl-10", className)}
+          className={cn("pl-10", hasErrors ? "border-red-500" : "border-input", className)}
           value={dateValue && format(dateValue, "dd/MM/yyyy")}
           onClick={handleChangeCalendar}
           onChange={(event) => {
@@ -153,13 +154,15 @@ const DateInput = ({
 type CepInputProps = Omit<PatternFormatProps<InputProps>, "format">;
 
 const CepInput = ({ className, ...props }: CepInputProps): ReactElement => {
+  const { hasErrors } = useField();
+
   return (
     <PatternFormat
       format="#####-###"
       placeholder="_____-___"
       mask={Array(8).fill("_")}
       customInput={Input}
-      className={cn(className)}
+      className={cn(hasErrors ? "border-red-500" : "border-input", className)}
       {...props}
     />
   );
@@ -168,13 +171,15 @@ const CepInput = ({ className, ...props }: CepInputProps): ReactElement => {
 type CpfInputProps = Omit<PatternFormatProps<InputProps>, "format">;
 
 const CpfInput = ({ className, ...props }: CpfInputProps): ReactElement => {
+  const { hasErrors } = useField();
+
   return (
     <PatternFormat
       format="###.###.###-##"
       placeholder="___.___.___-__"
       mask={Array(11).fill("_")}
       customInput={Input}
-      className={cn(className)}
+      className={cn(hasErrors ? "border-red-500" : "border-input", className)}
       {...props}
     />
   );
@@ -183,13 +188,15 @@ const CpfInput = ({ className, ...props }: CpfInputProps): ReactElement => {
 type PhoneProps = Omit<PatternFormatProps<InputProps>, "format">;
 
 const PhoneInput = ({ className, ...props }: PhoneProps): ReactElement => {
+  const { hasErrors } = useField();
+
   return (
     <PatternFormat
       format="(##) #####-####"
       placeholder="(__) _____-____"
       mask={Array(11).fill("_")}
       customInput={Input}
-      className={cn(className)}
+      className={cn(hasErrors ? "border-red-500" : "border-input", className)}
       {...props}
     />
   );
@@ -202,12 +209,10 @@ const ErrorMessage = ({ children, className, ...props }: ErrorMessageProps): Rea
 
   return (
     <>
-      {hasErrors ? (
+      {hasErrors && (
         <span className={cn("text-red-500 text-sm", className)} {...props}>
           {children}
         </span>
-      ) : (
-        <div className="h-5" />
       )}
     </>
   );
