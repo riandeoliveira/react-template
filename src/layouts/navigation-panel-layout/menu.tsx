@@ -1,4 +1,4 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Scroll } from "@/components/scroll";
 import { getMenuList } from "@/data/menu-list";
 import { CollapseMenuButton } from "@/layouts/navigation-panel-layout/collapse-menu-button";
 import { cn } from "@/utilities/cn";
@@ -18,7 +18,7 @@ export const Menu = ({ isOpen }: MenuProps): ReactElement => {
   const menuList = getMenuList(pathname);
 
   return (
-    <ScrollArea className="[&>div>div[style]]:!block">
+    <Scroll.Area className="[&>div>div[style]]:!block">
       <nav className="mt-8 h-full w-full">
         <ul className="flex flex-col min-h-[calc(100vh-48px-36px-16px-32px)] items-start space-y-1 px-2">
           {menuList.map(({ groupLabel, menus }, index) => (
@@ -53,6 +53,6 @@ export const Menu = ({ isOpen }: MenuProps): ReactElement => {
           </li>
         </ul>
       </nav>
-    </ScrollArea>
+    </Scroll.Area>
   );
 };

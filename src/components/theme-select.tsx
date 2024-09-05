@@ -2,8 +2,8 @@ import { Icon } from "@/assets/icons";
 import type { Theme } from "@/hooks/use-theme";
 import { useTheme } from "@/hooks/use-theme";
 import type { ReactElement } from "react";
-import { Select } from "./ui/select";
-import { Tooltip } from "./ui/tooltip";
+import { Select } from "./select";
+import { Tooltip } from "./tooltip";
 
 export const ThemeSelect = (): ReactElement => {
   const { setTheme, theme } = useTheme();

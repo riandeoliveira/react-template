@@ -1,5 +1,5 @@
 import { Icon } from "@/assets/icons";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Tooltip } from "@/components/tooltip";
 import type { ReactElement } from "react";
 
 type MenuListProps = {

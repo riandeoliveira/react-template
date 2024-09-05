@@ -1,9 +1,9 @@
 import { Icon } from "@/assets/icons";
+import { Avatar } from "@/components/avatar";
+import { Button } from "@/components/button";
+import { DropdownMenu } from "@/components/dropdown-menu";
 import { Link } from "@/components/link";
-import { Avatar } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Tooltip } from "@/components/tooltip";
 import type { ReactElement } from "react";
 
 export const UserNav = (): ReactElement => {

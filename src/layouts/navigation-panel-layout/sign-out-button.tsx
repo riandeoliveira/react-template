@@ -1,6 +1,6 @@
 import { Icon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Button } from "@/components/button";
+import { Tooltip } from "@/components/tooltip";
 import { useDialogStore } from "@/stores/use-dialog-store";
 import { cn } from "@/utilities/cn";
 import type { ReactElement } from "react";

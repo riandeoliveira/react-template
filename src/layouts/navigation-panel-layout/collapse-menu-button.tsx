@@ -1,9 +1,9 @@
 import { Icon } from "@/assets/icons";
+import { Button } from "@/components/button";
+import { Collapsible } from "@/components/collapsible";
+import { DropdownMenu } from "@/components/dropdown-menu";
 import { Link } from "@/components/link";
-import { Button } from "@/components/ui/button";
-import { Collapsible } from "@/components/ui/collapsible";
-import { DropdownMenu } from "@/components/ui/dropdown-menu";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Tooltip } from "@/components/tooltip";
 import type { Submenu } from "@/data/menu-list";
 import { cn } from "@/utilities/cn";
 import { DropdownMenuArrow } from "@radix-ui/react-dropdown-menu";

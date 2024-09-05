@@ -12,7 +12,7 @@ export interface ApiResponse<TResponse> {
 }
 
 export interface RequestOptions {
-  withCredentials?: boolean
+  withCredentials?: boolean;
 }
 
 export interface IHttpClient {

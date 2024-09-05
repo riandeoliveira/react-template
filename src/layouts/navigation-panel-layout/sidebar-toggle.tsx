@@ -1,5 +1,5 @@
 import { Icon } from "@/assets/icons";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import { useSidebar } from "@/hooks/use-sidebar";
 import { cn } from "@/utilities/cn";
 import type { ReactElement } from "react";

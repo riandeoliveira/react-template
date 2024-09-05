@@ -1,4 +1,4 @@
-import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+import type { ToastActionElement, ToastProps } from "@/components/toast";
 import { generateId } from "@/utilities/generate-id";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";

@@ -1,7 +1,7 @@
 import { Icon } from "@/assets/icons";
+import { Button } from "@/components/button";
 import { Link } from "@/components/link";
-import { Button } from "@/components/ui/button";
-import { Sheet } from "@/components/ui/sheet";
+import { Sheet } from "@/components/sheet";
 import { Menu } from "@/layouts/navigation-panel-layout/menu";
 import type { ReactElement } from "react";
 

@@ -1,4 +1,4 @@
-import { AlertDialog } from "@/components/ui/alert-dialog";
+import { AlertDialog } from "@/components/alert-dialog";
 import { useUserService } from "@/hooks/use-user-service";
 import { useDialogStore } from "@/stores/use-dialog-store";
 import { type ReactElement } from "react";

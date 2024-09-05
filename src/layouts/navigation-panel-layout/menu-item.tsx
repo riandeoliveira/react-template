@@ -1,6 +1,6 @@
+import { Button } from "@/components/button";
 import { Link } from "@/components/link";
-import { Button } from "@/components/ui/button";
-import { Tooltip } from "@/components/ui/tooltip";
+import { Tooltip } from "@/components/tooltip";
 import type { Path } from "@/router";
 import { cn } from "@/utilities/cn";
 import type { LucideIcon } from "lucide-react";

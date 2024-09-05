@@ -1,5 +1,5 @@
+import { Button } from "@/components/button";
 import { Link } from "@/components/link";
-import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/hooks/use-sidebar";
 import { Menu } from "@/layouts/navigation-panel-layout/menu";
 import { SidebarToggle } from "@/layouts/navigation-panel-layout/sidebar-toggle";

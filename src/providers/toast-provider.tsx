@@ -1,6 +1,6 @@
 import { useToast } from "@/hooks/use-toast";
 import type { ReactElement } from "react";
-import { Toast } from "../components/ui/toast";
+import { Toast } from "../components/toast";
 
 export const ToastProvider = (): ReactElement => {
   const { toasts } = useToast();
