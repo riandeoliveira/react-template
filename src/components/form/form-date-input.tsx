@@ -50,7 +50,7 @@ export const FormDateInput = ({
           customInput={Input}
           getInputRef={inputRef}
           className={cn("pl-10", hasErrors ? "border-red-500" : "border-input", className)}
-          value={dateValue && format(dateValue, "dd/MM/yyyy")}
+          value={dateValue ? format(dateValue, "dd/MM/yyyy") : ""}
           onClick={handleChangeCalendar}
           onChange={(event) => {
             const formattedDate: string = event.target.value;

@@ -71,7 +71,10 @@ export const PersonalDataForm = ({ form }: PersonalDataFormProps): ReactElement 
           <Form.Autocomplete
             items={sortedStates}
             value={form.values.state}
-            onSelect={(state) => form.setFieldValue("state", state)}
+            onSelect={(state) => {
+              form.setFieldValue("state", state);
+              form.setFieldValue("city", "");
+            }}
             selectMessage="Selecione um estado..."
             searchMessage="Pesquise um estado..."
             notFoundMessage="Nenhum estado encontrado."

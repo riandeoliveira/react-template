@@ -48,15 +48,24 @@ const AccountPage = (): ReactElement => {
     (value) => value !== "" && value !== undefined && value !== null,
   );
 
+  const handleClearForm = (): void => {
+    formik.resetForm();
+  };
+
   return (
     <PrivateRoute>
       <NavigationPanelLayout title="Conta">
         <Form.Root onSubmit={formik.handleSubmit} className="flex flex-col gap-8">
           <PersonalDataForm form={formik} />
           <AccessDataForm form={formik} />
-          <Button type="submit" disabled={!hasAnyFilledField} className="mt-4">
-            Enviar
-          </Button>
+          <div className="flex flex-col gap-6">
+            <Button type="button" disabled={!hasAnyFilledField} onClick={handleClearForm}>
+              Limpar
+            </Button>
+            <Button type="submit" disabled={!hasAnyFilledField}>
+              Enviar
+            </Button>
+          </div>
         </Form.Root>
       </NavigationPanelLayout>
       <SignOutDialog />
