@@ -1,6 +1,6 @@
+import { Icon } from "@/assets/icons";
 import { cn } from "@/utilities/cn";
 import { Item, ItemIndicator, ItemText } from "@radix-ui/react-select";
-import { Check } from "lucide-react";
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 
@@ -19,7 +19,7 @@ export const SelectItem = forwardRef<SelectItemElement, SelectItemProps>(
     >
       <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
         <ItemIndicator>
-          <Check className="h-4 w-4" />
+          <Icon.Check className="h-4 w-4" />
         </ItemIndicator>
       </span>
 

@@ -1,6 +1,6 @@
+import { Icon } from "@/assets/icons";
 import { cn } from "@/utilities/cn";
 import { Close } from "@radix-ui/react-toast";
-import { X } from "lucide-react";
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 
@@ -18,7 +18,7 @@ export const ToastClose = forwardRef<ToastCloseElement, ToastCloseProps>(
       toast-close=""
       {...props}
     >
-      <X className="h-4 w-4" />
+      <Icon.X className="h-4 w-4" />
     </Close>
   ),
 );

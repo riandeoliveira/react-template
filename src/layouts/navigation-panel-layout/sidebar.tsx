@@ -1,10 +1,10 @@
+import { Icon } from "@/assets/icons";
 import { Button } from "@/components/button";
 import { Link } from "@/components/link";
 import { useSidebar } from "@/hooks/use-sidebar";
 import { Menu } from "@/layouts/navigation-panel-layout/menu";
 import { SidebarToggle } from "@/layouts/navigation-panel-layout/sidebar-toggle";
 import { cn } from "@/utilities/cn";
-import { PanelsTopLeft } from "lucide-react";
 import type { ReactElement } from "react";
 
 export const Sidebar = (): ReactElement => {
@@ -28,7 +28,7 @@ export const Sidebar = (): ReactElement => {
           asChild
         >
           <Link.Internal href="/" className="flex items-center gap-2">
-            <PanelsTopLeft className="w-6 h-6 mr-1" />
+            <Icon.PanelsTopLeft className="w-6 h-6 mr-1" />
             <h1
               className={cn(
                 "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",

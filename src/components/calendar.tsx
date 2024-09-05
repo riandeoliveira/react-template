@@ -1,7 +1,7 @@
+import { Icon } from "@/assets/icons";
 import { buttonVariants } from "@/components/button";
 import { cn } from "@/utilities/cn";
 import { ptBR } from "date-fns/locale";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { ComponentProps, ReactElement } from "react";
 import { DayPicker } from "react-day-picker";
 
@@ -55,8 +55,8 @@ export const Calendar = ({
         ...classNames,
       }}
       components={{
-        IconLeft: () => <ChevronLeft className="h-4 w-4" />,
-        IconRight: () => <ChevronRight className="h-4 w-4" />,
+        IconLeft: () => <Icon.ChevronLeft className="h-4 w-4" />,
+        IconRight: () => <Icon.ChevronRight className="h-4 w-4" />,
       }}
       {...props}
     />

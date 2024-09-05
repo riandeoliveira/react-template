@@ -1,6 +1,6 @@
+import { Icon } from "@/assets/icons";
 import { cn } from "@/utilities/cn";
-import { Icon, Trigger } from "@radix-ui/react-select";
-import { ChevronDown } from "lucide-react";
+import { Icon as SelectIcon, Trigger } from "@radix-ui/react-select";
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 
@@ -21,9 +21,9 @@ export const SelectTrigger = forwardRef<SelectTriggerElement, SelectTriggerProps
     >
       {children}
       {!disableDropdownIcon && (
-        <Icon asChild>
-          <ChevronDown className="h-4 w-4 opacity-50" />
-        </Icon>
+        <SelectIcon asChild>
+          <Icon.ChevronDown className="h-4 w-4 opacity-50" />
+        </SelectIcon>
       )}
     </Trigger>
   ),

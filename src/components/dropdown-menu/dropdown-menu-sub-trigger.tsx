@@ -1,6 +1,6 @@
+import { Icon } from "@/assets/icons";
 import { cn } from "@/utilities/cn";
 import { SubTrigger } from "@radix-ui/react-dropdown-menu";
-import { ChevronRight } from "lucide-react";
 import type { ComponentPropsWithoutRef, ElementRef } from "react";
 import { forwardRef } from "react";
 
@@ -23,7 +23,7 @@ export const DropdownMenuSubTrigger = forwardRef<
     {...props}
   >
     {children}
-    <ChevronRight className="ml-auto h-4 w-4" />
+    <Icon.ChevronRight className="ml-auto h-4 w-4" />
   </SubTrigger>
 ));
 
