@@ -1,11 +1,29 @@
+import { type ReactNode, useEffect } from "react";
 import { useTheme } from "@/hooks/use-theme";
-import type { ParentComponentProps } from "@/types/components";
-import { type ReactElement } from "react";
 
-type ThemeProviderProps = ParentComponentProps;
+const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
-export const ThemeProvider = ({ children }: ThemeProviderProps): ReactElement => {
-  useTheme();
+type ThemeProviderProps = {
+  children: ReactNode;
+};
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    const onChangeDeviceTheme = () => {
+      if (theme === "dark") document.documentElement.classList.add("dark");
+      if (theme === "light") document.documentElement.classList.remove("dark");
+    };
+
+    onChangeDeviceTheme();
+
+    matchMedia.addEventListener("change", onChangeDeviceTheme);
+
+    return () => {
+      matchMedia.removeEventListener("change", onChangeDeviceTheme);
+    };
+  }, [theme]);
 
   return <>{children}</>;
 };

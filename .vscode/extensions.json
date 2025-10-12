@@ -1,16 +1,11 @@
 {
   "recommendations": [
+    "biomejs.biome",
     "bradlc.vscode-tailwindcss",
-    "csstools.postcss",
-    "dbaeumer.vscode-eslint",
     "eamodio.gitlens",
-    "editorconfig.editorconfig",
-    "esbenp.prettier-vscode",
-    "mikestead.dotenv",
+    "fill-labs.dependi",
     "naumovs.color-highlight",
-    "redhat.vscode-xml",
-    "visualstudioexptteam.vscodeintellicode",
-    "wayou.vscode-todo-highlight",
-    "wix.vscode-import-cost",
+    "streetsidesoftware.code-spell-checker-portuguese",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

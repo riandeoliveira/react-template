@@ -1,12 +1,19 @@
-import "@/styles/globals.css";
-import { Routes } from "@generouted/react-router";
-import ReactDOM from "react-dom/client";
-import { AppProviders } from "./providers/app-providers";
+import "@/main.css";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
+import { RouterProvider } from "react-router";
+import { router } from "@/router";
+import { ThemeProvider } from "./providers/theme-provider";
 
-const rootElement = document.querySelector("#root") as Element;
+const root = document.getElementById("root") as HTMLElement;
 
-ReactDOM.createRoot(rootElement!).render(
-  <AppProviders>
-    <Routes />
-  </AppProviders>,
+createRoot(root).render(
+  <ThemeProvider>
+    <HelmetProvider>
+      <StrictMode>
+        <RouterProvider router={router} />
+      </StrictMode>
+    </HelmetProvider>
+  </ThemeProvider>,
 );

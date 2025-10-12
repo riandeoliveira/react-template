@@ -1,0 +1,11 @@
+/* Chrome, Edge, Opera */
+input::-ms-reveal,
+input::-ms-clear,
+input::-webkit-password-toggle-button {
+  @apply hidden;
+}
+
+/* Firefox */
+input::-moz-reveal {
+  @apply hidden;
+}

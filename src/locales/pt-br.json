@@ -1,0 +1,21 @@
+{
+  "card_description": "Este card demonstra como o conteúdo pode mudar dinamicamente com base no idioma selecionado.",
+  "card_title": "Título do Card",
+  "change_language_to": "Alterar idioma para",
+
+  "dark_theme": "Tema escuro",
+
+  "go_back_to_home": "Voltar para o início",
+
+  "hide_password": "Ocultar senha",
+
+  "light_theme": "Tema claro",
+
+  "meta_description": "Um template flexível em React com componentes de UI prontos, troca de tema, suporte a i18n e utilitários genéricos para acelerar o desenvolvimento de aplicações web modernas.",
+
+  "page_not_found": "Página não encontrada",
+
+  "show_password": "Mostrar senha",
+  "switch_to_dark_theme": "Mudar para tema escuro",
+  "switch_to_light_theme": "Mudar para tema claro"
+}

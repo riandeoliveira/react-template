@@ -1,151 +1,55 @@
 {
   //
-  // Color Highlight
+  // Biome (Extension)
   //
-  "color-highlight.matchWords": true,
+  "biome.suggestInstallingGlobally": false,
+
   //
-  // Code Spell Checker
+  // Code Spell Checker (Extension)
   //
   "cSpell.language": "en,pt",
+
+  //
+  // Color Highlight (Extension)
+  //
+  "color-highlight.matchWords": true,
+
   //
   // Diff Editor
   //
   "diffEditor.ignoreTrimWhitespace": true,
+
   //
   // Editor
   //
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit"
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit",
+    "source.removeUnusedImports": "explicit"
   },
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
-  "editor.quickSuggestions": {
-    "comments": true,
-    "other": true,
-    "strings": true
-  },
-  //
-  // ESLint
-  //
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+
   //
   // Files
   //
-  "files.autoGuessEncoding": true,
-  "files.autoSave": "afterDelay",
+  "files.eol": "\n",
   "files.exclude": {
     "**/.git": false
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": false,
+  "files.trimTrailingWhitespace": true,
+
   //
   // Git
   //
-  "git.allowNoVerifyCommit": false,
-  "git.confirmEmptyCommits": false,
   "git.enableSmartCommit": true,
-  "git.showPushSuccessNotification": true,
-  "git.supportCancellation": true,
+
   //
-  // JavaScript
+  // Tailwind CSS IntelliSense (Extension)
   //
-  "javascript.suggest.completeFunctionCalls": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  //
-  // Languages
-  //
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[postcss]": {
-    "editor.defaultFormatter": "mrmlnc.vscode-postcss-sorting"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
-  },
-  //
-  // PostCSS
-  //
-  "postcssSorting.config": {
-    "properties-order": "alphabetical"
-  },
-  //
-  // Terminal
-  //
-  "terminal.integrated.copyOnSelection": true,
-  //
-  // TODO Highlight
-  //
-  "todohighlight.keywords": [
-    {
-      "backgroundColor": "#FF6D00",
-      "borderRadius": "4px",
-      "color": "#fff",
-      "text": "BUG:",
-    },
-    {
-      "backgroundColor": "#00C853",
-      "borderRadius": "4px",
-      "color": "#fff",
-      "text": "FEAT:",
-    },
-    {
-      "borderRadius": "4px",
-      "text": "FIXME:",
-    },
-    {
-      "backgroundColor": "#D50000",
-      "borderRadius": "4px",
-      "color": "#fff",
-      "text": "HOTFIX:",
-    },
-    {
-      "backgroundColor": "#2962FF",
-      "borderRadius": "4px",
-      "color": "#fff",
-      "text": "NOTE:",
-    },
-    {
-      "backgroundColor": "#00BFA5",
-      "borderRadius": "4px",
-      "color": "#fff",
-      "text": "REFACT:",
-    },
-    {
-      "borderRadius": "4px",
-      "text": "TODO:",
-    },
-  ],
-  //
-  // TypeScript
-  //
-  "typescript.suggest.completeFunctionCalls": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "tailwindCSS.colorDecorators": true
 }
