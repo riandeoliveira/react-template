@@ -12,8 +12,6 @@
   --color-default-hover: #18181b;
   --color-default: #09090b;
 
-  --color-error: #c10007;
-
   --color-foreground: #09090b;
 
   --color-ghost-foreground: #09090b;
@@ -21,6 +19,7 @@
   --color-ghost: transparent;
 
   --color-input-border: #d4d4d8;
+  --color-input-error: #c10007;
   --color-input-foreground: #09090b;
   --color-input-hover: #e4e4e7cc;
   --color-input: #f4f4f5;
@@ -36,6 +35,14 @@
   --color-secondary-hover: #d4d4d8;
   --color-secondary: #e4e4e7;
   --color-skeleton: #d4d4d8;
+
+  --color-toast-border: #27272a;
+  --color-toast-error: #c10007;
+  --color-toast-foreground: #f4f4f5;
+  --color-toast-info: #1447e6;
+  --color-toast-success: #008236;
+  --color-toast-warning: #d08700;
+  --color-toast: #18181b;
 
   --color-tooltip-foreground: #f4f4f5;
   --color-tooltip: #18181b;
@@ -55,8 +62,6 @@
   --color-default-hover: #f4f4f5cc;
   --color-default: #f4f4f5;
 
-  --color-error: #ff6467;
-
   --color-foreground: #f4f4f5;
 
   --color-ghost-foreground: #f4f4f5;
@@ -64,6 +69,7 @@
   --color-ghost: transparent;
 
   --color-input-border: #27272a;
+  --color-input-error: #ff6467;
   --color-input-foreground: #f4f4f5;
   --color-input-hover: #27272acc;
   --color-input: #18181b;
@@ -79,6 +85,14 @@
   --color-secondary-hover: #27272a99;
   --color-secondary: #27272a;
   --color-skeleton: #27272a;
+
+  --color-toast-border: #27272a;
+  --color-toast-error: #c10007;
+  --color-toast-foreground: #f4f4f5;
+  --color-toast-info: #1447e6;
+  --color-toast-success: #008236;
+  --color-toast-warning: #d08700;
+  --color-toast: #18181b;
 
   --color-tooltip-foreground: #09090b;
   --color-tooltip: #f4f4f5;

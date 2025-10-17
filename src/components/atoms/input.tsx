@@ -34,7 +34,7 @@ const EmailInput = ({ className, ...props }: EmailInputProps) => {
       type="email"
       className={cn(
         "bg-input text-input-foreground enabled:hover:bg-input-hover px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-error" : "border-input-border",
+        hasErrors ? "border-input-error" : "border-input-border",
         className,
       )}
       {...props}
@@ -51,7 +51,7 @@ const ErrorMessage = ({ children, className, ...props }: ErrorMessageProps) => {
 
   return (
     <span
-      className={cn("text-error text-xs font-semibold", className)}
+      className={cn("text-input-error text-xs font-semibold", className)}
       {...props}
     >
       {children}
@@ -87,7 +87,7 @@ const PasswordInput = ({ className, ...props }: PasswordInputProps) => {
         type={isPasswordVisible ? "text" : "password"}
         className={cn(
           "bg-input text-input-foreground enabled:hover:bg-input-hover px-3 py-2 rounded-md w-full outline-none pr-14 border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-          hasErrors ? "border-error" : "border-input-border",
+          hasErrors ? "border-input-error" : "border-input-border",
           className,
         )}
         {...props}
@@ -135,7 +135,7 @@ const TextAreaInput = ({ className, ...props }: TextAreaInputProps) => {
     <textarea
       className={cn(
         "bg-input text-input-foreground enabled:hover:bg-input-hover px-3 py-2 rounded-md w-full outline-none border h-32 resize-none disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-error" : "border-input-border",
+        hasErrors ? "border-input-error" : "border-input-border",
         className,
       )}
       {...props}
@@ -153,7 +153,7 @@ const TextInput = ({ className, ...props }: TextInputProps) => {
       type="text"
       className={cn(
         "bg-input text-input-foreground enabled:hover:bg-input-hover px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-error" : "border-input-border",
+        hasErrors ? "border-input-error" : "border-input-border",
         className,
       )}
       {...props}

@@ -5,14 +5,14 @@ export const useToast = () => {
   const error = (message: string, data?: ExternalToast) => {
     toast.error(message, {
       ...data,
-      className: cn("!bg-red-700 !border-red-700", data?.className),
+      className: cn("!bg-toast-error !border-toast-error", data?.className),
     });
   };
 
   const info = (message: string, data?: ExternalToast) => {
     toast.info(message, {
       ...data,
-      className: cn("!bg-blue-700 !border-blue-700", data?.className),
+      className: cn("!bg-toast-info !border-toast-info", data?.className),
     });
   };
 
@@ -23,14 +23,14 @@ export const useToast = () => {
   const success = (message: string, data?: ExternalToast) => {
     toast.success(message, {
       ...data,
-      className: cn("!bg-green-700 !border-green-700", data?.className),
+      className: cn("!bg-toast-success !border-toast-success", data?.className),
     });
   };
 
   const warning = (message: string, data?: ExternalToast) => {
     toast.warning(message, {
       ...data,
-      className: cn("!bg-yellow-600 !border-yellow-600", data?.className),
+      className: cn("!bg-toast-warning !border-toast-warning", data?.className),
     });
   };
 
