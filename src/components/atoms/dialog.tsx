@@ -1,5 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { type ComponentProps, createContext, useContext } from "react";
+import {
+  type ComponentProps,
+  createContext,
+  type ReactNode,
+  useContext,
+} from "react";
 import { Icon } from "@/assets";
 import { Button, type ButtonProps } from "@/components/atoms/button";
 import { cn } from "@/utils/cn";
@@ -58,7 +63,7 @@ const DialogDescription = ({
   ...props
 }: DialogDescriptionProps) => {
   return (
-    <p className={cn("text-zinc-600 dark:text-zinc-400", className)} {...props}>
+    <p className={cn("text-muted", className)} {...props}>
       {children}
     </p>
   );
@@ -85,19 +90,19 @@ const DialogHeader = ({ children, className, ...props }: DialogHeaderProps) => {
   return (
     <div className={cn("flex items-center", className)} {...props}>
       <span className="text-xl font-semibold">{children}</span>
-      <button
-        type="button"
+      <Button
+        variant="ghost"
         onClick={onClose}
-        className="absolute top-2 right-2 p-2 rounded-full cursor-pointer hover:bg-zinc-200 hover:dark:bg-zinc-800"
+        className="absolute top-2 right-2 p-2 rounded-full"
       >
-        <Icon.X className="text-zinc-500" />
-      </button>
+        <Icon.X className="text-muted" />
+      </Button>
     </div>
   );
 };
 
 type DialogRootProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   isOpen: boolean;
 } & DialogContextType;
@@ -124,7 +129,7 @@ const DialogRoot = ({
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               className={cn(
-                "relative z-50 w-full max-w-lg rounded-2xl bg-zinc-100 border-zinc-300 dark:bg-zinc-900 border dark:border-zinc-800 shadow-xl p-6 m-6 flex flex-col gap-6",
+                "bg-card border-card relative z-50 w-full max-w-lg rounded-2xl border shadow-xl p-6 m-6 flex flex-col gap-6",
                 className,
               )}
             >

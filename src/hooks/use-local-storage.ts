@@ -1,8 +1,8 @@
-import type { Dispatch } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import useStorage from "use-local-storage";
 import type { ZodType } from "zod";
 
-type Setter<T> = Dispatch<React.SetStateAction<T | undefined>>;
+type Setter<T> = Dispatch<SetStateAction<T | undefined>>;
 
 type UseLocalStorage<T> = [T, Setter<T>];
 

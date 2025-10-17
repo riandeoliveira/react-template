@@ -13,7 +13,7 @@ export const Link = ({
     <a
       href={href}
       className={cn(
-        "dark:text-zinc-100 hover:underline underline-offset-4 font-semibold",
+        "hover:underline underline-offset-4 font-semibold",
         className,
       )}
       {...props}

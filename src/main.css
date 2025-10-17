@@ -1,10 +1,11 @@
 @import "./styles/breakpoints.css";
 @import "./styles/browser-fixes.css";
+@import "./styles/theme.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-zinc-100 text-zinc-950 dark:bg-zinc-950 dark:text-zinc-100;
+  @apply bg-background text-foreground;
 }

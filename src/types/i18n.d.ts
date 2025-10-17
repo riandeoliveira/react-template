@@ -8,4 +8,9 @@ declare module "i18next" {
       translation: typeof enUs;
     };
   }
+
+  interface TFunction {
+    (key: keyof typeof enUs, options?: Record<string, unknown>): string;
+    (key: string, options?: Record<string, unknown>): string;
+  }
 }

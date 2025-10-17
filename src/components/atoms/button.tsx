@@ -7,15 +7,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        alert: "bg-red-600 text-white enabled:hover:bg-red-700/80",
+        alert: "bg-alert text-alert-foreground enabled:hover:bg-alert-hover",
         default:
-          "bg-zinc-950 text-zinc-100 enabled:hover:bg-zinc-900/80 dark:bg-zinc-100 dark:text-zinc-950 enabled:hover:dark:bg-zinc-100/80",
-        ghost:
-          "enabled:hover:bg-zinc-200 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800",
+          "bg-default text-default-foreground enabled:hover:bg-default-hover",
+        ghost: "bg-ghost text-ghost-foreground enabled:hover:bg-ghost-hover",
         outline:
-          "border-zinc-400 enabled:hover:bg-zinc-200/60 dark:bg-zinc-900 dark:text-zinc-100 border dark:border-zinc-800 enabled:hover:dark:bg-zinc-900/60",
+          "bg-outline text-outline-foreground border-outline-border enabled:hover:bg-outline-hover border",
         secondary:
-          "bg-zinc-200 enabled:hover:bg-zinc-300 dark:bg-zinc-800 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800/60",
+          "bg-secondary text-secondary-foreground enabled:hover:bg-secondary-hover",
       },
     },
     defaultVariants: {

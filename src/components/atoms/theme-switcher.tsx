@@ -1,10 +1,15 @@
 import { Icon } from "@/assets";
 import { useI18n } from "@/hooks/use-i18n";
 import { useTheme } from "@/hooks/use-theme";
+import { cn } from "@/utils/cn";
 import { Button } from "./button";
 import { Tooltip } from "./tooltip";
 
-export const ThemeSwitcher = () => {
+type ThemeSwitcherProps = {
+  className?: string;
+};
+
+export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { t } = useI18n();
   const { theme, setTheme } = useTheme();
 
@@ -35,7 +40,7 @@ export const ThemeSwitcher = () => {
         <Button
           variant="outline"
           aria-label={ariaLabel}
-          className="rounded-full p-2"
+          className={cn("rounded-full p-2", className)}
           onClick={handleChangeTheme}
         >
           <ThemeIcon />

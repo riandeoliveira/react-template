@@ -3,7 +3,6 @@ import {
   LazyLoadImage,
   type LazyLoadImageProps,
 } from "react-lazy-load-image-component";
-import { Icon } from "@/assets";
 import { cn } from "@/utils/cn";
 
 type ImageContextType = {
@@ -87,13 +86,8 @@ const ImageSkeleton = ({ className }: ImageSkeletonProps) => {
 
   return (
     <div
-      className={cn(
-        "flex items-center justify-center bg-zinc-200 dark:bg-zinc-950 absolute inset-0",
-        className,
-      )}
-    >
-      <Icon.Loader className="w-6 h-6 animate-spin text-zinc-600 dark:text-zinc-400" />
-    </div>
+      className={cn("bg-skeleton animate-pulse absolute inset-0", className)}
+    />
   );
 };
 

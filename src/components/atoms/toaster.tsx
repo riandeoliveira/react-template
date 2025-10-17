@@ -8,5 +8,5 @@ export const Toaster = ({ ...props }: ToasterProps) => {
     "--normal-border": "#27272a", // border-zinc-800
   } as CSSProperties;
 
-  return <Sonner className="bg-blue-500" style={styles} {...props} />;
+  return <Sonner position="top-right" style={styles} {...props} />;
 };
