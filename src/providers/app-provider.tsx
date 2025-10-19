@@ -2,11 +2,11 @@ import type { ReactNode } from "react";
 import { Helmet } from "react-helmet-async";
 import { useI18n } from "@/hooks/use-i18n";
 
-type PageProviderProps = {
+type AppProviderProps = {
   children: ReactNode;
 };
 
-export const PageProvider = ({ children }: PageProviderProps) => {
+export const AppProvider = ({ children }: AppProviderProps) => {
   const { language, t } = useI18n();
 
   return (
