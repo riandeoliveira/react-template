@@ -63,7 +63,7 @@ const DialogDescription = ({
   ...props
 }: DialogDescriptionProps) => {
   return (
-    <p className={cn("text-zinc-600 dark:text-zinc-400", className)} {...props}>
+    <p className={cn("text-zinc-400", className)} {...props}>
       {children}
     </p>
   );
@@ -95,7 +95,7 @@ const DialogHeader = ({ children, className, ...props }: DialogHeaderProps) => {
         onClick={onClose}
         className="absolute top-2 right-2 p-2 rounded-full"
       >
-        <Icon.X className="text-zinc-600 dark:text-zinc-400" />
+        <Icon.X className="text-zinc-400" />
       </Button>
     </div>
   );
@@ -129,7 +129,7 @@ const DialogRoot = ({
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
               className={cn(
-                "bg-zinc-100 border-zinc-300 dark:bg-zinc-900 dark:border-zinc-800 relative z-50 w-full max-w-lg rounded-2xl border shadow-xl p-6 m-6 flex flex-col gap-6",
+                "bg-zinc-900 border-zinc-800 relative z-50 w-full max-w-lg rounded-2xl border shadow-xl p-6 m-6 flex flex-col gap-6",
                 className,
               )}
             >

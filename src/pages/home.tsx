@@ -7,7 +7,6 @@ import { Input } from "@/components/atoms/input";
 import { LanguageSwitcher } from "@/components/atoms/language-switcher";
 import { Link } from "@/components/atoms/link";
 import { ScreenLoader } from "@/components/atoms/screen-loader";
-import { ThemeSwitcher } from "@/components/atoms/theme-switcher";
 import { Toaster } from "@/components/atoms/toaster";
 import { Tooltip } from "@/components/atoms/tooltip";
 import { useI18n } from "@/hooks/use-i18n";
@@ -34,10 +33,10 @@ export const HomePage = () => {
   return (
     <>
       <div className="flex justify-center p-8">
-        <div className="w-6xl flex flex-col gap-8 rounded-2xl border-2 border-zinc-300 dark:border-zinc-800 p-6">
+        <div className="w-6xl flex flex-col gap-8 rounded-2xl border-2 border-zinc-800 p-6">
           <h1 className="text-4xl font-semibold">Basic Components</h1>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Button
             </h2>
             <div className="flex flex-col gap-4">
@@ -53,13 +52,13 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Card
             </h2>
             <div className="flex justify-center">
               <Card className="max-w-96 flex flex-col gap-6">
                 <h1 className="font-semibold text-xl">Card Title</h1>
-                <p className="text-zinc-600 dark:text-zinc-400">
+                <p className="text-zinc-400">
                   This is a card with more complex content, like title,
                   description, and a button.
                 </p>
@@ -68,7 +67,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Dialog
             </h2>
             <div className="flex flex-col gap-4">
@@ -123,7 +122,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Image
             </h2>
             <div className="flex justify-center">
@@ -140,7 +139,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Input.Email
             </h2>
             <div className="grid grid-cols-3 items-center gap-2 max-s-480:grid-cols-1">
@@ -158,7 +157,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Input.Password
             </h2>
             <div className="grid grid-cols-3 items-center gap-2 max-s-480:grid-cols-1">
@@ -179,7 +178,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Input.Text
             </h2>
             <div className="grid grid-cols-3 items-center gap-2 max-s-480:grid-cols-1">
@@ -197,7 +196,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Input.TextArea
             </h2>
             <div className="grid grid-cols-3 items-center gap-2 max-s-480:grid-cols-1">
@@ -218,7 +217,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               LanguageSwitcher
             </h2>
             <div className="flex justify-center">
@@ -226,15 +225,13 @@ export const HomePage = () => {
                 <LanguageSwitcher className="absolute top-0 left-[-36px] w-fit" />
                 <Card className="max-w-96 flex flex-col gap-2 rounded-tl-none">
                   <h1 className="font-semibold text-xl">{t("card_title")}</h1>
-                  <p className="text-zinc-600 dark:text-zinc-400">
-                    {t("card_description")}
-                  </p>
+                  <p className="text-zinc-400">{t("card_description")}</p>
                 </Card>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Link
             </h2>
             <div className="flex justify-center">
@@ -242,7 +239,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               ScreenLoader
             </h2>
             <div className="flex justify-center">
@@ -251,15 +248,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
-              ThemeSwitcher
-            </h2>
-            <div className="flex justify-center">
-              <ThemeSwitcher />
-            </div>
-          </div>
-          <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Toaster
             </h2>
             <div className="flex flex-col gap-4">
@@ -323,7 +312,7 @@ export const HomePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <h2 className="text-3xl font-semibold border-b border-zinc-300 dark:border-zinc-800 pb-2">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Tooltip
             </h2>
             <div className="flex flex-col gap-4">

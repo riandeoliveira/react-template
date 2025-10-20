@@ -33,8 +33,8 @@ const EmailInput = ({ className, ...props }: EmailInputProps) => {
     <input
       type="email"
       className={cn(
-        "bg-zinc-100 text-zinc-950 enabled:hover:bg-zinc-200/80 dark:bg-zinc-900 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-red-400" : "border-zinc-300 dark:border-zinc-800",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
       {...props}
@@ -86,8 +86,8 @@ const PasswordInput = ({ className, ...props }: PasswordInputProps) => {
       <input
         type={isPasswordVisible ? "text" : "password"}
         className={cn(
-          "bg-zinc-100 text-zinc-950 enabled:hover:bg-zinc-200/80 dark:bg-zinc-900 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none pr-14 border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-          hasErrors ? "border-red-400" : "border-zinc-300 dark:border-zinc-800",
+          "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none pr-14 border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+          hasErrors ? "border-red-400" : "border-zinc-800",
           className,
         )}
         {...props}
@@ -134,8 +134,8 @@ const TextAreaInput = ({ className, ...props }: TextAreaInputProps) => {
   return (
     <textarea
       className={cn(
-        "bg-zinc-100 text-zinc-950 enabled:hover:bg-zinc-200/80 dark:bg-zinc-900 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border h-32 resize-none disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-red-400" : "border-zinc-300 dark:border-zinc-800",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border h-32 resize-none disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
       {...props}
@@ -152,8 +152,8 @@ const TextInput = ({ className, ...props }: TextInputProps) => {
     <input
       type="text"
       className={cn(
-        "bg-zinc-100 text-zinc-950 enabled:hover:bg-zinc-200/80 dark:bg-zinc-900 dark:text-zinc-100 enabled:hover:dark:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
-        hasErrors ? "border-red-400" : "border-zinc-300 dark:border-zinc-800",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
       {...props}
