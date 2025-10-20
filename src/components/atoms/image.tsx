@@ -86,7 +86,10 @@ const ImageSkeleton = ({ className }: ImageSkeletonProps) => {
 
   return (
     <div
-      className={cn("bg-skeleton animate-pulse absolute inset-0", className)}
+      className={cn(
+        "bg-zinc-300 dark:bg-zinc-800 animate-pulse absolute inset-0",
+        className,
+      )}
     />
   );
 };
