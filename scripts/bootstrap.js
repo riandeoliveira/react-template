@@ -77,7 +77,7 @@ const updateLocaleFile = (fileName) => {
     .split("\n")
     .filter(
       (line) =>
-        !line.includes('"card_description"') && !line.includes('"card_title"')
+        !line.includes('"card_description"') && !line.includes('"card_title"') && !line.includes('"confirm_dialog_description"')
     )
     .join("\n");
 

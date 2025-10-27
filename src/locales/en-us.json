@@ -1,7 +1,10 @@
 {
+  "cancel": "Cancel",
   "card_description": "This card demonstrates how content can dynamically change based on the selected language.",
   "card_title": "Card Title",
   "change_language_to": "Change language to",
+  "confirm_dialog_description": "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+  "confirm": "Confirm",
 
   "go_back_to_home": "Go back to home",
 
@@ -9,7 +12,12 @@
 
   "meta_description": "A flexible React template with pre-built UI components, i18n support and generic utilities to kickstart modern web applications faster.",
 
-  "page_not_found": "Page not found",
+  "of": "of",
 
-  "show_password": "Show password"
+  "page_not_found": "Page not found",
+  "page": "Page",
+
+  "show_password": "Show password",
+
+  "warning": "Warning"
 }

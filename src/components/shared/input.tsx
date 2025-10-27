@@ -33,7 +33,7 @@ const EmailInput = ({ className, ...props }: EmailInputProps) => {
     <input
       type="email"
       className={cn(
-        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:transition-colors",
         hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
@@ -86,7 +86,7 @@ const PasswordInput = ({ className, ...props }: PasswordInputProps) => {
       <input
         type={isPasswordVisible ? "text" : "password"}
         className={cn(
-          "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none pr-14 border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+          "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none pr-14 border disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:transition-colors",
           hasErrors ? "border-red-400" : "border-zinc-800",
           className,
         )}
@@ -97,7 +97,7 @@ const PasswordInput = ({ className, ...props }: PasswordInputProps) => {
         aria-label={isPasswordVisible ? t("hide_password") : t("show_password")}
         disabled={props.disabled}
         onClick={() => setIsPasswordVisible((prev) => !prev)}
-        className="absolute right-4 translate-y-2/5 cursor-pointer disabled:cursor-not-allowed disabled:opacity-80"
+        className="absolute right-4 translate-y-2/5 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isPasswordVisible ? (
           <Icon.EyeOff className="text-zinc-500" />
@@ -109,17 +109,17 @@ const PasswordInput = ({ className, ...props }: PasswordInputProps) => {
   );
 };
 
-type RootInputProps = ComponentProps<"div"> & Partial<InputContextType>;
+type RootProps = ComponentProps<"div"> & Partial<InputContextType>;
 
-const RootInput = ({
+const Root = ({
   children,
   className,
   hasErrors = false,
   ...props
-}: RootInputProps) => {
+}: RootProps) => {
   return (
     <InputContext.Provider value={{ hasErrors }}>
-      <div className={cn("flex flex-col gap-1")} {...props}>
+      <div className={cn("flex flex-col gap-1", className)} {...props}>
         {children}
       </div>
     </InputContext.Provider>
@@ -134,7 +134,7 @@ const TextAreaInput = ({ className, ...props }: TextAreaInputProps) => {
   return (
     <textarea
       className={cn(
-        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border h-32 resize-none disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border h-32 resize-none disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:transition-colors",
         hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
@@ -152,7 +152,7 @@ const TextInput = ({ className, ...props }: TextInputProps) => {
     <input
       type="text"
       className={cn(
-        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-80 enabled:hover:transition-colors",
+        "bg-zinc-900 text-zinc-100 enabled:hover:bg-zinc-800/80 px-3 py-2 rounded-md w-full outline-none border disabled:cursor-not-allowed disabled:opacity-50 enabled:hover:transition-colors",
         hasErrors ? "border-red-400" : "border-zinc-800",
         className,
       )}
@@ -166,7 +166,7 @@ export const Input = {
   ErrorMessage,
   Label,
   Password: PasswordInput,
-  Root: RootInput,
+  Root,
   Text: TextInput,
   TextArea: TextAreaInput,
 };

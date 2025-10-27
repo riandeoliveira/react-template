@@ -1,12 +1,14 @@
+import { FocusTrap } from "focus-trap-react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   type ComponentProps,
   createContext,
   type ReactNode,
   useContext,
+  useEffect,
 } from "react";
 import { Icon } from "@/assets";
-import { Button, type ButtonProps } from "@/components/atoms/button";
+import { Button, type ButtonProps } from "@/components/shared/button";
 import { cn } from "@/utils/cn";
 
 type DialogContextType = {
@@ -105,6 +107,7 @@ type DialogRootProps = {
   children?: ReactNode;
   className?: string;
   isOpen: boolean;
+  onExited?: () => void;
 } & DialogContextType;
 
 const DialogRoot = ({
@@ -112,29 +115,50 @@ const DialogRoot = ({
   className,
   isOpen,
   onClose,
+  onExited,
 }: DialogRootProps) => {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   return (
     <DialogContext.Provider value={{ onClose }}>
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={onExited}>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center">
             <button
               type="button"
               onClick={onClose}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"
             />
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className={cn(
-                "bg-zinc-900 border-zinc-800 relative z-50 w-full max-w-lg rounded-2xl border shadow-xl p-6 m-6 flex flex-col gap-6",
-                className,
-              )}
+            <FocusTrap
+              active={isOpen}
+              focusTrapOptions={{
+                clickOutsideDeactivates: true,
+                escapeDeactivates: false,
+              }}
             >
-              {children}
-            </motion.div>
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className={cn(
+                  "bg-zinc-900 border-zinc-800 relative z-50 w-full max-w-lg rounded-2xl border p-6 m-6 flex flex-col gap-6",
+                  className,
+                )}
+              >
+                {children}
+              </motion.div>
+            </FocusTrap>
           </div>
         )}
       </AnimatePresence>

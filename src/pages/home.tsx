@@ -1,32 +1,33 @@
-import { useState } from "react";
-import { Button } from "@/components/atoms/button";
-import { Card } from "@/components/atoms/card";
-import { Dialog } from "@/components/atoms/dialog";
-import { Image } from "@/components/atoms/image";
-import { Input } from "@/components/atoms/input";
-import { LanguageSwitcher } from "@/components/atoms/language-switcher";
-import { Link } from "@/components/atoms/link";
-import { ScreenLoader } from "@/components/atoms/screen-loader";
-import { Toaster } from "@/components/atoms/toaster";
-import { Tooltip } from "@/components/atoms/tooltip";
+import { Button } from "@/components/shared/button";
+import { Card } from "@/components/shared/card";
+import { ConfirmDialog } from "@/components/shared/confirm-dialog";
+import { Dialog } from "@/components/shared/dialog";
+import { Image } from "@/components/shared/image";
+import { Input } from "@/components/shared/input";
+import { LanguageSwitcher } from "@/components/shared/language-switcher";
+import { Link } from "@/components/shared/link";
+import { Pagination } from "@/components/shared/pagination";
+import { ScreenLoader } from "@/components/shared/screen-loader";
+import { Select } from "@/components/shared/select";
+import { Toaster } from "@/components/shared/toaster";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useI18n } from "@/hooks/use-i18n";
 import { useToast } from "@/hooks/use-toast";
+import { useDialogStore } from "@/stores/dialog-store";
+import { useLoaderStore } from "@/stores/loader-store";
 
 export const HomePage = () => {
   const toast = useToast();
+  const loaderStore = useLoaderStore();
+  const dialogStore = useDialogStore();
+
   const { t } = useI18n();
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isDefaultDialogOpen, setIsDefaultDialogOpen] = useState(false);
-
-  const [isWithoutFooterDialogOpen, setIsWithoutFooterDialogOpen] =
-    useState(false);
-
   const handleChangeLoader = () => {
-    setIsLoading(true);
+    loaderStore.start();
 
     setTimeout(() => {
-      setIsLoading(false);
+      loaderStore.stop();
     }, 3000);
   };
 
@@ -68,32 +69,46 @@ export const HomePage = () => {
           </div>
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
+              ConfirmDialog
+            </h2>
+            <div className="flex justify-center">
+              <Button onClick={() => dialogStore.open("confirm-dialog")}>
+                Open Dialog
+              </Button>
+              <ConfirmDialog
+                description={t("confirm_dialog_description")}
+                isOpen={dialogStore.isOpen("confirm-dialog")}
+                onConfirm={async () => Promise.resolve()}
+                onClose={() => dialogStore.close("confirm-dialog")}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-6">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               Dialog
             </h2>
             <div className="flex flex-col gap-4">
-              <strong className="text-2xl font-semibold">Default</strong>
+              <strong className="text-2xl font-semibold">With Form</strong>
               <div className="flex justify-center">
-                <Button onClick={() => setIsDefaultDialogOpen(true)}>
-                  Open Dialog
+                <Button onClick={() => dialogStore.open("with-form-dialog")}>
+                  Open Form
                 </Button>
                 <Dialog.Root
-                  isOpen={isDefaultDialogOpen}
-                  onClose={() => setIsDefaultDialogOpen(false)}
+                  isOpen={dialogStore.isOpen("with-form-dialog")}
+                  onClose={() => dialogStore.close("with-form-dialog")}
                 >
-                  <Dialog.Header>Are you absolutely sure?</Dialog.Header>
-                  <Dialog.Content>
+                  <Dialog.Header>Subscribe to Newsletter</Dialog.Header>
+                  <Dialog.Content className="flex flex-col gap-4">
                     <Dialog.Description>
-                      This action cannot be undone. This will permanently delete
-                      your account and remove your data from our servers.
+                      Enter your email address to receive product updates.
                     </Dialog.Description>
+                    <Input.Root>
+                      <Input.Email placeholder="you@example.com" />
+                    </Input.Root>
                   </Dialog.Content>
                   <Dialog.Footer>
-                    <Dialog.CancelAction className="w-24">
-                      Cancel
-                    </Dialog.CancelAction>
-                    <Dialog.ConfirmAction variant="alert" className="w-24">
-                      Confirm
-                    </Dialog.ConfirmAction>
+                    <Dialog.CancelAction>Cancel</Dialog.CancelAction>
+                    <Dialog.ConfirmAction>Subscribe</Dialog.ConfirmAction>
                   </Dialog.Footer>
                 </Dialog.Root>
               </div>
@@ -101,12 +116,14 @@ export const HomePage = () => {
             <div className="flex flex-col gap-4">
               <strong className="text-2xl font-semibold">Without Footer</strong>
               <div className="flex justify-center">
-                <Button onClick={() => setIsWithoutFooterDialogOpen(true)}>
+                <Button
+                  onClick={() => dialogStore.open("without-footer-dialog")}
+                >
                   Open Dialog
                 </Button>
                 <Dialog.Root
-                  isOpen={isWithoutFooterDialogOpen}
-                  onClose={() => setIsWithoutFooterDialogOpen(false)}
+                  isOpen={dialogStore.isOpen("without-footer-dialog")}
+                  onClose={() => dialogStore.close("without-footer-dialog")}
                 >
                   <Dialog.Header>Lorem Ipsum</Dialog.Header>
                   <Dialog.Content>
@@ -240,11 +257,67 @@ export const HomePage = () => {
           </div>
           <div className="flex flex-col gap-6">
             <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
+              Pagination
+            </h2>
+            <div className="flex justify-center">
+              <Pagination
+                totalItems={100}
+                onPaginate={async () => Promise.resolve()}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-6">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
               ScreenLoader
             </h2>
             <div className="flex justify-center">
               <Button onClick={handleChangeLoader}>Send Message</Button>
-              <ScreenLoader isLoading={isLoading} />
+              <ScreenLoader />
+            </div>
+          </div>
+          <div className="flex flex-col gap-6">
+            <h2 className="text-3xl font-semibold border-b border-zinc-800 pb-2">
+              Select
+            </h2>
+            <div className="grid grid-cols-3 items-center gap-2 max-s-480:grid-cols-1">
+              <Select.Root>
+                <Select.Area>
+                  <Select.Trigger>
+                    <Select.Value placeholder="Theme" />
+                  </Select.Trigger>
+                  <Select.Content>
+                    <Select.Item value="light">Light</Select.Item>
+                    <Select.Item value="dark">Dark</Select.Item>
+                    <Select.Item value="system">System</Select.Item>
+                  </Select.Content>
+                </Select.Area>
+              </Select.Root>
+              <Select.Root>
+                <Select.Area>
+                  <Select.Trigger disabled>
+                    <Select.Value placeholder="Theme" />
+                  </Select.Trigger>
+                  <Select.Content>
+                    <Select.Item value="light">Light</Select.Item>
+                    <Select.Item value="dark">Dark</Select.Item>
+                    <Select.Item value="system">System</Select.Item>
+                  </Select.Content>
+                </Select.Area>
+              </Select.Root>
+              <Select.Root hasErrors>
+                <Select.Label>Theme*</Select.Label>
+                <Select.Area>
+                  <Select.Trigger>
+                    <Select.Value placeholder="Select your theme" />
+                  </Select.Trigger>
+                  <Select.Content>
+                    <Select.Item value="light">Light</Select.Item>
+                    <Select.Item value="dark">Dark</Select.Item>
+                    <Select.Item value="system">System</Select.Item>
+                  </Select.Content>
+                </Select.Area>
+                <Select.ErrorMessage>Required field</Select.ErrorMessage>
+              </Select.Root>
             </div>
           </div>
           <div className="flex flex-col gap-6">

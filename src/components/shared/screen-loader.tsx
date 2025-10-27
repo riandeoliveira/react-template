@@ -1,14 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Icon } from "@/assets";
+import { useLoaderStore } from "@/stores/loader-store";
 
-type ScreenLoaderProps = {
-  isLoading: boolean;
-};
+export const ScreenLoader = () => {
+  const loaderStore = useLoaderStore();
 
-export const ScreenLoader = ({ isLoading }: ScreenLoaderProps) => {
   return (
     <AnimatePresence>
-      {isLoading && (
+      {loaderStore.isLoading && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

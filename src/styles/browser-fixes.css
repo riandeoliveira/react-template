@@ -1,11 +1,15 @@
+* {
+  scrollbar-color: #3f3f46 #18181b;
+}
+
 /* Chrome, Edge, Opera */
 input::-ms-reveal,
 input::-ms-clear,
 input::-webkit-password-toggle-button {
-  @apply hidden;
+  display: none;
 }
 
 /* Firefox */
 input::-moz-reveal {
-  @apply hidden;
+  display: none;
 }

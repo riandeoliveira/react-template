@@ -1,4 +1,4 @@
-import { Link } from "@/components/atoms/link";
+import { Link } from "@/components/shared/link";
 import { useI18n } from "@/hooks/use-i18n";
 
 export const NotFoundPage = () => {

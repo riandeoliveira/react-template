@@ -1,5 +1,5 @@
 import { Icon } from "@/assets";
-import { Tooltip } from "@/components/atoms/tooltip";
+import { Tooltip } from "@/components/shared/tooltip";
 import { useI18n } from "@/hooks/use-i18n";
 import { cn } from "@/utils/cn";
 
@@ -25,7 +25,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
           aria-label={legend}
           onClick={handleSwitchLanguage}
           className={cn(
-            "fixed top-24 right-[-2px] z-40 rounded-s-xl cursor-pointer",
+            "fixed top-24 -right-0.5 z-40 rounded-s-xl cursor-pointer",
             className,
           )}
         >
